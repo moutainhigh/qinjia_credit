@@ -1,14 +1,10 @@
 package com.marvels.common.util;
 
-import java.lang.reflect.Field;
-import java.util.Date;
-
+import com.marvels.dao.XyqbReqInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.alibaba.fastjson.JSON;
-import com.marvels.dao.XyqbReqInfoMapper;
-import com.marvels.dto.common.XyqbReqInfo;
+import java.lang.reflect.Field;
 
 /**
  * 保存每次的请求和响应的工具类<br>
@@ -32,26 +28,7 @@ public class DBLogUtil {
 		String reqJson = null;
 		String resJson = null;
 		try {
-			XyqbReqInfo xyqbReqInfo = new XyqbReqInfo();
-			xyqbReqInfo.setInterfaceNo(interfaceNo);
-			reqJson = JSON.toJSONString(req);
-			resJson = JSON.toJSONString(res);
-			if(reqJson.length() > 1000)
-				reqJson = reqJson.substring(0, 1000);
-			if(resJson.length() > 1000)
-				resJson = resJson.substring(0, 1000);
-			Object ykgTraceNo = getFieldValue(req,"ykgTraceNo");
-			Object serNo = getFieldValue(res,"serno");
-			if(ykgTraceNo != null)
-				xyqbReqInfo.setReqNo(ykgTraceNo.toString());
-			if(serNo != null)
-				xyqbReqInfo.setSerNo(serNo.toString());
-			xyqbReqInfo.setReqJson(reqJson);
-			xyqbReqInfo.setResJson(resJson);
-			xyqbReqInfo.setCreatedDate(new Date());
-			xyqbReqInfo.setUpdatedDate(new Date());
-			
-			xyqbReqInfoMapper.insert(xyqbReqInfo);
+
 		}catch(Exception e) {
 			MarvelsLogUtil.getInstance().error("记录日志失败,请求报文="+reqJson+",响应报文="+resJson, e);
 		}

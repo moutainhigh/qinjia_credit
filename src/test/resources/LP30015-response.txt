@@ -1,7 +1,0 @@
-{
-		"resultList": [{
-			"userId": "jason",
-			"acctChgSeq": "456",
-			"loanNo": "123"
-}]
-	}

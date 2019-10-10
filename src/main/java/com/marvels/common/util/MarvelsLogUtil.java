@@ -22,54 +22,6 @@ public class MarvelsLogUtil {
 		private static MarvelsLogUtil logger = new MarvelsLogUtil();
 	}
 	
-//	public void info(Class<?> clz,String msg){
-//		info(clz,msg, null);
-//	}
-//	
-//	public void info(Class<?> clz,Throwable throwable){
-//		info(clz,null,throwable);
-//	}
-//	
-//	public void info(Class<?> clz,String msg,Throwable throwable){
-//		Logger logger = LogManager.getLogger(clz);
-//		if(!logger.isInfoEnabled()){
-//			return;
-//		}
-//		logger.info(msg,throwable);	
-//	}
-//	
-//	public void warn(Class<?> clz,String msg){
-//		warn(clz,msg, null);
-//	}
-//	
-//	public void warn(Class<?> clz,Throwable throwable){
-//		warn(clz,null,throwable);
-//	}
-//	
-//	public void warn(Class<?> clz,String msg,Throwable throwable){
-//		Logger logger = LogManager.getLogger(clz);
-//		if(!logger.isWarnEnabled()){
-//			return;
-//		}
-//		logger.warn(msg,throwable);	
-//	}
-//	
-//	public void error(Class<?> clz,String msg){
-//		error(clz,msg, null);
-//	}
-//	
-//	public void error(Class<?> clz,Throwable throwable){
-//		error(clz,null,throwable);
-//	}
-//	
-//	public void error(Class<?> clz,String msg,Throwable throwable){
-//		Logger logger = LogManager.getLogger(clz);
-//		if(!logger.isErrorEnabled()){
-//			return;
-//		}
-//		logger.error(msg,throwable);	
-//	}
-
 	public void info(String msg){
 		Logger logger = getLogger();
 		if(logger.isInfoEnabled()){

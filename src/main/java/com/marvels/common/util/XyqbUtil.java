@@ -1,8 +1,8 @@
 package com.marvels.common.util;
 
-import java.lang.reflect.Field;
-
 import com.marvels.common.annatation.Required;
+
+import java.lang.reflect.Field;
 
 public class XyqbUtil {
 	
@@ -13,9 +13,10 @@ public class XyqbUtil {
 	 *@author wanggang
 	 */
 	public static String requiredCheck(Object input) {
-		if(input == null)
+		if(input == null) {
 			return "数据包为空";
-		
+		}
+
 		StringBuilder sb = new StringBuilder();
 		Field[] fieldList = input.getClass().getDeclaredFields();
 		for(Field field : fieldList) {
@@ -24,18 +25,21 @@ public class XyqbUtil {
 			if(required != null) {//说明是必输项,需要校验
 				try {
 					Object value = field.get(input);
-					if(value == null || "".equals(value.toString()))
+					if(value == null || "".equals(value.toString())) {
 						sb.append(required.desc()).append(",");
-					else
+					}
+					else {
 						continue;
+					}
 				} catch (Exception e) {
 					return "额度申请异常:0008(检查必填项出错)";
 				} 
 			}
 		}
 		
-		if("".equals(sb.toString()))
+		if("".equals(sb.toString())) {
 			return null;
+		}
 		else {
 			sb.deleteCharAt(sb.length()-1);
 			return sb.toString();

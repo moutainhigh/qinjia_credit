@@ -1,8 +1,0 @@
-{
-    "loanNo": "HCF-YKG001202401123775744001",
-    "paymInd": "N",
-    "relPerdCnt": "0",
-    "setlMode": "NF",
-    "setlTyp": "NM",
-    "setlValDt": ""
-}

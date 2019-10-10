@@ -1,9 +1,0 @@
-{
-	"head": {
-		"channelNo": "A2"
-	},
-	"body": {
-		"verifyCode": "360446",
-		"applSeq": "11011317"
-	}
-}

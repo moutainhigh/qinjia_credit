@@ -115,7 +115,6 @@ public class FileUploadUtil {
 	 * 异步存储，不影响
 	 * @param fileString 文件流
 	 * @param filePath 文件名称
-	 * @param appl 申请编号
 	 */
 	public static void saveFile(String fileString, String filePath) {
 		fileSaveExecutor.submit(new Runnable() {

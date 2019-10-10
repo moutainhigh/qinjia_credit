@@ -22,7 +22,7 @@ public class PropertiesLoadUtil {
 	
 	/**
 	 * 获取指定propertis 文件的Properties对象
-	 * @param fileName
+	 * @param resourceName
 	 * @return
 	 */
 	public static Properties getProperties(String resourceName){
@@ -32,7 +32,7 @@ public class PropertiesLoadUtil {
 	/**
 	 * 获取指定文件 的指定属性值
 	 * @param key
-	 * @param fileName
+	 * @param resourceName
 	 * @return
 	 */
 	public static String getPropertiesValue(String key,String resourceName){
@@ -66,8 +66,9 @@ public class PropertiesLoadUtil {
 		classpath = classpath.replace("lib", "");
 		MarvelsLogUtil.getInstance().info("classpath="+classpath);
 		File file = new File(classpath+"/config/"+resourceName);//先适配测试和生产去config下面找
-		if(!file.exists())
+		if(!file.exists()) {
 			file = new File(classpath+"/"+resourceName);
+		}
 		MarvelsLogUtil.getInstance().info("是否有找到文件:"+file.exists());
 		MarvelsLogUtil.getInstance().info("找到文件路径:"+file.getAbsolutePath());
 		InputStreamReader isr = null;
@@ -81,12 +82,13 @@ public class PropertiesLoadUtil {
 			MarvelsLogUtil.getInstance().error("读取配置文件"+resourceName+"失败",e);
 			return new Properties();
 		}finally {
-			if(isr != null)
+			if(isr != null) {
 				try {
 					isr.close();
 				} catch (IOException e) {
 					MarvelsLogUtil.getInstance().error("读取配置文件"+resourceName+"失败",e);
 				}
+			}
 		}
 	}
 	
