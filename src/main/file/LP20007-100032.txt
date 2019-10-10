@@ -1,0 +1,27 @@
+{
+	"head": {
+		"serno": "ef133f2cbade4ab8b4008bf005a0d5fe",
+		"tradeCode": "100032",
+		"tradeDate": "2019-03-05",
+		"tradeTime": "20:39:36",
+		"sysFlag": "11",
+		"channelNo": "C3"
+	},
+	"body": {
+		"typCde": "20190007",
+		"typSeq": "287959245",
+		"mtdCde": "M0002",
+		"loanFreq": "1M",
+		"proPurAmt": "0",
+		"apprvAmt": "500.0",
+		"applyTnrList": [{
+			"applyTnrTyp": "3",
+			"applyTnr": "3"
+		},
+		{
+			"applyTnrTyp": "6",
+			"applyTnr": "6"
+		}],
+		"due_day": "5"
+	}
+}

@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.marvels.dao.XyqbCommonRiskDataMapper">
+  <resultMap id="BaseResultMap" type="com.marvels.dto.hexj.entity.XyqbCommonRiskData">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="idcard_issue" jdbcType="VARCHAR" property="idcard_issue" />
+    <result column="idCardNo" jdbcType="VARCHAR" property="idCardNo" />
+    <result column="censusPlace" jdbcType="VARCHAR" property="censusPlace" />
+    <result column="idcard_validity_startdate" jdbcType="VARCHAR" property="idcard_validity_startdate" />
+    <result column="idcard_validity_enddate" jdbcType="VARCHAR" property="idcard_validity_enddate" />
+    <result column="nappGlobalPS" jdbcType="VARCHAR" property="nappGlobalPS" />
+    <result column="nappProvince" jdbcType="VARCHAR" property="nappProvince" />
+    <result column="nappCity" jdbcType="VARCHAR" property="nappCity" />
+    <result column="nappArea" jdbcType="VARCHAR" property="nappArea" />
+    <result column="nappCUID" jdbcType="VARCHAR" property="nappCUID" />
+    <result column="nappInterPro" jdbcType="VARCHAR" property="nappInterPro" />
+    <result column="appEquipment" jdbcType="VARCHAR" property="appEquipment" />
+    <result column="wifiAddress" jdbcType="VARCHAR" property="wifiAddress" />
+    <result column="wifiList" jdbcType="VARCHAR" property="wifiList" />
+    <result column="mobimeBrand" jdbcType="VARCHAR" property="mobimeBrand" />
+    <result column="phoneModel" jdbcType="VARCHAR" property="phoneModel" />
+    <result column="faceScore" jdbcType="VARCHAR" property="faceScore" />
+    <result column="liveBody" jdbcType="VARCHAR" property="liveBody" />
+    <result column="seCredit" jdbcType="VARCHAR" property="seCredit" />
+    <result column="isDoFourEle" jdbcType="VARCHAR" property="isDoFourEle" />
+    <result column="isUpFacePic" jdbcType="VARCHAR" property="isUpFacePic" />
+    <result column="isUpIDObv" jdbcType="VARCHAR" property="isUpIDObv" />
+    <result column="isUpIDRev" jdbcType="VARCHAR" property="isUpIDRev" />
+    <result column="reserved1" jdbcType="VARCHAR" property="reserved1" />
+    <result column="reserved2" jdbcType="VARCHAR" property="reserved2" />
+    <result column="reserved3" jdbcType="VARCHAR" property="reserved3" />
+    <result column="reserved4" jdbcType="VARCHAR" property="reserved4" />
+    <result column="reserved5" jdbcType="VARCHAR" property="reserved5" />
+    <result column="reserved6" jdbcType="VARCHAR" property="reserved6" />
+    <result column="reserved7" jdbcType="VARCHAR" property="reserved7" />
+    <result column="reserved8" jdbcType="VARCHAR" property="reserved8" />
+    <result column="reserved9" jdbcType="VARCHAR" property="reserved9" />
+    <result column="reserved10" jdbcType="VARCHAR" property="reserved10" />
+    <result column="reserved11" jdbcType="VARCHAR" property="reserved11" />
+    <result column="reserved12" jdbcType="VARCHAR" property="reserved12" />
+    <result column="reserved13" jdbcType="VARCHAR" property="reserved13" />
+    <result column="reserved14" jdbcType="VARCHAR" property="reserved14" />
+    <result column="reserved15" jdbcType="VARCHAR" property="reserved15" />
+    <result column="reserved16" jdbcType="VARCHAR" property="reserved16" />
+    <result column="reserved17" jdbcType="VARCHAR" property="reserved17" />
+    <result column="reserved18" jdbcType="VARCHAR" property="reserved18" />
+    <result column="reserved19" jdbcType="VARCHAR" property="reserved19" />
+    <result column="reserved20" jdbcType="VARCHAR" property="reserved20" />
+    <result column="creation_date" jdbcType="TIMESTAMP" property="creation_date" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, nation, idcard_issue, idCardNo, censusPlace, idcard_validity_startdate, idcard_validity_enddate, 
+    nappGlobalPS, nappProvince, nappCity, nappArea, nappCUID, nappInterPro, appEquipment, 
+    wifiAddress, wifiList, mobimeBrand, phoneModel, faceScore, liveBody, seCredit, isDoFourEle, 
+    isUpFacePic, isUpIDObv, isUpIDRev, reserved1, reserved2, reserved3, reserved4, reserved5, 
+    reserved6, reserved7, reserved8, reserved9, reserved10, reserved11, reserved12, reserved13, 
+    reserved14, reserved15, reserved16, reserved17, reserved18, reserved19, reserved20, 
+    creation_date
+  </sql>
+  <select id="selectByExample" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskDataExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from xyqb_common_risk_data
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xyqb_common_risk_data
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from xyqb_common_risk_data
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskDataExample">
+    delete from xyqb_common_risk_data
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskData">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into xyqb_common_risk_data (nation, idcard_issue, idCardNo, 
+      censusPlace, idcard_validity_startdate, 
+      idcard_validity_enddate, nappGlobalPS, 
+      nappProvince, nappCity, nappArea, 
+      nappCUID, nappInterPro, appEquipment, 
+      wifiAddress, wifiList, mobimeBrand, 
+      phoneModel, faceScore, liveBody, 
+      seCredit, isDoFourEle, isUpFacePic, 
+      isUpIDObv, isUpIDRev, reserved1, 
+      reserved2, reserved3, reserved4, 
+      reserved5, reserved6, reserved7, 
+      reserved8, reserved9, reserved10, 
+      reserved11, reserved12, reserved13, 
+      reserved14, reserved15, reserved16, 
+      reserved17, reserved18, reserved19, 
+      reserved20, creation_date)
+    values (#{nation,jdbcType=VARCHAR}, #{idcard_issue,jdbcType=VARCHAR}, #{idCardNo,jdbcType=VARCHAR}, 
+      #{censusPlace,jdbcType=VARCHAR}, #{idcard_validity_startdate,jdbcType=VARCHAR}, 
+      #{idcard_validity_enddate,jdbcType=VARCHAR}, #{nappGlobalPS,jdbcType=VARCHAR}, 
+      #{nappProvince,jdbcType=VARCHAR}, #{nappCity,jdbcType=VARCHAR}, #{nappArea,jdbcType=VARCHAR}, 
+      #{nappCUID,jdbcType=VARCHAR}, #{nappInterPro,jdbcType=VARCHAR}, #{appEquipment,jdbcType=VARCHAR}, 
+      #{wifiAddress,jdbcType=VARCHAR}, #{wifiList,jdbcType=VARCHAR}, #{mobimeBrand,jdbcType=VARCHAR}, 
+      #{phoneModel,jdbcType=VARCHAR}, #{faceScore,jdbcType=VARCHAR}, #{liveBody,jdbcType=VARCHAR}, 
+      #{seCredit,jdbcType=VARCHAR}, #{isDoFourEle,jdbcType=VARCHAR}, #{isUpFacePic,jdbcType=VARCHAR}, 
+      #{isUpIDObv,jdbcType=VARCHAR}, #{isUpIDRev,jdbcType=VARCHAR}, #{reserved1,jdbcType=VARCHAR}, 
+      #{reserved2,jdbcType=VARCHAR}, #{reserved3,jdbcType=VARCHAR}, #{reserved4,jdbcType=VARCHAR}, 
+      #{reserved5,jdbcType=VARCHAR}, #{reserved6,jdbcType=VARCHAR}, #{reserved7,jdbcType=VARCHAR}, 
+      #{reserved8,jdbcType=VARCHAR}, #{reserved9,jdbcType=VARCHAR}, #{reserved10,jdbcType=VARCHAR}, 
+      #{reserved11,jdbcType=VARCHAR}, #{reserved12,jdbcType=VARCHAR}, #{reserved13,jdbcType=VARCHAR}, 
+      #{reserved14,jdbcType=VARCHAR}, #{reserved15,jdbcType=VARCHAR}, #{reserved16,jdbcType=VARCHAR}, 
+      #{reserved17,jdbcType=VARCHAR}, #{reserved18,jdbcType=VARCHAR}, #{reserved19,jdbcType=VARCHAR}, 
+      #{reserved20,jdbcType=VARCHAR}, #{creation_date,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskData">
+    insert into xyqb_common_risk_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="nation != null">
+        nation,
+      </if>
+      <if test="idcard_issue != null">
+        idcard_issue,
+      </if>
+      <if test="idCardNo != null">
+        idCardNo,
+      </if>
+      <if test="censusPlace != null">
+        censusPlace,
+      </if>
+      <if test="idcard_validity_startdate != null">
+        idcard_validity_startdate,
+      </if>
+      <if test="idcard_validity_enddate != null">
+        idcard_validity_enddate,
+      </if>
+      <if test="nappGlobalPS != null">
+        nappGlobalPS,
+      </if>
+      <if test="nappProvince != null">
+        nappProvince,
+      </if>
+      <if test="nappCity != null">
+        nappCity,
+      </if>
+      <if test="nappArea != null">
+        nappArea,
+      </if>
+      <if test="nappCUID != null">
+        nappCUID,
+      </if>
+      <if test="nappInterPro != null">
+        nappInterPro,
+      </if>
+      <if test="appEquipment != null">
+        appEquipment,
+      </if>
+      <if test="wifiAddress != null">
+        wifiAddress,
+      </if>
+      <if test="wifiList != null">
+        wifiList,
+      </if>
+      <if test="mobimeBrand != null">
+        mobimeBrand,
+      </if>
+      <if test="phoneModel != null">
+        phoneModel,
+      </if>
+      <if test="faceScore != null">
+        faceScore,
+      </if>
+      <if test="liveBody != null">
+        liveBody,
+      </if>
+      <if test="seCredit != null">
+        seCredit,
+      </if>
+      <if test="isDoFourEle != null">
+        isDoFourEle,
+      </if>
+      <if test="isUpFacePic != null">
+        isUpFacePic,
+      </if>
+      <if test="isUpIDObv != null">
+        isUpIDObv,
+      </if>
+      <if test="isUpIDRev != null">
+        isUpIDRev,
+      </if>
+      <if test="reserved1 != null">
+        reserved1,
+      </if>
+      <if test="reserved2 != null">
+        reserved2,
+      </if>
+      <if test="reserved3 != null">
+        reserved3,
+      </if>
+      <if test="reserved4 != null">
+        reserved4,
+      </if>
+      <if test="reserved5 != null">
+        reserved5,
+      </if>
+      <if test="reserved6 != null">
+        reserved6,
+      </if>
+      <if test="reserved7 != null">
+        reserved7,
+      </if>
+      <if test="reserved8 != null">
+        reserved8,
+      </if>
+      <if test="reserved9 != null">
+        reserved9,
+      </if>
+      <if test="reserved10 != null">
+        reserved10,
+      </if>
+      <if test="reserved11 != null">
+        reserved11,
+      </if>
+      <if test="reserved12 != null">
+        reserved12,
+      </if>
+      <if test="reserved13 != null">
+        reserved13,
+      </if>
+      <if test="reserved14 != null">
+        reserved14,
+      </if>
+      <if test="reserved15 != null">
+        reserved15,
+      </if>
+      <if test="reserved16 != null">
+        reserved16,
+      </if>
+      <if test="reserved17 != null">
+        reserved17,
+      </if>
+      <if test="reserved18 != null">
+        reserved18,
+      </if>
+      <if test="reserved19 != null">
+        reserved19,
+      </if>
+      <if test="reserved20 != null">
+        reserved20,
+      </if>
+      <if test="creation_date != null">
+        creation_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard_issue != null">
+        #{idcard_issue,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardNo != null">
+        #{idCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="censusPlace != null">
+        #{censusPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard_validity_startdate != null">
+        #{idcard_validity_startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard_validity_enddate != null">
+        #{idcard_validity_enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="nappGlobalPS != null">
+        #{nappGlobalPS,jdbcType=VARCHAR},
+      </if>
+      <if test="nappProvince != null">
+        #{nappProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="nappCity != null">
+        #{nappCity,jdbcType=VARCHAR},
+      </if>
+      <if test="nappArea != null">
+        #{nappArea,jdbcType=VARCHAR},
+      </if>
+      <if test="nappCUID != null">
+        #{nappCUID,jdbcType=VARCHAR},
+      </if>
+      <if test="nappInterPro != null">
+        #{nappInterPro,jdbcType=VARCHAR},
+      </if>
+      <if test="appEquipment != null">
+        #{appEquipment,jdbcType=VARCHAR},
+      </if>
+      <if test="wifiAddress != null">
+        #{wifiAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="wifiList != null">
+        #{wifiList,jdbcType=VARCHAR},
+      </if>
+      <if test="mobimeBrand != null">
+        #{mobimeBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneModel != null">
+        #{phoneModel,jdbcType=VARCHAR},
+      </if>
+      <if test="faceScore != null">
+        #{faceScore,jdbcType=VARCHAR},
+      </if>
+      <if test="liveBody != null">
+        #{liveBody,jdbcType=VARCHAR},
+      </if>
+      <if test="seCredit != null">
+        #{seCredit,jdbcType=VARCHAR},
+      </if>
+      <if test="isDoFourEle != null">
+        #{isDoFourEle,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpFacePic != null">
+        #{isUpFacePic,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpIDObv != null">
+        #{isUpIDObv,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpIDRev != null">
+        #{isUpIDRev,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved1 != null">
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null">
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null">
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved4 != null">
+        #{reserved4,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved5 != null">
+        #{reserved5,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved6 != null">
+        #{reserved6,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved7 != null">
+        #{reserved7,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved8 != null">
+        #{reserved8,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved9 != null">
+        #{reserved9,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved10 != null">
+        #{reserved10,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved11 != null">
+        #{reserved11,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved12 != null">
+        #{reserved12,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved13 != null">
+        #{reserved13,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved14 != null">
+        #{reserved14,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved15 != null">
+        #{reserved15,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved16 != null">
+        #{reserved16,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved17 != null">
+        #{reserved17,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved18 != null">
+        #{reserved18,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved19 != null">
+        #{reserved19,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved20 != null">
+        #{reserved20,jdbcType=VARCHAR},
+      </if>
+      <if test="creation_date != null">
+        #{creation_date,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskDataExample" resultType="java.lang.Long">
+    select count(*) from xyqb_common_risk_data
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update xyqb_common_risk_data
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nation != null">
+        nation = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idcard_issue != null">
+        idcard_issue = #{record.idcard_issue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idCardNo != null">
+        idCardNo = #{record.idCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.censusPlace != null">
+        censusPlace = #{record.censusPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idcard_validity_startdate != null">
+        idcard_validity_startdate = #{record.idcard_validity_startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idcard_validity_enddate != null">
+        idcard_validity_enddate = #{record.idcard_validity_enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nappGlobalPS != null">
+        nappGlobalPS = #{record.nappGlobalPS,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nappProvince != null">
+        nappProvince = #{record.nappProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nappCity != null">
+        nappCity = #{record.nappCity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nappArea != null">
+        nappArea = #{record.nappArea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nappCUID != null">
+        nappCUID = #{record.nappCUID,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nappInterPro != null">
+        nappInterPro = #{record.nappInterPro,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appEquipment != null">
+        appEquipment = #{record.appEquipment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wifiAddress != null">
+        wifiAddress = #{record.wifiAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wifiList != null">
+        wifiList = #{record.wifiList,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobimeBrand != null">
+        mobimeBrand = #{record.mobimeBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phoneModel != null">
+        phoneModel = #{record.phoneModel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.faceScore != null">
+        faceScore = #{record.faceScore,jdbcType=VARCHAR},
+      </if>
+      <if test="record.liveBody != null">
+        liveBody = #{record.liveBody,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seCredit != null">
+        seCredit = #{record.seCredit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDoFourEle != null">
+        isDoFourEle = #{record.isDoFourEle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isUpFacePic != null">
+        isUpFacePic = #{record.isUpFacePic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isUpIDObv != null">
+        isUpIDObv = #{record.isUpIDObv,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isUpIDRev != null">
+        isUpIDRev = #{record.isUpIDRev,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved1 != null">
+        reserved1 = #{record.reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved2 != null">
+        reserved2 = #{record.reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved3 != null">
+        reserved3 = #{record.reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved4 != null">
+        reserved4 = #{record.reserved4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved5 != null">
+        reserved5 = #{record.reserved5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved6 != null">
+        reserved6 = #{record.reserved6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved7 != null">
+        reserved7 = #{record.reserved7,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved8 != null">
+        reserved8 = #{record.reserved8,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved9 != null">
+        reserved9 = #{record.reserved9,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved10 != null">
+        reserved10 = #{record.reserved10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved11 != null">
+        reserved11 = #{record.reserved11,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved12 != null">
+        reserved12 = #{record.reserved12,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved13 != null">
+        reserved13 = #{record.reserved13,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved14 != null">
+        reserved14 = #{record.reserved14,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved15 != null">
+        reserved15 = #{record.reserved15,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved16 != null">
+        reserved16 = #{record.reserved16,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved17 != null">
+        reserved17 = #{record.reserved17,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved18 != null">
+        reserved18 = #{record.reserved18,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved19 != null">
+        reserved19 = #{record.reserved19,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved20 != null">
+        reserved20 = #{record.reserved20,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creation_date != null">
+        creation_date = #{record.creation_date,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update xyqb_common_risk_data
+    set id = #{record.id,jdbcType=VARCHAR},
+      nation = #{record.nation,jdbcType=VARCHAR},
+      idcard_issue = #{record.idcard_issue,jdbcType=VARCHAR},
+      idCardNo = #{record.idCardNo,jdbcType=VARCHAR},
+      censusPlace = #{record.censusPlace,jdbcType=VARCHAR},
+      idcard_validity_startdate = #{record.idcard_validity_startdate,jdbcType=VARCHAR},
+      idcard_validity_enddate = #{record.idcard_validity_enddate,jdbcType=VARCHAR},
+      nappGlobalPS = #{record.nappGlobalPS,jdbcType=VARCHAR},
+      nappProvince = #{record.nappProvince,jdbcType=VARCHAR},
+      nappCity = #{record.nappCity,jdbcType=VARCHAR},
+      nappArea = #{record.nappArea,jdbcType=VARCHAR},
+      nappCUID = #{record.nappCUID,jdbcType=VARCHAR},
+      nappInterPro = #{record.nappInterPro,jdbcType=VARCHAR},
+      appEquipment = #{record.appEquipment,jdbcType=VARCHAR},
+      wifiAddress = #{record.wifiAddress,jdbcType=VARCHAR},
+      wifiList = #{record.wifiList,jdbcType=VARCHAR},
+      mobimeBrand = #{record.mobimeBrand,jdbcType=VARCHAR},
+      phoneModel = #{record.phoneModel,jdbcType=VARCHAR},
+      faceScore = #{record.faceScore,jdbcType=VARCHAR},
+      liveBody = #{record.liveBody,jdbcType=VARCHAR},
+      seCredit = #{record.seCredit,jdbcType=VARCHAR},
+      isDoFourEle = #{record.isDoFourEle,jdbcType=VARCHAR},
+      isUpFacePic = #{record.isUpFacePic,jdbcType=VARCHAR},
+      isUpIDObv = #{record.isUpIDObv,jdbcType=VARCHAR},
+      isUpIDRev = #{record.isUpIDRev,jdbcType=VARCHAR},
+      reserved1 = #{record.reserved1,jdbcType=VARCHAR},
+      reserved2 = #{record.reserved2,jdbcType=VARCHAR},
+      reserved3 = #{record.reserved3,jdbcType=VARCHAR},
+      reserved4 = #{record.reserved4,jdbcType=VARCHAR},
+      reserved5 = #{record.reserved5,jdbcType=VARCHAR},
+      reserved6 = #{record.reserved6,jdbcType=VARCHAR},
+      reserved7 = #{record.reserved7,jdbcType=VARCHAR},
+      reserved8 = #{record.reserved8,jdbcType=VARCHAR},
+      reserved9 = #{record.reserved9,jdbcType=VARCHAR},
+      reserved10 = #{record.reserved10,jdbcType=VARCHAR},
+      reserved11 = #{record.reserved11,jdbcType=VARCHAR},
+      reserved12 = #{record.reserved12,jdbcType=VARCHAR},
+      reserved13 = #{record.reserved13,jdbcType=VARCHAR},
+      reserved14 = #{record.reserved14,jdbcType=VARCHAR},
+      reserved15 = #{record.reserved15,jdbcType=VARCHAR},
+      reserved16 = #{record.reserved16,jdbcType=VARCHAR},
+      reserved17 = #{record.reserved17,jdbcType=VARCHAR},
+      reserved18 = #{record.reserved18,jdbcType=VARCHAR},
+      reserved19 = #{record.reserved19,jdbcType=VARCHAR},
+      reserved20 = #{record.reserved20,jdbcType=VARCHAR},
+      creation_date = #{record.creation_date,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskData">
+    update xyqb_common_risk_data
+    <set>
+      <if test="nation != null">
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard_issue != null">
+        idcard_issue = #{idcard_issue,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardNo != null">
+        idCardNo = #{idCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="censusPlace != null">
+        censusPlace = #{censusPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard_validity_startdate != null">
+        idcard_validity_startdate = #{idcard_validity_startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard_validity_enddate != null">
+        idcard_validity_enddate = #{idcard_validity_enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="nappGlobalPS != null">
+        nappGlobalPS = #{nappGlobalPS,jdbcType=VARCHAR},
+      </if>
+      <if test="nappProvince != null">
+        nappProvince = #{nappProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="nappCity != null">
+        nappCity = #{nappCity,jdbcType=VARCHAR},
+      </if>
+      <if test="nappArea != null">
+        nappArea = #{nappArea,jdbcType=VARCHAR},
+      </if>
+      <if test="nappCUID != null">
+        nappCUID = #{nappCUID,jdbcType=VARCHAR},
+      </if>
+      <if test="nappInterPro != null">
+        nappInterPro = #{nappInterPro,jdbcType=VARCHAR},
+      </if>
+      <if test="appEquipment != null">
+        appEquipment = #{appEquipment,jdbcType=VARCHAR},
+      </if>
+      <if test="wifiAddress != null">
+        wifiAddress = #{wifiAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="wifiList != null">
+        wifiList = #{wifiList,jdbcType=VARCHAR},
+      </if>
+      <if test="mobimeBrand != null">
+        mobimeBrand = #{mobimeBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneModel != null">
+        phoneModel = #{phoneModel,jdbcType=VARCHAR},
+      </if>
+      <if test="faceScore != null">
+        faceScore = #{faceScore,jdbcType=VARCHAR},
+      </if>
+      <if test="liveBody != null">
+        liveBody = #{liveBody,jdbcType=VARCHAR},
+      </if>
+      <if test="seCredit != null">
+        seCredit = #{seCredit,jdbcType=VARCHAR},
+      </if>
+      <if test="isDoFourEle != null">
+        isDoFourEle = #{isDoFourEle,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpFacePic != null">
+        isUpFacePic = #{isUpFacePic,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpIDObv != null">
+        isUpIDObv = #{isUpIDObv,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpIDRev != null">
+        isUpIDRev = #{isUpIDRev,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved1 != null">
+        reserved1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null">
+        reserved2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null">
+        reserved3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved4 != null">
+        reserved4 = #{reserved4,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved5 != null">
+        reserved5 = #{reserved5,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved6 != null">
+        reserved6 = #{reserved6,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved7 != null">
+        reserved7 = #{reserved7,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved8 != null">
+        reserved8 = #{reserved8,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved9 != null">
+        reserved9 = #{reserved9,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved10 != null">
+        reserved10 = #{reserved10,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved11 != null">
+        reserved11 = #{reserved11,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved12 != null">
+        reserved12 = #{reserved12,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved13 != null">
+        reserved13 = #{reserved13,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved14 != null">
+        reserved14 = #{reserved14,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved15 != null">
+        reserved15 = #{reserved15,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved16 != null">
+        reserved16 = #{reserved16,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved17 != null">
+        reserved17 = #{reserved17,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved18 != null">
+        reserved18 = #{reserved18,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved19 != null">
+        reserved19 = #{reserved19,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved20 != null">
+        reserved20 = #{reserved20,jdbcType=VARCHAR},
+      </if>
+      <if test="creation_date != null">
+        creation_date = #{creation_date,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskData">
+    update xyqb_common_risk_data
+    set nation = #{nation,jdbcType=VARCHAR},
+      idcard_issue = #{idcard_issue,jdbcType=VARCHAR},
+      idCardNo = #{idCardNo,jdbcType=VARCHAR},
+      censusPlace = #{censusPlace,jdbcType=VARCHAR},
+      idcard_validity_startdate = #{idcard_validity_startdate,jdbcType=VARCHAR},
+      idcard_validity_enddate = #{idcard_validity_enddate,jdbcType=VARCHAR},
+      nappGlobalPS = #{nappGlobalPS,jdbcType=VARCHAR},
+      nappProvince = #{nappProvince,jdbcType=VARCHAR},
+      nappCity = #{nappCity,jdbcType=VARCHAR},
+      nappArea = #{nappArea,jdbcType=VARCHAR},
+      nappCUID = #{nappCUID,jdbcType=VARCHAR},
+      nappInterPro = #{nappInterPro,jdbcType=VARCHAR},
+      appEquipment = #{appEquipment,jdbcType=VARCHAR},
+      wifiAddress = #{wifiAddress,jdbcType=VARCHAR},
+      wifiList = #{wifiList,jdbcType=VARCHAR},
+      mobimeBrand = #{mobimeBrand,jdbcType=VARCHAR},
+      phoneModel = #{phoneModel,jdbcType=VARCHAR},
+      faceScore = #{faceScore,jdbcType=VARCHAR},
+      liveBody = #{liveBody,jdbcType=VARCHAR},
+      seCredit = #{seCredit,jdbcType=VARCHAR},
+      isDoFourEle = #{isDoFourEle,jdbcType=VARCHAR},
+      isUpFacePic = #{isUpFacePic,jdbcType=VARCHAR},
+      isUpIDObv = #{isUpIDObv,jdbcType=VARCHAR},
+      isUpIDRev = #{isUpIDRev,jdbcType=VARCHAR},
+      reserved1 = #{reserved1,jdbcType=VARCHAR},
+      reserved2 = #{reserved2,jdbcType=VARCHAR},
+      reserved3 = #{reserved3,jdbcType=VARCHAR},
+      reserved4 = #{reserved4,jdbcType=VARCHAR},
+      reserved5 = #{reserved5,jdbcType=VARCHAR},
+      reserved6 = #{reserved6,jdbcType=VARCHAR},
+      reserved7 = #{reserved7,jdbcType=VARCHAR},
+      reserved8 = #{reserved8,jdbcType=VARCHAR},
+      reserved9 = #{reserved9,jdbcType=VARCHAR},
+      reserved10 = #{reserved10,jdbcType=VARCHAR},
+      reserved11 = #{reserved11,jdbcType=VARCHAR},
+      reserved12 = #{reserved12,jdbcType=VARCHAR},
+      reserved13 = #{reserved13,jdbcType=VARCHAR},
+      reserved14 = #{reserved14,jdbcType=VARCHAR},
+      reserved15 = #{reserved15,jdbcType=VARCHAR},
+      reserved16 = #{reserved16,jdbcType=VARCHAR},
+      reserved17 = #{reserved17,jdbcType=VARCHAR},
+      reserved18 = #{reserved18,jdbcType=VARCHAR},
+      reserved19 = #{reserved19,jdbcType=VARCHAR},
+      reserved20 = #{reserved20,jdbcType=VARCHAR},
+      creation_date = #{creation_date,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

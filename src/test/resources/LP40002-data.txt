@@ -1,0 +1,17 @@
+{
+    "channelNo":"E8",
+    "appno":"HAIERCF-20190618152225-000000",
+    "apptime":"20190618032225",
+    "appl":"DL",
+    "stage":"1",
+    "certNo":"111111111111111111",
+    "filelist":[
+        {
+            "filename":"个人借款合同.pdf",
+            "fileoper":"0",
+            "fileType":"DOC074",
+            "file":"",
+            "md5":"7803e2ea6ec48b5a7e721d60a55ad4be"
+        }
+    ]
+}

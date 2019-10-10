@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.marvels.dao.XyqbCommonRiskMapper">
+  <resultMap id="BaseResultMap" type="com.marvels.dto.hexj.entity.XyqbCommonRisk">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="channelno" jdbcType="VARCHAR" property="channelno" />
+    <result column="applseq" jdbcType="VARCHAR" property="applseq" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="data" jdbcType="VARCHAR" property="data" />
+    <result column="ex_data" jdbcType="VARCHAR" property="ex_data" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, channelno, applseq, type, data, ex_data
+  </sql>
+  <select id="selectByExample" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from xyqb_common_risk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xyqb_common_risk
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from xyqb_common_risk
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskExample">
+    delete from xyqb_common_risk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRisk">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into xyqb_common_risk (channelno, applseq, type, 
+      data, ex_data)
+    values (#{channelno,jdbcType=VARCHAR}, #{applseq,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{data,jdbcType=VARCHAR}, #{ex_data,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRisk">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into xyqb_common_risk
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="channelno != null">
+        channelno,
+      </if>
+      <if test="applseq != null">
+        applseq,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="data != null">
+        data,
+      </if>
+      <if test="ex_data != null">
+        ex_data,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="channelno != null">
+        #{channelno,jdbcType=VARCHAR},
+      </if>
+      <if test="applseq != null">
+        #{applseq,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="data != null">
+        #{data,jdbcType=VARCHAR},
+      </if>
+      <if test="ex_data != null">
+        #{ex_data,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskExample" resultType="java.lang.Long">
+    select count(*) from xyqb_common_risk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update xyqb_common_risk
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.channelno != null">
+        channelno = #{record.channelno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applseq != null">
+        applseq = #{record.applseq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.data != null">
+        data = #{record.data,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ex_data != null">
+        ex_data = #{record.ex_data,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update xyqb_common_risk
+    set id = #{record.id,jdbcType=BIGINT},
+      channelno = #{record.channelno,jdbcType=VARCHAR},
+      applseq = #{record.applseq,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR},
+      data = #{record.data,jdbcType=VARCHAR},
+      ex_data = #{record.ex_data,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRisk">
+    update xyqb_common_risk
+    <set>
+      <if test="channelno != null">
+        channelno = #{channelno,jdbcType=VARCHAR},
+      </if>
+      <if test="applseq != null">
+        applseq = #{applseq,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="data != null">
+        data = #{data,jdbcType=VARCHAR},
+      </if>
+      <if test="ex_data != null">
+        ex_data = #{ex_data,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRisk">
+    update xyqb_common_risk
+    set channelno = #{channelno,jdbcType=VARCHAR},
+      applseq = #{applseq,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      data = #{data,jdbcType=VARCHAR},
+      ex_data = #{ex_data,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

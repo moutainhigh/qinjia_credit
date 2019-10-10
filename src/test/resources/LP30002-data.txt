@@ -1,0 +1,27 @@
+{
+	"body": {
+		"list": [{
+				"acCardNo": "11111111111111111111",
+				"applSeq": "17896389",
+				"custNo": "00000",
+				"isUseAcCardNo": "N",
+				"psPerdNo": "1",
+				"repayAmt": 109.77,
+				"setlMode": "NF",
+				"setlTyp": "01",
+				"setlValDt": "2023-06-20",
+				"useCoup": "N"
+			}
+		]
+	},
+	"head": {
+		"channelNo": "E8",
+		"cooprCode": "",
+        "serno": "190618141703000000",
+		"sysFlag": "11",
+		"tradeCode": "ACQ-2101",
+		"tradeDate": "2019-06-18",
+		"tradeTime": "14:17:05",
+		"tradeType": ""
+	}
+}

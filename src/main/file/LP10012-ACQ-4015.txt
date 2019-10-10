@@ -1,0 +1,13 @@
+{
+	"head": {
+		"tradeTime": "23:51:57",
+		"sysFlag": "11",
+		"serno": "20190218235157328",
+		"channelNo": "38",
+		"tradeCode": "ACQ-4015",
+		"tradeDate": "2019-02-18"
+	},
+	"body": {
+		"crdSeq": "13426583"
+	}
+}

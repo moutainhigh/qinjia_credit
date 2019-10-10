@@ -1,0 +1,19 @@
+{
+	"head": {
+		"channelNo": "C6"
+	},
+	"body": {
+		"msgType": "03",
+		"applSeq": "12312312",
+		"mallOrderNo": "20190218235157328",
+		"loanNo": "",
+		"idNo": "",
+		"custName": "",
+		"businessId": "",
+		"businessType": "",
+		"status": "",
+		"content": "",
+		"returnTime": "",
+		"reqSerno": ""
+	}
+}

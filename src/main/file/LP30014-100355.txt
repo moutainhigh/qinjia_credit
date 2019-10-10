@@ -1,0 +1,14 @@
+{
+	"head": {
+		"tradeTime": "14:10:30",
+		"sysFlag": "11",
+		"channelNo": "73",
+		"serno": "d26b9e59fcfb48719810c158412b79e8",
+		"tradeCode": "100355",
+		"tradeDate": "2018-09-21"
+	},
+	"body": {
+		"idNo": "411324198708125273",
+		"inputChannel": "73"
+	}
+}

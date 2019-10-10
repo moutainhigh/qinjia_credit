@@ -1,0 +1,1077 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.marvels.dao.XyqbCommonRiskExdataMapper">
+  <resultMap id="BaseResultMap" type="com.marvels.dto.hexj.entity.XyqbCommonRiskExdata">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="acctName" jdbcType="VARCHAR" property="acctName" />
+    <result column="appt_id_typ" jdbcType="VARCHAR" property="appt_id_typ" />
+    <result column="appt_id_no" jdbcType="VARCHAR" property="appt_id_no" />
+    <result column="appt_indiv_sex" jdbcType="VARCHAR" property="appt_indiv_sex" />
+    <result column="appt_start_date" jdbcType="VARCHAR" property="appt_start_date" />
+    <result column="indiv_marital婚姻状况" jdbcType="VARCHAR" property="indiv_marital婚姻状况" />
+    <result column="indivEdu" jdbcType="VARCHAR" property="indivEdu" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="appt_reg_province" jdbcType="VARCHAR" property="appt_reg_province" />
+    <result column="appt_reg_city" jdbcType="VARCHAR" property="appt_reg_city" />
+    <result column="live_province" jdbcType="VARCHAR" property="live_province" />
+    <result column="live_city" jdbcType="VARCHAR" property="live_city" />
+    <result column="live_area" jdbcType="VARCHAR" property="live_area" />
+    <result column="live_addr" jdbcType="VARCHAR" property="live_addr" />
+    <result column="idcard_validity_startdate" jdbcType="VARCHAR" property="idcard_validity_startdate" />
+    <result column="idcard_validity_enddate" jdbcType="VARCHAR" property="idcard_validity_enddate" />
+    <result column="indivEmpName" jdbcType="VARCHAR" property="indivEmpName" />
+    <result column="indivEmpTyp" jdbcType="VARCHAR" property="indivEmpTyp" />
+    <result column="indivMthInc" jdbcType="VARCHAR" property="indivMthInc" />
+    <result column="indivPosition" jdbcType="VARCHAR" property="indivPosition" />
+    <result column="annualEarn" jdbcType="VARCHAR" property="annualEarn" />
+    <result column="indiv_emp_province" jdbcType="VARCHAR" property="indiv_emp_province" />
+    <result column="indiv_emp_city" jdbcType="VARCHAR" property="indiv_emp_city" />
+    <result column="indiv_emp_area" jdbcType="VARCHAR" property="indiv_emp_area" />
+    <result column="empaddr" jdbcType="VARCHAR" property="empaddr" />
+    <result column="indivEmpTel" jdbcType="VARCHAR" property="indivEmpTel" />
+    <result column="relName1" jdbcType="VARCHAR" property="relName1" />
+    <result column="relMobile1" jdbcType="VARCHAR" property="relMobile1" />
+    <result column="relRelation1" jdbcType="VARCHAR" property="relRelation1" />
+    <result column="relName2" jdbcType="VARCHAR" property="relName2" />
+    <result column="relMobile2" jdbcType="VARCHAR" property="relMobile2" />
+    <result column="relRelation2" jdbcType="VARCHAR" property="relRelation2" />
+    <result column="liveBody" jdbcType="VARCHAR" property="liveBody" />
+    <result column="workplaceSaas" jdbcType="VARCHAR" property="workplaceSaas" />
+    <result column="workYrs" jdbcType="VARCHAR" property="workYrs" />
+    <result column="scoreDataSaas" jdbcType="VARCHAR" property="scoreDataSaas" />
+    <result column="seCredit" jdbcType="VARCHAR" property="seCredit" />
+    <result column="workplaceYB" jdbcType="VARCHAR" property="workplaceYB" />
+    <result column="certPracticeNo" jdbcType="VARCHAR" property="certPracticeNo" />
+    <result column="certPracticeState" jdbcType="VARCHAR" property="certPracticeState" />
+    <result column="businessScope" jdbcType="VARCHAR" property="businessScope" />
+    <result column="practiceArea" jdbcType="VARCHAR" property="practiceArea" />
+    <result column="liabilitiesMon" jdbcType="VARCHAR" property="liabilitiesMon" />
+    <result column="portraitComResult" jdbcType="VARCHAR" property="portraitComResult" />
+    <result column="portraitComScore" jdbcType="VARCHAR" property="portraitComScore" />
+    <result column="isFirstDisburse" jdbcType="VARCHAR" property="isFirstDisburse" />
+    <result column="thisDisburseDate" jdbcType="VARCHAR" property="thisDisburseDate" />
+    <result column="lastDisburseDate" jdbcType="VARCHAR" property="lastDisburseDate" />
+    <result column="disburseAmt" jdbcType="VARCHAR" property="disburseAmt" />
+    <result column="availAmt" jdbcType="VARCHAR" property="availAmt" />
+    <result column="typ_desc" jdbcType="VARCHAR" property="typ_desc" />
+    <result column="applyAmt" jdbcType="VARCHAR" property="applyAmt" />
+    <result column="approvalAmt" jdbcType="VARCHAR" property="approvalAmt" />
+    <result column="apply_tnr" jdbcType="VARCHAR" property="apply_tnr" />
+    <result column="mtdType" jdbcType="VARCHAR" property="mtdType" />
+    <result column="price_int_rat" jdbcType="VARCHAR" property="price_int_rat" />
+    <result column="purpose" jdbcType="VARCHAR" property="purpose" />
+    <result column="creation_date" jdbcType="TIMESTAMP" property="creation_date" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, acctName, appt_id_typ, appt_id_no, appt_indiv_sex, appt_start_date, indiv_marital婚姻状况, 
+    indivEdu, mobile, appt_reg_province, appt_reg_city, live_province, live_city, live_area, 
+    live_addr, idcard_validity_startdate, idcard_validity_enddate, indivEmpName, indivEmpTyp, 
+    indivMthInc, indivPosition, annualEarn, indiv_emp_province, indiv_emp_city, indiv_emp_area, 
+    empaddr, indivEmpTel, relName1, relMobile1, relRelation1, relName2, relMobile2, relRelation2, 
+    liveBody, workplaceSaas, workYrs, scoreDataSaas, seCredit, workplaceYB, certPracticeNo, 
+    certPracticeState, businessScope, practiceArea, liabilitiesMon, portraitComResult, 
+    portraitComScore, isFirstDisburse, thisDisburseDate, lastDisburseDate, disburseAmt, 
+    availAmt, typ_desc, applyAmt, approvalAmt, apply_tnr, mtdType, price_int_rat, purpose, 
+    creation_date
+  </sql>
+  <select id="selectByExample" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskExdataExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from xyqb_common_risk_exdata
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xyqb_common_risk_exdata
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from xyqb_common_risk_exdata
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskExdataExample">
+    delete from xyqb_common_risk_exdata
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskExdata">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into xyqb_common_risk_exdata (acctName, appt_id_typ, appt_id_no, 
+      appt_indiv_sex, appt_start_date, indiv_marital婚姻状况, 
+      indivEdu, mobile, appt_reg_province, 
+      appt_reg_city, live_province, live_city, 
+      live_area, live_addr, idcard_validity_startdate, 
+      idcard_validity_enddate, indivEmpName, 
+      indivEmpTyp, indivMthInc, indivPosition, 
+      annualEarn, indiv_emp_province, indiv_emp_city, 
+      indiv_emp_area, empaddr, indivEmpTel, 
+      relName1, relMobile1, relRelation1, 
+      relName2, relMobile2, relRelation2, 
+      liveBody, workplaceSaas, workYrs, 
+      scoreDataSaas, seCredit, workplaceYB, 
+      certPracticeNo, certPracticeState, businessScope, 
+      practiceArea, liabilitiesMon, portraitComResult, 
+      portraitComScore, isFirstDisburse, thisDisburseDate, 
+      lastDisburseDate, disburseAmt, availAmt, 
+      typ_desc, applyAmt, approvalAmt, 
+      apply_tnr, mtdType, price_int_rat, 
+      purpose, creation_date)
+    values (#{acctName,jdbcType=VARCHAR}, #{appt_id_typ,jdbcType=VARCHAR}, #{appt_id_no,jdbcType=VARCHAR}, 
+      #{appt_indiv_sex,jdbcType=VARCHAR}, #{appt_start_date,jdbcType=VARCHAR}, #{indiv_marital婚姻状况,jdbcType=VARCHAR}, 
+      #{indivEdu,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{appt_reg_province,jdbcType=VARCHAR}, 
+      #{appt_reg_city,jdbcType=VARCHAR}, #{live_province,jdbcType=VARCHAR}, #{live_city,jdbcType=VARCHAR}, 
+      #{live_area,jdbcType=VARCHAR}, #{live_addr,jdbcType=VARCHAR}, #{idcard_validity_startdate,jdbcType=VARCHAR}, 
+      #{idcard_validity_enddate,jdbcType=VARCHAR}, #{indivEmpName,jdbcType=VARCHAR}, 
+      #{indivEmpTyp,jdbcType=VARCHAR}, #{indivMthInc,jdbcType=VARCHAR}, #{indivPosition,jdbcType=VARCHAR}, 
+      #{annualEarn,jdbcType=VARCHAR}, #{indiv_emp_province,jdbcType=VARCHAR}, #{indiv_emp_city,jdbcType=VARCHAR}, 
+      #{indiv_emp_area,jdbcType=VARCHAR}, #{empaddr,jdbcType=VARCHAR}, #{indivEmpTel,jdbcType=VARCHAR}, 
+      #{relName1,jdbcType=VARCHAR}, #{relMobile1,jdbcType=VARCHAR}, #{relRelation1,jdbcType=VARCHAR}, 
+      #{relName2,jdbcType=VARCHAR}, #{relMobile2,jdbcType=VARCHAR}, #{relRelation2,jdbcType=VARCHAR}, 
+      #{liveBody,jdbcType=VARCHAR}, #{workplaceSaas,jdbcType=VARCHAR}, #{workYrs,jdbcType=VARCHAR}, 
+      #{scoreDataSaas,jdbcType=VARCHAR}, #{seCredit,jdbcType=VARCHAR}, #{workplaceYB,jdbcType=VARCHAR}, 
+      #{certPracticeNo,jdbcType=VARCHAR}, #{certPracticeState,jdbcType=VARCHAR}, #{businessScope,jdbcType=VARCHAR}, 
+      #{practiceArea,jdbcType=VARCHAR}, #{liabilitiesMon,jdbcType=VARCHAR}, #{portraitComResult,jdbcType=VARCHAR}, 
+      #{portraitComScore,jdbcType=VARCHAR}, #{isFirstDisburse,jdbcType=VARCHAR}, #{thisDisburseDate,jdbcType=VARCHAR}, 
+      #{lastDisburseDate,jdbcType=VARCHAR}, #{disburseAmt,jdbcType=VARCHAR}, #{availAmt,jdbcType=VARCHAR}, 
+      #{typ_desc,jdbcType=VARCHAR}, #{applyAmt,jdbcType=VARCHAR}, #{approvalAmt,jdbcType=VARCHAR}, 
+      #{apply_tnr,jdbcType=VARCHAR}, #{mtdType,jdbcType=VARCHAR}, #{price_int_rat,jdbcType=VARCHAR}, 
+      #{purpose,jdbcType=VARCHAR}, #{creation_date,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskExdata">
+    insert into xyqb_common_risk_exdata
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="acctName != null">
+        acctName,
+      </if>
+      <if test="appt_id_typ != null">
+        appt_id_typ,
+      </if>
+      <if test="appt_id_no != null">
+        appt_id_no,
+      </if>
+      <if test="appt_indiv_sex != null">
+        appt_indiv_sex,
+      </if>
+      <if test="appt_start_date != null">
+        appt_start_date,
+      </if>
+      <if test="indiv_marital婚姻状况 != null">
+        indiv_marital婚姻状况,
+      </if>
+      <if test="indivEdu != null">
+        indivEdu,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="appt_reg_province != null">
+        appt_reg_province,
+      </if>
+      <if test="appt_reg_city != null">
+        appt_reg_city,
+      </if>
+      <if test="live_province != null">
+        live_province,
+      </if>
+      <if test="live_city != null">
+        live_city,
+      </if>
+      <if test="live_area != null">
+        live_area,
+      </if>
+      <if test="live_addr != null">
+        live_addr,
+      </if>
+      <if test="idcard_validity_startdate != null">
+        idcard_validity_startdate,
+      </if>
+      <if test="idcard_validity_enddate != null">
+        idcard_validity_enddate,
+      </if>
+      <if test="indivEmpName != null">
+        indivEmpName,
+      </if>
+      <if test="indivEmpTyp != null">
+        indivEmpTyp,
+      </if>
+      <if test="indivMthInc != null">
+        indivMthInc,
+      </if>
+      <if test="indivPosition != null">
+        indivPosition,
+      </if>
+      <if test="annualEarn != null">
+        annualEarn,
+      </if>
+      <if test="indiv_emp_province != null">
+        indiv_emp_province,
+      </if>
+      <if test="indiv_emp_city != null">
+        indiv_emp_city,
+      </if>
+      <if test="indiv_emp_area != null">
+        indiv_emp_area,
+      </if>
+      <if test="empaddr != null">
+        empaddr,
+      </if>
+      <if test="indivEmpTel != null">
+        indivEmpTel,
+      </if>
+      <if test="relName1 != null">
+        relName1,
+      </if>
+      <if test="relMobile1 != null">
+        relMobile1,
+      </if>
+      <if test="relRelation1 != null">
+        relRelation1,
+      </if>
+      <if test="relName2 != null">
+        relName2,
+      </if>
+      <if test="relMobile2 != null">
+        relMobile2,
+      </if>
+      <if test="relRelation2 != null">
+        relRelation2,
+      </if>
+      <if test="liveBody != null">
+        liveBody,
+      </if>
+      <if test="workplaceSaas != null">
+        workplaceSaas,
+      </if>
+      <if test="workYrs != null">
+        workYrs,
+      </if>
+      <if test="scoreDataSaas != null">
+        scoreDataSaas,
+      </if>
+      <if test="seCredit != null">
+        seCredit,
+      </if>
+      <if test="workplaceYB != null">
+        workplaceYB,
+      </if>
+      <if test="certPracticeNo != null">
+        certPracticeNo,
+      </if>
+      <if test="certPracticeState != null">
+        certPracticeState,
+      </if>
+      <if test="businessScope != null">
+        businessScope,
+      </if>
+      <if test="practiceArea != null">
+        practiceArea,
+      </if>
+      <if test="liabilitiesMon != null">
+        liabilitiesMon,
+      </if>
+      <if test="portraitComResult != null">
+        portraitComResult,
+      </if>
+      <if test="portraitComScore != null">
+        portraitComScore,
+      </if>
+      <if test="isFirstDisburse != null">
+        isFirstDisburse,
+      </if>
+      <if test="thisDisburseDate != null">
+        thisDisburseDate,
+      </if>
+      <if test="lastDisburseDate != null">
+        lastDisburseDate,
+      </if>
+      <if test="disburseAmt != null">
+        disburseAmt,
+      </if>
+      <if test="availAmt != null">
+        availAmt,
+      </if>
+      <if test="typ_desc != null">
+        typ_desc,
+      </if>
+      <if test="applyAmt != null">
+        applyAmt,
+      </if>
+      <if test="approvalAmt != null">
+        approvalAmt,
+      </if>
+      <if test="apply_tnr != null">
+        apply_tnr,
+      </if>
+      <if test="mtdType != null">
+        mtdType,
+      </if>
+      <if test="price_int_rat != null">
+        price_int_rat,
+      </if>
+      <if test="purpose != null">
+        purpose,
+      </if>
+      <if test="creation_date != null">
+        creation_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="acctName != null">
+        #{acctName,jdbcType=VARCHAR},
+      </if>
+      <if test="appt_id_typ != null">
+        #{appt_id_typ,jdbcType=VARCHAR},
+      </if>
+      <if test="appt_id_no != null">
+        #{appt_id_no,jdbcType=VARCHAR},
+      </if>
+      <if test="appt_indiv_sex != null">
+        #{appt_indiv_sex,jdbcType=VARCHAR},
+      </if>
+      <if test="appt_start_date != null">
+        #{appt_start_date,jdbcType=VARCHAR},
+      </if>
+      <if test="indiv_marital婚姻状况 != null">
+        #{indiv_marital婚姻状况,jdbcType=VARCHAR},
+      </if>
+      <if test="indivEdu != null">
+        #{indivEdu,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="appt_reg_province != null">
+        #{appt_reg_province,jdbcType=VARCHAR},
+      </if>
+      <if test="appt_reg_city != null">
+        #{appt_reg_city,jdbcType=VARCHAR},
+      </if>
+      <if test="live_province != null">
+        #{live_province,jdbcType=VARCHAR},
+      </if>
+      <if test="live_city != null">
+        #{live_city,jdbcType=VARCHAR},
+      </if>
+      <if test="live_area != null">
+        #{live_area,jdbcType=VARCHAR},
+      </if>
+      <if test="live_addr != null">
+        #{live_addr,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard_validity_startdate != null">
+        #{idcard_validity_startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard_validity_enddate != null">
+        #{idcard_validity_enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="indivEmpName != null">
+        #{indivEmpName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivEmpTyp != null">
+        #{indivEmpTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="indivMthInc != null">
+        #{indivMthInc,jdbcType=VARCHAR},
+      </if>
+      <if test="indivPosition != null">
+        #{indivPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="annualEarn != null">
+        #{annualEarn,jdbcType=VARCHAR},
+      </if>
+      <if test="indiv_emp_province != null">
+        #{indiv_emp_province,jdbcType=VARCHAR},
+      </if>
+      <if test="indiv_emp_city != null">
+        #{indiv_emp_city,jdbcType=VARCHAR},
+      </if>
+      <if test="indiv_emp_area != null">
+        #{indiv_emp_area,jdbcType=VARCHAR},
+      </if>
+      <if test="empaddr != null">
+        #{empaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="indivEmpTel != null">
+        #{indivEmpTel,jdbcType=VARCHAR},
+      </if>
+      <if test="relName1 != null">
+        #{relName1,jdbcType=VARCHAR},
+      </if>
+      <if test="relMobile1 != null">
+        #{relMobile1,jdbcType=VARCHAR},
+      </if>
+      <if test="relRelation1 != null">
+        #{relRelation1,jdbcType=VARCHAR},
+      </if>
+      <if test="relName2 != null">
+        #{relName2,jdbcType=VARCHAR},
+      </if>
+      <if test="relMobile2 != null">
+        #{relMobile2,jdbcType=VARCHAR},
+      </if>
+      <if test="relRelation2 != null">
+        #{relRelation2,jdbcType=VARCHAR},
+      </if>
+      <if test="liveBody != null">
+        #{liveBody,jdbcType=VARCHAR},
+      </if>
+      <if test="workplaceSaas != null">
+        #{workplaceSaas,jdbcType=VARCHAR},
+      </if>
+      <if test="workYrs != null">
+        #{workYrs,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreDataSaas != null">
+        #{scoreDataSaas,jdbcType=VARCHAR},
+      </if>
+      <if test="seCredit != null">
+        #{seCredit,jdbcType=VARCHAR},
+      </if>
+      <if test="workplaceYB != null">
+        #{workplaceYB,jdbcType=VARCHAR},
+      </if>
+      <if test="certPracticeNo != null">
+        #{certPracticeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="certPracticeState != null">
+        #{certPracticeState,jdbcType=VARCHAR},
+      </if>
+      <if test="businessScope != null">
+        #{businessScope,jdbcType=VARCHAR},
+      </if>
+      <if test="practiceArea != null">
+        #{practiceArea,jdbcType=VARCHAR},
+      </if>
+      <if test="liabilitiesMon != null">
+        #{liabilitiesMon,jdbcType=VARCHAR},
+      </if>
+      <if test="portraitComResult != null">
+        #{portraitComResult,jdbcType=VARCHAR},
+      </if>
+      <if test="portraitComScore != null">
+        #{portraitComScore,jdbcType=VARCHAR},
+      </if>
+      <if test="isFirstDisburse != null">
+        #{isFirstDisburse,jdbcType=VARCHAR},
+      </if>
+      <if test="thisDisburseDate != null">
+        #{thisDisburseDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastDisburseDate != null">
+        #{lastDisburseDate,jdbcType=VARCHAR},
+      </if>
+      <if test="disburseAmt != null">
+        #{disburseAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="availAmt != null">
+        #{availAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="typ_desc != null">
+        #{typ_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmt != null">
+        #{applyAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalAmt != null">
+        #{approvalAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="apply_tnr != null">
+        #{apply_tnr,jdbcType=VARCHAR},
+      </if>
+      <if test="mtdType != null">
+        #{mtdType,jdbcType=VARCHAR},
+      </if>
+      <if test="price_int_rat != null">
+        #{price_int_rat,jdbcType=VARCHAR},
+      </if>
+      <if test="purpose != null">
+        #{purpose,jdbcType=VARCHAR},
+      </if>
+      <if test="creation_date != null">
+        #{creation_date,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskExdataExample" resultType="java.lang.Long">
+    select count(*) from xyqb_common_risk_exdata
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update xyqb_common_risk_exdata
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acctName != null">
+        acctName = #{record.acctName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appt_id_typ != null">
+        appt_id_typ = #{record.appt_id_typ,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appt_id_no != null">
+        appt_id_no = #{record.appt_id_no,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appt_indiv_sex != null">
+        appt_indiv_sex = #{record.appt_indiv_sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appt_start_date != null">
+        appt_start_date = #{record.appt_start_date,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indiv_marital婚姻状况 != null">
+        indiv_marital婚姻状况 = #{record.indiv_marital婚姻状况,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indivEdu != null">
+        indivEdu = #{record.indivEdu,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobile != null">
+        mobile = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appt_reg_province != null">
+        appt_reg_province = #{record.appt_reg_province,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appt_reg_city != null">
+        appt_reg_city = #{record.appt_reg_city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.live_province != null">
+        live_province = #{record.live_province,jdbcType=VARCHAR},
+      </if>
+      <if test="record.live_city != null">
+        live_city = #{record.live_city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.live_area != null">
+        live_area = #{record.live_area,jdbcType=VARCHAR},
+      </if>
+      <if test="record.live_addr != null">
+        live_addr = #{record.live_addr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idcard_validity_startdate != null">
+        idcard_validity_startdate = #{record.idcard_validity_startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idcard_validity_enddate != null">
+        idcard_validity_enddate = #{record.idcard_validity_enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indivEmpName != null">
+        indivEmpName = #{record.indivEmpName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indivEmpTyp != null">
+        indivEmpTyp = #{record.indivEmpTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indivMthInc != null">
+        indivMthInc = #{record.indivMthInc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indivPosition != null">
+        indivPosition = #{record.indivPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.annualEarn != null">
+        annualEarn = #{record.annualEarn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indiv_emp_province != null">
+        indiv_emp_province = #{record.indiv_emp_province,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indiv_emp_city != null">
+        indiv_emp_city = #{record.indiv_emp_city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indiv_emp_area != null">
+        indiv_emp_area = #{record.indiv_emp_area,jdbcType=VARCHAR},
+      </if>
+      <if test="record.empaddr != null">
+        empaddr = #{record.empaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.indivEmpTel != null">
+        indivEmpTel = #{record.indivEmpTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relName1 != null">
+        relName1 = #{record.relName1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relMobile1 != null">
+        relMobile1 = #{record.relMobile1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relRelation1 != null">
+        relRelation1 = #{record.relRelation1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relName2 != null">
+        relName2 = #{record.relName2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relMobile2 != null">
+        relMobile2 = #{record.relMobile2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relRelation2 != null">
+        relRelation2 = #{record.relRelation2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.liveBody != null">
+        liveBody = #{record.liveBody,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workplaceSaas != null">
+        workplaceSaas = #{record.workplaceSaas,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workYrs != null">
+        workYrs = #{record.workYrs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scoreDataSaas != null">
+        scoreDataSaas = #{record.scoreDataSaas,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seCredit != null">
+        seCredit = #{record.seCredit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workplaceYB != null">
+        workplaceYB = #{record.workplaceYB,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certPracticeNo != null">
+        certPracticeNo = #{record.certPracticeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certPracticeState != null">
+        certPracticeState = #{record.certPracticeState,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessScope != null">
+        businessScope = #{record.businessScope,jdbcType=VARCHAR},
+      </if>
+      <if test="record.practiceArea != null">
+        practiceArea = #{record.practiceArea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.liabilitiesMon != null">
+        liabilitiesMon = #{record.liabilitiesMon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.portraitComResult != null">
+        portraitComResult = #{record.portraitComResult,jdbcType=VARCHAR},
+      </if>
+      <if test="record.portraitComScore != null">
+        portraitComScore = #{record.portraitComScore,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isFirstDisburse != null">
+        isFirstDisburse = #{record.isFirstDisburse,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thisDisburseDate != null">
+        thisDisburseDate = #{record.thisDisburseDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastDisburseDate != null">
+        lastDisburseDate = #{record.lastDisburseDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.disburseAmt != null">
+        disburseAmt = #{record.disburseAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.availAmt != null">
+        availAmt = #{record.availAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typ_desc != null">
+        typ_desc = #{record.typ_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyAmt != null">
+        applyAmt = #{record.applyAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.approvalAmt != null">
+        approvalAmt = #{record.approvalAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.apply_tnr != null">
+        apply_tnr = #{record.apply_tnr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mtdType != null">
+        mtdType = #{record.mtdType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price_int_rat != null">
+        price_int_rat = #{record.price_int_rat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purpose != null">
+        purpose = #{record.purpose,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creation_date != null">
+        creation_date = #{record.creation_date,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update xyqb_common_risk_exdata
+    set id = #{record.id,jdbcType=VARCHAR},
+      acctName = #{record.acctName,jdbcType=VARCHAR},
+      appt_id_typ = #{record.appt_id_typ,jdbcType=VARCHAR},
+      appt_id_no = #{record.appt_id_no,jdbcType=VARCHAR},
+      appt_indiv_sex = #{record.appt_indiv_sex,jdbcType=VARCHAR},
+      appt_start_date = #{record.appt_start_date,jdbcType=VARCHAR},
+      indiv_marital婚姻状况 = #{record.indiv_marital婚姻状况,jdbcType=VARCHAR},
+      indivEdu = #{record.indivEdu,jdbcType=VARCHAR},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      appt_reg_province = #{record.appt_reg_province,jdbcType=VARCHAR},
+      appt_reg_city = #{record.appt_reg_city,jdbcType=VARCHAR},
+      live_province = #{record.live_province,jdbcType=VARCHAR},
+      live_city = #{record.live_city,jdbcType=VARCHAR},
+      live_area = #{record.live_area,jdbcType=VARCHAR},
+      live_addr = #{record.live_addr,jdbcType=VARCHAR},
+      idcard_validity_startdate = #{record.idcard_validity_startdate,jdbcType=VARCHAR},
+      idcard_validity_enddate = #{record.idcard_validity_enddate,jdbcType=VARCHAR},
+      indivEmpName = #{record.indivEmpName,jdbcType=VARCHAR},
+      indivEmpTyp = #{record.indivEmpTyp,jdbcType=VARCHAR},
+      indivMthInc = #{record.indivMthInc,jdbcType=VARCHAR},
+      indivPosition = #{record.indivPosition,jdbcType=VARCHAR},
+      annualEarn = #{record.annualEarn,jdbcType=VARCHAR},
+      indiv_emp_province = #{record.indiv_emp_province,jdbcType=VARCHAR},
+      indiv_emp_city = #{record.indiv_emp_city,jdbcType=VARCHAR},
+      indiv_emp_area = #{record.indiv_emp_area,jdbcType=VARCHAR},
+      empaddr = #{record.empaddr,jdbcType=VARCHAR},
+      indivEmpTel = #{record.indivEmpTel,jdbcType=VARCHAR},
+      relName1 = #{record.relName1,jdbcType=VARCHAR},
+      relMobile1 = #{record.relMobile1,jdbcType=VARCHAR},
+      relRelation1 = #{record.relRelation1,jdbcType=VARCHAR},
+      relName2 = #{record.relName2,jdbcType=VARCHAR},
+      relMobile2 = #{record.relMobile2,jdbcType=VARCHAR},
+      relRelation2 = #{record.relRelation2,jdbcType=VARCHAR},
+      liveBody = #{record.liveBody,jdbcType=VARCHAR},
+      workplaceSaas = #{record.workplaceSaas,jdbcType=VARCHAR},
+      workYrs = #{record.workYrs,jdbcType=VARCHAR},
+      scoreDataSaas = #{record.scoreDataSaas,jdbcType=VARCHAR},
+      seCredit = #{record.seCredit,jdbcType=VARCHAR},
+      workplaceYB = #{record.workplaceYB,jdbcType=VARCHAR},
+      certPracticeNo = #{record.certPracticeNo,jdbcType=VARCHAR},
+      certPracticeState = #{record.certPracticeState,jdbcType=VARCHAR},
+      businessScope = #{record.businessScope,jdbcType=VARCHAR},
+      practiceArea = #{record.practiceArea,jdbcType=VARCHAR},
+      liabilitiesMon = #{record.liabilitiesMon,jdbcType=VARCHAR},
+      portraitComResult = #{record.portraitComResult,jdbcType=VARCHAR},
+      portraitComScore = #{record.portraitComScore,jdbcType=VARCHAR},
+      isFirstDisburse = #{record.isFirstDisburse,jdbcType=VARCHAR},
+      thisDisburseDate = #{record.thisDisburseDate,jdbcType=VARCHAR},
+      lastDisburseDate = #{record.lastDisburseDate,jdbcType=VARCHAR},
+      disburseAmt = #{record.disburseAmt,jdbcType=VARCHAR},
+      availAmt = #{record.availAmt,jdbcType=VARCHAR},
+      typ_desc = #{record.typ_desc,jdbcType=VARCHAR},
+      applyAmt = #{record.applyAmt,jdbcType=VARCHAR},
+      approvalAmt = #{record.approvalAmt,jdbcType=VARCHAR},
+      apply_tnr = #{record.apply_tnr,jdbcType=VARCHAR},
+      mtdType = #{record.mtdType,jdbcType=VARCHAR},
+      price_int_rat = #{record.price_int_rat,jdbcType=VARCHAR},
+      purpose = #{record.purpose,jdbcType=VARCHAR},
+      creation_date = #{record.creation_date,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskExdata">
+    update xyqb_common_risk_exdata
+    <set>
+      <if test="acctName != null">
+        acctName = #{acctName,jdbcType=VARCHAR},
+      </if>
+      <if test="appt_id_typ != null">
+        appt_id_typ = #{appt_id_typ,jdbcType=VARCHAR},
+      </if>
+      <if test="appt_id_no != null">
+        appt_id_no = #{appt_id_no,jdbcType=VARCHAR},
+      </if>
+      <if test="appt_indiv_sex != null">
+        appt_indiv_sex = #{appt_indiv_sex,jdbcType=VARCHAR},
+      </if>
+      <if test="appt_start_date != null">
+        appt_start_date = #{appt_start_date,jdbcType=VARCHAR},
+      </if>
+      <if test="indiv_marital婚姻状况 != null">
+        indiv_marital婚姻状况 = #{indiv_marital婚姻状况,jdbcType=VARCHAR},
+      </if>
+      <if test="indivEdu != null">
+        indivEdu = #{indivEdu,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="appt_reg_province != null">
+        appt_reg_province = #{appt_reg_province,jdbcType=VARCHAR},
+      </if>
+      <if test="appt_reg_city != null">
+        appt_reg_city = #{appt_reg_city,jdbcType=VARCHAR},
+      </if>
+      <if test="live_province != null">
+        live_province = #{live_province,jdbcType=VARCHAR},
+      </if>
+      <if test="live_city != null">
+        live_city = #{live_city,jdbcType=VARCHAR},
+      </if>
+      <if test="live_area != null">
+        live_area = #{live_area,jdbcType=VARCHAR},
+      </if>
+      <if test="live_addr != null">
+        live_addr = #{live_addr,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard_validity_startdate != null">
+        idcard_validity_startdate = #{idcard_validity_startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard_validity_enddate != null">
+        idcard_validity_enddate = #{idcard_validity_enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="indivEmpName != null">
+        indivEmpName = #{indivEmpName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivEmpTyp != null">
+        indivEmpTyp = #{indivEmpTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="indivMthInc != null">
+        indivMthInc = #{indivMthInc,jdbcType=VARCHAR},
+      </if>
+      <if test="indivPosition != null">
+        indivPosition = #{indivPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="annualEarn != null">
+        annualEarn = #{annualEarn,jdbcType=VARCHAR},
+      </if>
+      <if test="indiv_emp_province != null">
+        indiv_emp_province = #{indiv_emp_province,jdbcType=VARCHAR},
+      </if>
+      <if test="indiv_emp_city != null">
+        indiv_emp_city = #{indiv_emp_city,jdbcType=VARCHAR},
+      </if>
+      <if test="indiv_emp_area != null">
+        indiv_emp_area = #{indiv_emp_area,jdbcType=VARCHAR},
+      </if>
+      <if test="empaddr != null">
+        empaddr = #{empaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="indivEmpTel != null">
+        indivEmpTel = #{indivEmpTel,jdbcType=VARCHAR},
+      </if>
+      <if test="relName1 != null">
+        relName1 = #{relName1,jdbcType=VARCHAR},
+      </if>
+      <if test="relMobile1 != null">
+        relMobile1 = #{relMobile1,jdbcType=VARCHAR},
+      </if>
+      <if test="relRelation1 != null">
+        relRelation1 = #{relRelation1,jdbcType=VARCHAR},
+      </if>
+      <if test="relName2 != null">
+        relName2 = #{relName2,jdbcType=VARCHAR},
+      </if>
+      <if test="relMobile2 != null">
+        relMobile2 = #{relMobile2,jdbcType=VARCHAR},
+      </if>
+      <if test="relRelation2 != null">
+        relRelation2 = #{relRelation2,jdbcType=VARCHAR},
+      </if>
+      <if test="liveBody != null">
+        liveBody = #{liveBody,jdbcType=VARCHAR},
+      </if>
+      <if test="workplaceSaas != null">
+        workplaceSaas = #{workplaceSaas,jdbcType=VARCHAR},
+      </if>
+      <if test="workYrs != null">
+        workYrs = #{workYrs,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreDataSaas != null">
+        scoreDataSaas = #{scoreDataSaas,jdbcType=VARCHAR},
+      </if>
+      <if test="seCredit != null">
+        seCredit = #{seCredit,jdbcType=VARCHAR},
+      </if>
+      <if test="workplaceYB != null">
+        workplaceYB = #{workplaceYB,jdbcType=VARCHAR},
+      </if>
+      <if test="certPracticeNo != null">
+        certPracticeNo = #{certPracticeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="certPracticeState != null">
+        certPracticeState = #{certPracticeState,jdbcType=VARCHAR},
+      </if>
+      <if test="businessScope != null">
+        businessScope = #{businessScope,jdbcType=VARCHAR},
+      </if>
+      <if test="practiceArea != null">
+        practiceArea = #{practiceArea,jdbcType=VARCHAR},
+      </if>
+      <if test="liabilitiesMon != null">
+        liabilitiesMon = #{liabilitiesMon,jdbcType=VARCHAR},
+      </if>
+      <if test="portraitComResult != null">
+        portraitComResult = #{portraitComResult,jdbcType=VARCHAR},
+      </if>
+      <if test="portraitComScore != null">
+        portraitComScore = #{portraitComScore,jdbcType=VARCHAR},
+      </if>
+      <if test="isFirstDisburse != null">
+        isFirstDisburse = #{isFirstDisburse,jdbcType=VARCHAR},
+      </if>
+      <if test="thisDisburseDate != null">
+        thisDisburseDate = #{thisDisburseDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastDisburseDate != null">
+        lastDisburseDate = #{lastDisburseDate,jdbcType=VARCHAR},
+      </if>
+      <if test="disburseAmt != null">
+        disburseAmt = #{disburseAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="availAmt != null">
+        availAmt = #{availAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="typ_desc != null">
+        typ_desc = #{typ_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmt != null">
+        applyAmt = #{applyAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalAmt != null">
+        approvalAmt = #{approvalAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="apply_tnr != null">
+        apply_tnr = #{apply_tnr,jdbcType=VARCHAR},
+      </if>
+      <if test="mtdType != null">
+        mtdType = #{mtdType,jdbcType=VARCHAR},
+      </if>
+      <if test="price_int_rat != null">
+        price_int_rat = #{price_int_rat,jdbcType=VARCHAR},
+      </if>
+      <if test="purpose != null">
+        purpose = #{purpose,jdbcType=VARCHAR},
+      </if>
+      <if test="creation_date != null">
+        creation_date = #{creation_date,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.marvels.dto.hexj.entity.XyqbCommonRiskExdata">
+    update xyqb_common_risk_exdata
+    set acctName = #{acctName,jdbcType=VARCHAR},
+      appt_id_typ = #{appt_id_typ,jdbcType=VARCHAR},
+      appt_id_no = #{appt_id_no,jdbcType=VARCHAR},
+      appt_indiv_sex = #{appt_indiv_sex,jdbcType=VARCHAR},
+      appt_start_date = #{appt_start_date,jdbcType=VARCHAR},
+      indiv_marital婚姻状况 = #{indiv_marital婚姻状况,jdbcType=VARCHAR},
+      indivEdu = #{indivEdu,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      appt_reg_province = #{appt_reg_province,jdbcType=VARCHAR},
+      appt_reg_city = #{appt_reg_city,jdbcType=VARCHAR},
+      live_province = #{live_province,jdbcType=VARCHAR},
+      live_city = #{live_city,jdbcType=VARCHAR},
+      live_area = #{live_area,jdbcType=VARCHAR},
+      live_addr = #{live_addr,jdbcType=VARCHAR},
+      idcard_validity_startdate = #{idcard_validity_startdate,jdbcType=VARCHAR},
+      idcard_validity_enddate = #{idcard_validity_enddate,jdbcType=VARCHAR},
+      indivEmpName = #{indivEmpName,jdbcType=VARCHAR},
+      indivEmpTyp = #{indivEmpTyp,jdbcType=VARCHAR},
+      indivMthInc = #{indivMthInc,jdbcType=VARCHAR},
+      indivPosition = #{indivPosition,jdbcType=VARCHAR},
+      annualEarn = #{annualEarn,jdbcType=VARCHAR},
+      indiv_emp_province = #{indiv_emp_province,jdbcType=VARCHAR},
+      indiv_emp_city = #{indiv_emp_city,jdbcType=VARCHAR},
+      indiv_emp_area = #{indiv_emp_area,jdbcType=VARCHAR},
+      empaddr = #{empaddr,jdbcType=VARCHAR},
+      indivEmpTel = #{indivEmpTel,jdbcType=VARCHAR},
+      relName1 = #{relName1,jdbcType=VARCHAR},
+      relMobile1 = #{relMobile1,jdbcType=VARCHAR},
+      relRelation1 = #{relRelation1,jdbcType=VARCHAR},
+      relName2 = #{relName2,jdbcType=VARCHAR},
+      relMobile2 = #{relMobile2,jdbcType=VARCHAR},
+      relRelation2 = #{relRelation2,jdbcType=VARCHAR},
+      liveBody = #{liveBody,jdbcType=VARCHAR},
+      workplaceSaas = #{workplaceSaas,jdbcType=VARCHAR},
+      workYrs = #{workYrs,jdbcType=VARCHAR},
+      scoreDataSaas = #{scoreDataSaas,jdbcType=VARCHAR},
+      seCredit = #{seCredit,jdbcType=VARCHAR},
+      workplaceYB = #{workplaceYB,jdbcType=VARCHAR},
+      certPracticeNo = #{certPracticeNo,jdbcType=VARCHAR},
+      certPracticeState = #{certPracticeState,jdbcType=VARCHAR},
+      businessScope = #{businessScope,jdbcType=VARCHAR},
+      practiceArea = #{practiceArea,jdbcType=VARCHAR},
+      liabilitiesMon = #{liabilitiesMon,jdbcType=VARCHAR},
+      portraitComResult = #{portraitComResult,jdbcType=VARCHAR},
+      portraitComScore = #{portraitComScore,jdbcType=VARCHAR},
+      isFirstDisburse = #{isFirstDisburse,jdbcType=VARCHAR},
+      thisDisburseDate = #{thisDisburseDate,jdbcType=VARCHAR},
+      lastDisburseDate = #{lastDisburseDate,jdbcType=VARCHAR},
+      disburseAmt = #{disburseAmt,jdbcType=VARCHAR},
+      availAmt = #{availAmt,jdbcType=VARCHAR},
+      typ_desc = #{typ_desc,jdbcType=VARCHAR},
+      applyAmt = #{applyAmt,jdbcType=VARCHAR},
+      approvalAmt = #{approvalAmt,jdbcType=VARCHAR},
+      apply_tnr = #{apply_tnr,jdbcType=VARCHAR},
+      mtdType = #{mtdType,jdbcType=VARCHAR},
+      price_int_rat = #{price_int_rat,jdbcType=VARCHAR},
+      purpose = #{purpose,jdbcType=VARCHAR},
+      creation_date = #{creation_date,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

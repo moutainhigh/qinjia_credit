@@ -1,0 +1,14 @@
+{
+	"head": {
+		"serno": "20181121112455",
+		"tradeCode": "CP037",
+		"sysFlag": "11",
+		"tradeDate": "2018-11-21",
+		"tradeTime": "11:24:39",
+		"channelNo": "A1",
+		"cooprCode": ""
+	},
+	"body": {
+		"certNo": "36252319900102161X"
+	}
+}

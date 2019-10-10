@@ -1,0 +1,26 @@
+      
+{
+    "head":{
+        "channelNo":"",
+        "cooprCode":"",
+        "serno":"190618141703000000",
+        "sysFlag":"11",
+        "tradeCode":"ACQ-2202",
+        "tradeDate":"2019-06-18",
+        "tradeTime":"16:33:05",
+        "tradeType":""
+    },
+    "body":{
+        "tradeTime":"2019-06-14 18:21:28",
+        "certNo":"11111111111111111111",
+        "totalAmt":354.7,
+        "loanNo":"HCF-G19002202303223774196001",
+        "channelNo":"42",
+        "sysFlag":"11",
+        "tradeStatus":"SUCCESS",
+        "setlMode":"FS",
+        "contNo":"HCF-G19002202303223774196",
+        "genGlNo":"1111111111",
+        "repayType":"ACTV_REPAY"
+    }
+}

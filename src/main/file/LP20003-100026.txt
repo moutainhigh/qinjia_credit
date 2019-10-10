@@ -1,0 +1,15 @@
+{
+	"head": {
+		"serno": "20181121112455",
+		"tradeCode": "100026",
+		"sysFlag": "11",
+		"tradeDate": "2018-11-21",
+		"tradeTime": "11:24:39",
+		"channelNo": "A2",
+		"cooprCode": ""
+	},
+	"body": {
+		"applSeq": "12032801",
+		"flag": "2"
+	}
+}

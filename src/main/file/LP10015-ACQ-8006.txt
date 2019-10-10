@@ -1,0 +1,17 @@
+{
+	"request": {
+		"body": {
+			"crdSeq": "13427183"
+		},
+		"head": {
+			"channelNo": "38",
+			"cooprCode": "",
+			"serno": "19030517575008480134",
+			"sysFlag": "11",
+			"tradeCode": "ACQ-8006",
+			"tradeDate": "2019-03-05",
+			"tradeTime": "11:45:00",
+			"tradeType": ""
+		}
+	}
+}

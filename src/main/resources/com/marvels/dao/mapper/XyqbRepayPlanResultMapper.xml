@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.marvels.dao.XyqbRepayPlanResultMapper">
+  <resultMap id="BaseResultMap" type="com.marvels.dto.hexj.entity.XyqbRepayPlanResult">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="serno" jdbcType="VARCHAR" property="serno" />
+    <result column="loanNo" jdbcType="VARCHAR" property="loanNo" />
+    <result column="applSeq" jdbcType="VARCHAR" property="applSeq" />
+    <result column="applyDt" jdbcType="VARCHAR" property="applyDt" />
+    <result column="apprvAmt" jdbcType="DECIMAL" property="apprvAmt" />
+    <result column="apprvTnr" jdbcType="VARCHAR" property="apprvTnr" />
+    <result column="applyTnrTyp" jdbcType="VARCHAR" property="applyTnrTyp" />
+    <result column="cooprCde" jdbcType="VARCHAR" property="cooprCde" />
+    <result column="cooprName" jdbcType="VARCHAR" property="cooprName" />
+    <result column="channelNo" jdbcType="VARCHAR" property="channelNo" />
+    <result column="superCoopr" jdbcType="VARCHAR" property="superCoopr" />
+    <result column="contNo" jdbcType="VARCHAR" property="contNo" />
+    <result column="idNo" jdbcType="VARCHAR" property="idNo" />
+    <result column="loanMode" jdbcType="VARCHAR" property="loanMode" />
+    <result column="mtdCde" jdbcType="VARCHAR" property="mtdCde" />
+    <result column="mtdDesc" jdbcType="VARCHAR" property="mtdDesc" />
+    <result column="typGrp" jdbcType="VARCHAR" property="typGrp" />
+    <result column="loanTyp" jdbcType="VARCHAR" property="loanTyp" />
+    <result column="nextDueDt" jdbcType="VARCHAR" property="nextDueDt" />
+    <result column="lastDueDt" jdbcType="VARCHAR" property="lastDueDt" />
+    <result column="loanOdInd" jdbcType="VARCHAR" property="loanOdInd" />
+    <result column="creation_date" jdbcType="TIMESTAMP" property="creation_date" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="update_date" />
+    <result column="created_by" jdbcType="VARCHAR" property="created_by" />
+    <result column="updated_by" jdbcType="VARCHAR" property="updated_by" />
+    <result column="version" jdbcType="BIGINT" property="version" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, serno, loanNo, applSeq, applyDt, apprvAmt, apprvTnr, applyTnrTyp, cooprCde, cooprName, 
+    channelNo, superCoopr, contNo, idNo, loanMode, mtdCde, mtdDesc, typGrp, loanTyp, 
+    nextDueDt, lastDueDt, loanOdInd, creation_date, update_date, created_by, updated_by, 
+    version
+  </sql>
+  <select id="selectByExample" parameterType="com.marvels.dto.hexj.entity.XyqbRepayPlanResultExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from xyqb_repay_plan_result
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xyqb_repay_plan_result
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from xyqb_repay_plan_result
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.marvels.dto.hexj.entity.XyqbRepayPlanResultExample">
+    delete from xyqb_repay_plan_result
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.marvels.dto.hexj.entity.XyqbRepayPlanResult">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into xyqb_repay_plan_result (serno, loanNo, applSeq, 
+      applyDt, apprvAmt, apprvTnr, 
+      applyTnrTyp, cooprCde, cooprName, 
+      channelNo, superCoopr, contNo, 
+      idNo, loanMode, mtdCde, 
+      mtdDesc, typGrp, loanTyp, 
+      nextDueDt, lastDueDt, loanOdInd, 
+      creation_date, update_date, created_by, 
+      updated_by, version)
+    values (#{serno,jdbcType=VARCHAR}, #{loanNo,jdbcType=VARCHAR}, #{applSeq,jdbcType=VARCHAR}, 
+      #{applyDt,jdbcType=VARCHAR}, #{apprvAmt,jdbcType=DECIMAL}, #{apprvTnr,jdbcType=VARCHAR}, 
+      #{applyTnrTyp,jdbcType=VARCHAR}, #{cooprCde,jdbcType=VARCHAR}, #{cooprName,jdbcType=VARCHAR}, 
+      #{channelNo,jdbcType=VARCHAR}, #{superCoopr,jdbcType=VARCHAR}, #{contNo,jdbcType=VARCHAR}, 
+      #{idNo,jdbcType=VARCHAR}, #{loanMode,jdbcType=VARCHAR}, #{mtdCde,jdbcType=VARCHAR}, 
+      #{mtdDesc,jdbcType=VARCHAR}, #{typGrp,jdbcType=VARCHAR}, #{loanTyp,jdbcType=VARCHAR}, 
+      #{nextDueDt,jdbcType=VARCHAR}, #{lastDueDt,jdbcType=VARCHAR}, #{loanOdInd,jdbcType=VARCHAR}, 
+      #{creation_date,jdbcType=TIMESTAMP}, #{update_date,jdbcType=TIMESTAMP}, #{created_by,jdbcType=VARCHAR}, 
+      #{updated_by,jdbcType=VARCHAR}, #{version,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.marvels.dto.hexj.entity.XyqbRepayPlanResult">
+    insert into xyqb_repay_plan_result
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+    	<if test="id != null">
+        id,
+      </if>
+      <if test="serno != null">
+        serno,
+      </if>
+      <if test="loanNo != null">
+        loanNo,
+      </if>
+      <if test="applSeq != null">
+        applSeq,
+      </if>
+      <if test="applyDt != null">
+        applyDt,
+      </if>
+      <if test="apprvAmt != null">
+        apprvAmt,
+      </if>
+      <if test="apprvTnr != null">
+        apprvTnr,
+      </if>
+      <if test="applyTnrTyp != null">
+        applyTnrTyp,
+      </if>
+      <if test="cooprCde != null">
+        cooprCde,
+      </if>
+      <if test="cooprName != null">
+        cooprName,
+      </if>
+      <if test="channelNo != null">
+        channelNo,
+      </if>
+      <if test="superCoopr != null">
+        superCoopr,
+      </if>
+      <if test="contNo != null">
+        contNo,
+      </if>
+      <if test="idNo != null">
+        idNo,
+      </if>
+      <if test="loanMode != null">
+        loanMode,
+      </if>
+      <if test="mtdCde != null">
+        mtdCde,
+      </if>
+      <if test="mtdDesc != null">
+        mtdDesc,
+      </if>
+      <if test="typGrp != null">
+        typGrp,
+      </if>
+      <if test="loanTyp != null">
+        loanTyp,
+      </if>
+      <if test="nextDueDt != null">
+        nextDueDt,
+      </if>
+      <if test="lastDueDt != null">
+        lastDueDt,
+      </if>
+      <if test="loanOdInd != null">
+        loanOdInd,
+      </if>
+      <if test="creation_date != null">
+        creation_date,
+      </if>
+      <if test="update_date != null">
+        update_date,
+      </if>
+      <if test="created_by != null">
+        created_by,
+      </if>
+      <if test="updated_by != null">
+        updated_by,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+    	<if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="serno != null">
+        #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="loanNo != null">
+        #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applSeq != null">
+        #{applSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDt != null">
+        #{applyDt,jdbcType=VARCHAR},
+      </if>
+      <if test="apprvAmt != null">
+        #{apprvAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="apprvTnr != null">
+        #{apprvTnr,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTnrTyp != null">
+        #{applyTnrTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="cooprCde != null">
+        #{cooprCde,jdbcType=VARCHAR},
+      </if>
+      <if test="cooprName != null">
+        #{cooprName,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNo != null">
+        #{channelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="superCoopr != null">
+        #{superCoopr,jdbcType=VARCHAR},
+      </if>
+      <if test="contNo != null">
+        #{contNo,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null">
+        #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanMode != null">
+        #{loanMode,jdbcType=VARCHAR},
+      </if>
+      <if test="mtdCde != null">
+        #{mtdCde,jdbcType=VARCHAR},
+      </if>
+      <if test="mtdDesc != null">
+        #{mtdDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="typGrp != null">
+        #{typGrp,jdbcType=VARCHAR},
+      </if>
+      <if test="loanTyp != null">
+        #{loanTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="nextDueDt != null">
+        #{nextDueDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastDueDt != null">
+        #{lastDueDt,jdbcType=VARCHAR},
+      </if>
+      <if test="loanOdInd != null">
+        #{loanOdInd,jdbcType=VARCHAR},
+      </if>
+      <if test="creation_date != null">
+        #{creation_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_date != null">
+        #{update_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="created_by != null">
+        #{created_by,jdbcType=VARCHAR},
+      </if>
+      <if test="updated_by != null">
+        #{updated_by,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.marvels.dto.hexj.entity.XyqbRepayPlanResultExample" resultType="java.lang.Long">
+    select count(*) from xyqb_repay_plan_result
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update xyqb_repay_plan_result
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serno != null">
+        serno = #{record.serno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanNo != null">
+        loanNo = #{record.loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applSeq != null">
+        applSeq = #{record.applSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyDt != null">
+        applyDt = #{record.applyDt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.apprvAmt != null">
+        apprvAmt = #{record.apprvAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="record.apprvTnr != null">
+        apprvTnr = #{record.apprvTnr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyTnrTyp != null">
+        applyTnrTyp = #{record.applyTnrTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cooprCde != null">
+        cooprCde = #{record.cooprCde,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cooprName != null">
+        cooprName = #{record.cooprName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channelNo != null">
+        channelNo = #{record.channelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.superCoopr != null">
+        superCoopr = #{record.superCoopr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contNo != null">
+        contNo = #{record.contNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idNo != null">
+        idNo = #{record.idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanMode != null">
+        loanMode = #{record.loanMode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mtdCde != null">
+        mtdCde = #{record.mtdCde,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mtdDesc != null">
+        mtdDesc = #{record.mtdDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typGrp != null">
+        typGrp = #{record.typGrp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanTyp != null">
+        loanTyp = #{record.loanTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nextDueDt != null">
+        nextDueDt = #{record.nextDueDt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastDueDt != null">
+        lastDueDt = #{record.lastDueDt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loanOdInd != null">
+        loanOdInd = #{record.loanOdInd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creation_date != null">
+        creation_date = #{record.creation_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.update_date != null">
+        update_date = #{record.update_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.created_by != null">
+        created_by = #{record.created_by,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updated_by != null">
+        updated_by = #{record.updated_by,jdbcType=VARCHAR},
+      </if>
+      <if test="record.version != null">
+        version = #{record.version,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update xyqb_repay_plan_result
+    set id = #{record.id,jdbcType=VARCHAR},
+      serno = #{record.serno,jdbcType=VARCHAR},
+      loanNo = #{record.loanNo,jdbcType=VARCHAR},
+      applSeq = #{record.applSeq,jdbcType=VARCHAR},
+      applyDt = #{record.applyDt,jdbcType=VARCHAR},
+      apprvAmt = #{record.apprvAmt,jdbcType=DECIMAL},
+      apprvTnr = #{record.apprvTnr,jdbcType=VARCHAR},
+      applyTnrTyp = #{record.applyTnrTyp,jdbcType=VARCHAR},
+      cooprCde = #{record.cooprCde,jdbcType=VARCHAR},
+      cooprName = #{record.cooprName,jdbcType=VARCHAR},
+      channelNo = #{record.channelNo,jdbcType=VARCHAR},
+      superCoopr = #{record.superCoopr,jdbcType=VARCHAR},
+      contNo = #{record.contNo,jdbcType=VARCHAR},
+      idNo = #{record.idNo,jdbcType=VARCHAR},
+      loanMode = #{record.loanMode,jdbcType=VARCHAR},
+      mtdCde = #{record.mtdCde,jdbcType=VARCHAR},
+      mtdDesc = #{record.mtdDesc,jdbcType=VARCHAR},
+      typGrp = #{record.typGrp,jdbcType=VARCHAR},
+      loanTyp = #{record.loanTyp,jdbcType=VARCHAR},
+      nextDueDt = #{record.nextDueDt,jdbcType=VARCHAR},
+      lastDueDt = #{record.lastDueDt,jdbcType=VARCHAR},
+      loanOdInd = #{record.loanOdInd,jdbcType=VARCHAR},
+      creation_date = #{record.creation_date,jdbcType=TIMESTAMP},
+      update_date = #{record.update_date,jdbcType=TIMESTAMP},
+      created_by = #{record.created_by,jdbcType=VARCHAR},
+      updated_by = #{record.updated_by,jdbcType=VARCHAR},
+      version = #{record.version,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.marvels.dto.hexj.entity.XyqbRepayPlanResult">
+    update xyqb_repay_plan_result
+    <set>
+      <if test="serno != null">
+        serno = #{serno,jdbcType=VARCHAR},
+      </if>
+      <if test="loanNo != null">
+        loanNo = #{loanNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applSeq != null">
+        applSeq = #{applSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDt != null">
+        applyDt = #{applyDt,jdbcType=VARCHAR},
+      </if>
+      <if test="apprvAmt != null">
+        apprvAmt = #{apprvAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="apprvTnr != null">
+        apprvTnr = #{apprvTnr,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTnrTyp != null">
+        applyTnrTyp = #{applyTnrTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="cooprCde != null">
+        cooprCde = #{cooprCde,jdbcType=VARCHAR},
+      </if>
+      <if test="cooprName != null">
+        cooprName = #{cooprName,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNo != null">
+        channelNo = #{channelNo,jdbcType=VARCHAR},
+      </if>
+      <if test="superCoopr != null">
+        superCoopr = #{superCoopr,jdbcType=VARCHAR},
+      </if>
+      <if test="contNo != null">
+        contNo = #{contNo,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null">
+        idNo = #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanMode != null">
+        loanMode = #{loanMode,jdbcType=VARCHAR},
+      </if>
+      <if test="mtdCde != null">
+        mtdCde = #{mtdCde,jdbcType=VARCHAR},
+      </if>
+      <if test="mtdDesc != null">
+        mtdDesc = #{mtdDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="typGrp != null">
+        typGrp = #{typGrp,jdbcType=VARCHAR},
+      </if>
+      <if test="loanTyp != null">
+        loanTyp = #{loanTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="nextDueDt != null">
+        nextDueDt = #{nextDueDt,jdbcType=VARCHAR},
+      </if>
+      <if test="lastDueDt != null">
+        lastDueDt = #{lastDueDt,jdbcType=VARCHAR},
+      </if>
+      <if test="loanOdInd != null">
+        loanOdInd = #{loanOdInd,jdbcType=VARCHAR},
+      </if>
+      <if test="creation_date != null">
+        creation_date = #{creation_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_date != null">
+        update_date = #{update_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="created_by != null">
+        created_by = #{created_by,jdbcType=VARCHAR},
+      </if>
+      <if test="updated_by != null">
+        updated_by = #{updated_by,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.marvels.dto.hexj.entity.XyqbRepayPlanResult">
+    update xyqb_repay_plan_result
+    set serno = #{serno,jdbcType=VARCHAR},
+      loanNo = #{loanNo,jdbcType=VARCHAR},
+      applSeq = #{applSeq,jdbcType=VARCHAR},
+      applyDt = #{applyDt,jdbcType=VARCHAR},
+      apprvAmt = #{apprvAmt,jdbcType=DECIMAL},
+      apprvTnr = #{apprvTnr,jdbcType=VARCHAR},
+      applyTnrTyp = #{applyTnrTyp,jdbcType=VARCHAR},
+      cooprCde = #{cooprCde,jdbcType=VARCHAR},
+      cooprName = #{cooprName,jdbcType=VARCHAR},
+      channelNo = #{channelNo,jdbcType=VARCHAR},
+      superCoopr = #{superCoopr,jdbcType=VARCHAR},
+      contNo = #{contNo,jdbcType=VARCHAR},
+      idNo = #{idNo,jdbcType=VARCHAR},
+      loanMode = #{loanMode,jdbcType=VARCHAR},
+      mtdCde = #{mtdCde,jdbcType=VARCHAR},
+      mtdDesc = #{mtdDesc,jdbcType=VARCHAR},
+      typGrp = #{typGrp,jdbcType=VARCHAR},
+      loanTyp = #{loanTyp,jdbcType=VARCHAR},
+      nextDueDt = #{nextDueDt,jdbcType=VARCHAR},
+      lastDueDt = #{lastDueDt,jdbcType=VARCHAR},
+      loanOdInd = #{loanOdInd,jdbcType=VARCHAR},
+      creation_date = #{creation_date,jdbcType=TIMESTAMP},
+      update_date = #{update_date,jdbcType=TIMESTAMP},
+      created_by = #{created_by,jdbcType=VARCHAR},
+      updated_by = #{updated_by,jdbcType=VARCHAR},
+      version = #{version,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
