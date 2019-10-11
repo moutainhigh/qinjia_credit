@@ -34,7 +34,7 @@ public class QjItfLogServiceImpl implements QjItfLogService {
     @Override
     @Async("asyncPromiseExecutor")
     public void inParamsItfLog(String itfCode, Object inParam, Object outParam) {
-        log.info("异步执行开始");
+        log.info(String.format("接口日志调用：itfCode=【{}】，inParam=【{}】，outParam=【{}】",itfCode,inParam,outParam));
         if(CommonUtil.validEmpty(itfCode)) {
             log.error("接口编码为空");
             return;
@@ -52,7 +52,5 @@ public class QjItfLogServiceImpl implements QjItfLogService {
         qjItfLog.setInParam(in);
         qjItfLog.setOutParam(out);
         qjItfLogDao.addQjItfLog(qjItfLog);
-
-        log.info("异步执行结束");
     }
 }
