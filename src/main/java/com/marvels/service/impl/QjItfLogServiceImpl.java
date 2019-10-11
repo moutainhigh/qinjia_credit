@@ -3,10 +3,10 @@ package com.marvels.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.marvels.common.enums.PublicEnums;
 import com.marvels.common.util.CommonUtil;
+import com.marvels.common.util.MarvelsLogUtil;
 import com.marvels.dao.QjItfLogDao;
 import com.marvels.dto.common.QjItfLog;
 import com.marvels.service.QjItfLogService;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,8 @@ import org.springframework.stereotype.Service;
 @Service("qjItfLogService")
 public class QjItfLogServiceImpl implements QjItfLogService {
     /** 日志 */
-    private Logger log = Logger.getLogger(QjItfLogServiceImpl.class);
+    private MarvelsLogUtil log = MarvelsLogUtil.getInstance();
+
     @Autowired
     private QjItfLogDao qjItfLogDao;
 
@@ -33,12 +34,6 @@ public class QjItfLogServiceImpl implements QjItfLogService {
     @Override
     @Async("asyncPromiseExecutor")
     public void inParamsItfLog(String itfCode, Object inParam, Object outParam) {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         log.info("异步执行开始");
 //        if(CommonUtil.validEmpty(itfCode)) {
 //            log.error("接口编码为空");
