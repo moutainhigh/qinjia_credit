@@ -1,5 +1,8 @@
 package com.marvels.common.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 工具类
  * @author houyl
@@ -17,19 +20,22 @@ public class CommonUtil {
             return true;
         }
 
+        boolean result = false;
         for(Object obj : objs) {
+            if(result) {
+                return true;
+            }
+
             if(obj instanceof String) {
                 String objStr = (String)obj;
-                if(objStr != null && "".equals(objStr.trim())) {
-                    return false;
+                if(objStr == null || "".equals(objStr.trim())) {
+                    result = true;
                 }
-            }else {
-                if(obj != null) {
-                    return false;
-                }
+            }else if(obj == null){
+                result = true;
             }
         }
 
-        return true;
+        return result;
     }
 }

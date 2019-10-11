@@ -35,10 +35,10 @@ public class QjItfLogServiceImpl implements QjItfLogService {
     @Async("asyncPromiseExecutor")
     public void inParamsItfLog(String itfCode, Object inParam, Object outParam) {
         log.info("异步执行开始");
-//        if(CommonUtil.validEmpty(itfCode)) {
-//            log.error("接口编码为空");
-//            return;
-//        }
+        if(CommonUtil.validEmpty(itfCode)) {
+            log.error("接口编码为空");
+            return;
+        }
 
         // 接口名称
         String itfName = Enum.valueOf(PublicEnums.InterfaceCodeEnum.class, itfCode).getDesc();
