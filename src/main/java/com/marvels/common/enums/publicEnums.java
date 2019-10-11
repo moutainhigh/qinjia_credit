@@ -1,12 +1,20 @@
 package com.marvels.common.enums;
-
+/**
+ * 
+ * @author Administrator
+ *
+ */
 public class publicEnums {
 	/**
 	 * 接口名称枚举
+	 * 
 	 * @author Administrator
 	 *
 	 */
-	 enum interfaceCodeEnum {
+	 public enum interfaceCodeEnum {
+		/**
+		 * 接口
+		 */
 		ITF00012("ITF00012","获取申请编号"),
 		SY00601("SY00601","贷款申请新增提交"),
 		ITF000031("ITF000031","亲家消费贷款审批查询接口"),
@@ -20,7 +28,7 @@ public class publicEnums {
 		SY00209("SY00209","提前结清申请提交实时接口");
 		private String code;
 	    private String desc;
-	    private interfaceCodeEnum(String code, String desc) {
+	    interfaceCodeEnum(String code, String desc) {
 	        this.code = code;
 	        this.desc = desc;
 	    }
