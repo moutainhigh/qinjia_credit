@@ -4,14 +4,14 @@ package com.marvels.common.enums;
  * @author Administrator
  *
  */
-public class publicEnums {
+public class PublicEnums {
 	/**
 	 * 接口名称枚举
 	 * 
 	 * @author Administrator
 	 *
 	 */
-	 public enum interfaceCodeEnum {
+	 public enum InterfaceCodeEnum {
 		/**
 		 * 接口
 		 */
@@ -28,7 +28,7 @@ public class publicEnums {
 		SY00209("SY00209","提前结清申请提交实时接口");
 		private String code;
 	    private String desc;
-	    interfaceCodeEnum(String code, String desc) {
+	    InterfaceCodeEnum(String code, String desc) {
 	        this.code = code;
 	        this.desc = desc;
 	    }
