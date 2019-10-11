@@ -43,4 +43,10 @@ public class SyResponseDto {
     public void setBody(String body) {
         this.body = body;
     }
+
+    @Override
+    public String toString() {
+        return "ReqToHaierResultDto [ec=" + ec + ", em=" + em
+                + ", body=" + body + "]";
+    }
 }
