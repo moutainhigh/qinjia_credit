@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.marvels.dao.QjItfLogDao" >
+
+  <insert id="addQjItfLog" parameterType="com.marvels.dto.common.QjItfLog">
+    insert into QJ_ITF_LOG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ITF_CODE,
+      ITF_NAME,
+      IN_PARAM,
+      OUT_PARAM,
+      REC_ADD_USR,
+      REC_UPD_USR,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{ itfCode,jdbcType=VARCHAR },
+      #{ itfName,jdbcType=VARCHAR },
+      #{ inParam,jdbcType=VARCHAR },
+      #{ outParam,jdbcType=VARCHAR },
+      "sys",
+      "sys",
+    </trim>
+  </insert>
+
+</mapper>

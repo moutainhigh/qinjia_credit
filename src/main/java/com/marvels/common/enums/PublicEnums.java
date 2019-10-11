@@ -1,6 +1,7 @@
 package com.marvels.common.enums;
+
 /**
- * 
+ * 公共枚举类
  * @author Administrator
  *
  */
@@ -35,14 +36,9 @@ public class PublicEnums {
 		public String getCode() {
 			return code;
 		}
-		public void setCode(String code) {
-			this.code = code;
-		}
 		public String getDesc() {
 			return desc;
 		}
-		public void setDesc(String desc) {
-			this.desc = desc;
-		}
 	}
+
 }

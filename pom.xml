@@ -46,12 +46,6 @@
 				<classifier>jdk15</classifier>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>com.dragon</groupId>-->
-<!--			<artifactId>core-common</artifactId>-->
-<!--			<version>1.0.0</version>-->
-<!--		</dependency>-->
-
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -84,16 +78,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-batch</artifactId>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>aspose-cells</groupId>-->
-<!--			<artifactId>aspose-cells</artifactId>-->
-<!--			<version>8.5.2</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.hutool</groupId>-->
-<!--			<artifactId>hutool-all</artifactId>-->
-<!--			<version>4.5.0</version>-->
-<!--		</dependency>-->
 
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -208,6 +192,12 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.22</version>
 		</dependency>
     </dependencies>
 	<build>

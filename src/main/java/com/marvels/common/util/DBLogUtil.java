@@ -1,6 +1,5 @@
 package com.marvels.common.util;
 
-import com.marvels.dao.XyqbReqInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,9 +14,6 @@ import java.lang.reflect.Field;
 @Component
 public class DBLogUtil {
 
-	@Autowired
-	private XyqbReqInfoMapper xyqbReqInfoMapper;
-	
 	/**
 	 * 记录请求响应日志
 	 * @param req  请求报文
