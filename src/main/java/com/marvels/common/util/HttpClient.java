@@ -17,7 +17,7 @@
  *│ 版权声明                               haiercash       │
  *└──────────────────────────────—————————————————————───┘
  */
-package com.marvels.common.util.hexj.utils;
+package com.marvels.common.util;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

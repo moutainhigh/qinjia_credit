@@ -1,4 +1,4 @@
-package com.marvels.common.util.hexj.utils;
+package com.marvels.common.util;
 
 /**
  * @author liuhongbin

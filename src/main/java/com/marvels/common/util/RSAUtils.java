@@ -1,4 +1,4 @@
-package com.marvels.common.util.hexj.utils;
+package com.marvels.common.util;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.CharUtils;

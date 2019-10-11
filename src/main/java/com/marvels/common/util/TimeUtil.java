@@ -18,7 +18,7 @@
  *└──────────────────────────────—————————————————————───┘
  */
 
-package com.marvels.common.util.hexj.utils;
+package com.marvels.common.util;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
