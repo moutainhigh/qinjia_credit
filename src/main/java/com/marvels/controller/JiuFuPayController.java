@@ -1,7 +1,7 @@
 package com.marvels.controller;
 
 import com.marvels.dto.jf.*;
-import com.marvels.service.JiuFuPayService;
+import com.marvels.service.JfApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping
-public class JiuFuPayController {
+public class JiuFuPayController extends BaseController{
 	@Autowired
-    private JiuFuPayService jiufuPayService;
+    private JfApiService jfApiService;
 
 	/**
 	 * 支持的银行卡列表查询
@@ -25,7 +25,11 @@ public class JiuFuPayController {
 	 */
 	@RequestMapping("credit/jf/ITF00012")
 	public JfResponseDto queryBankList(@RequestBody JfRequestDto<JfQueryBankListReq> request) throws Exception {
-		return jiufuPayService.queryBankList(request);
+        JfResponseDto result = super.buildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+	    return jfApiService.queryBankList(request);
 	}
 	
 	/**
@@ -35,7 +39,11 @@ public class JiuFuPayController {
 	 */
 	@RequestMapping("credit/jf/ITF00012")
 	public JfResponseDto queryCardBin(@RequestBody JfRequestDto<JfQueryCardBinReq> request) throws Exception {
-		return jiufuPayService.queryCardBin(request);
+        JfResponseDto result = super.buildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+	    return jfApiService.queryCardBin(request);
 	}
 	
 	/**
@@ -45,7 +53,11 @@ public class JiuFuPayController {
 	 */
 	@RequestMapping("credit/jf/ITF00012")
 	public JfResponseDto queryAuthCard(@RequestBody JfRequestDto<JfQueryAuthCardReq> request) throws Exception {
-		return jiufuPayService.queryAuthCard(request);
+        JfResponseDto result = super.buildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+	    return jfApiService.queryAuthCard(request);
 	}
 	
 	/**
@@ -55,7 +67,11 @@ public class JiuFuPayController {
 	 */
 	@RequestMapping("credit/jf/ITF00012")
 	public JfResponseDto signApply(@RequestBody JfRequestDto<JfSignApplyReq> request) throws Exception {
-		return jiufuPayService.signApply(request);
+        JfResponseDto result = super.buildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+	    return jfApiService.signApply(request);
 	}
 	
 	/**
@@ -65,6 +81,10 @@ public class JiuFuPayController {
 	 */
 	@RequestMapping("credit/jf/ITF00012")
 	public JfResponseDto confirmSign(@RequestBody JfRequestDto<JfConfirmSignReq> request) throws Exception {
-		return jiufuPayService.confirmSign(request);
+        JfResponseDto result = super.buildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+	    return jfApiService.confirmSign(request);
 	}
 }
