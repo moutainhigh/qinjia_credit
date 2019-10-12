@@ -48,8 +48,8 @@ public class BaseController {
      * @param request 接口请求参数
      * @return
      */
-    public JfResponseDto buildSysCode(JfRequestDto request) {
-        JfResponseDto result = new JfResponseDto();
+    public JfResponseDto buildSysCode(JfRequestDto<?> request) {
+        JfResponseDto result = null;
         if(CommonUtil.validEmpty(request,request.getHead())) {
             result = new JfResponseDto("10001E","参数不能为空");
             return result;
