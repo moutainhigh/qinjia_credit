@@ -7,7 +7,7 @@ import com.marvels.dto.jf.JfRequestDto;
 import com.marvels.dto.jf.JfResponseDto;
 
 /**
- * 对接玖富资金方
+ * 对接玖富资金方-下单业务接口
  * @author Administrator
  *
  */

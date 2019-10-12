@@ -7,7 +7,7 @@ import com.marvels.dto.jf.JfRequestDto;
 import com.marvels.dto.jf.JfResponseDto;
 
 /**
- * 对接玖富资金方
+ * 对接玖富资金方-授信业务接口
  * @author Administrator
  *
  */
@@ -16,12 +16,22 @@ import com.marvels.dto.jf.JfResponseDto;
 public class JiuFuCreditController {
 	
 	/**
-	 * 获取申请编号
+	 *授信请求
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("credit/jf/ITF00012")
-	public JfResponseDto ITF00012(JfRequestDto request) throws Exception {
+	@RequestMapping("credit/center/applyQuota/v2")
+	public JfResponseDto applyQuota(JfRequestDto request) throws Exception {
+		return new JfResponseDto();
+	}
+	
+	/**
+	 *授信结果查询
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("credit/center/query/result/v2")
+	public JfResponseDto queryApplyResult(JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
 }

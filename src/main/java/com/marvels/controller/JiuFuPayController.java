@@ -7,7 +7,7 @@ import com.marvels.dto.jf.JfRequestDto;
 import com.marvels.dto.jf.JfResponseDto;
 
 /**
- * 对接玖富资金方
+ * 对接玖富资金方-支付业务接口
  * @author Administrator
  *
  */
@@ -16,12 +16,52 @@ import com.marvels.dto.jf.JfResponseDto;
 public class JiuFuPayController {
 	
 	/**
-	 * 获取申请编号
+	 * 支持的银行卡列表查询
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("credit/jf/ITF00012")
-	public JfResponseDto ITF00012(JfRequestDto request) throws Exception {
+	public JfResponseDto queryBankList(JfRequestDto request) throws Exception {
+		return new JfResponseDto();
+	}
+	
+	/**
+	 * 卡bin查询
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("credit/jf/ITF00012")
+	public JfResponseDto queryCardBin(JfRequestDto request) throws Exception {
+		return new JfResponseDto();
+	}
+	
+	/**
+	 * 鉴权查询
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("credit/jf/ITF00012")
+	public JfResponseDto queryAuthCard(JfRequestDto request) throws Exception {
+		return new JfResponseDto();
+	}
+	
+	/**
+	 * 签约申请
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("credit/jf/ITF00012")
+	public JfResponseDto signApply(JfRequestDto request) throws Exception {
+		return new JfResponseDto();
+	}
+	
+	/**
+	 * 签约确认
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("credit/jf/ITF00012")
+	public JfResponseDto confirmSign(JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
 }
