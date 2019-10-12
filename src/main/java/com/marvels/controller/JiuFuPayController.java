@@ -25,7 +25,7 @@ public class JiuFuPayController extends BaseController{
 	 */
 	@RequestMapping("credit/jf/ITF00012")
 	public JfResponseDto queryBankList(@RequestBody JfRequestDto<JfQueryBankListReq> request) throws Exception {
-        JfResponseDto result = super.buildSysCode(request);
+        JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
         }
@@ -39,7 +39,7 @@ public class JiuFuPayController extends BaseController{
 	 */
 	@RequestMapping("credit/jf/ITF00012")
 	public JfResponseDto queryCardBin(@RequestBody JfRequestDto<JfQueryCardBinReq> request) throws Exception {
-        JfResponseDto result = super.buildSysCode(request);
+        JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
         }
@@ -53,7 +53,7 @@ public class JiuFuPayController extends BaseController{
 	 */
 	@RequestMapping("credit/jf/ITF00012")
 	public JfResponseDto queryAuthCard(@RequestBody JfRequestDto<JfQueryAuthCardReq> request) throws Exception {
-        JfResponseDto result = super.buildSysCode(request);
+        JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
         }
@@ -67,7 +67,7 @@ public class JiuFuPayController extends BaseController{
 	 */
 	@RequestMapping("credit/jf/ITF00012")
 	public JfResponseDto signApply(@RequestBody JfRequestDto<JfSignApplyReq> request) throws Exception {
-        JfResponseDto result = super.buildSysCode(request);
+        JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
         }
@@ -81,7 +81,7 @@ public class JiuFuPayController extends BaseController{
 	 */
 	@RequestMapping("credit/jf/ITF00012")
 	public JfResponseDto confirmSign(@RequestBody JfRequestDto<JfConfirmSignReq> request) throws Exception {
-        JfResponseDto result = super.buildSysCode(request);
+        JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
         }

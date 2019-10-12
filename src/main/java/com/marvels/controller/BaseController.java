@@ -4,8 +4,6 @@ import com.marvels.common.util.CommonUtil;
 import com.marvels.common.util.PropertiesLoadUtil;
 import com.marvels.dto.jf.JfRequestDto;
 import com.marvels.dto.jf.JfResponseDto;
-import com.marvels.service.QjItfLogService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * controller基础类

@@ -32,7 +32,7 @@ public class JiuFuCreditController extends BaseController{
 	 */
 	@RequestMapping("credit/center/applyQuota/v2")
 	public JfResponseDto applyQuota(JfRequestDto<JfApplyQuotaReq> request) throws Exception {
-		JfResponseDto result = super.buildSysCode(request);
+		JfResponseDto result = super.checkBuildSysCode(request);
 		if (null != result)  {
 			return result;
 		}
