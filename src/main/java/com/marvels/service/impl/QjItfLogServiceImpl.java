@@ -33,7 +33,7 @@ public class QjItfLogServiceImpl implements QjItfLogService {
      */
     @Override
     @Async("asyncPromiseExecutor")
-    public void inParamsItfLog(String itfCode, Object inParam, Object outParam) {
+    public void inOutParamsItfLog(String itfCode, Object inParam, Object outParam) {
         log.info(String.format("接口日志调用：itfCode=【{}】，inParam=【{}】，outParam=【{}】",itfCode,inParam,outParam));
         if(CommonUtil.validEmpty(itfCode)) {
             log.error("接口编码为空");

@@ -1,5 +1,10 @@
 package com.marvels.controller;
 
+import com.marvels.common.util.CommonUtil;
+import com.marvels.dto.jf.CifAuthNameDto;
+import com.marvels.service.QjItfLogService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +19,9 @@ import com.marvels.dto.jf.JfResponseDto;
 @RestController
 @RequestMapping
 public class JiuFuCustomerController {
+
+	@Autowired
+	private QjItfLogService qjItfLogService;
 	
 	/**
 	 * 实名认证
@@ -21,7 +29,17 @@ public class JiuFuCustomerController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/ocr/upload")
-	public JfResponseDto authName(JfRequestDto request) throws Exception {
+	public JfResponseDto authName(@RequestBody JfRequestDto request) throws Exception {
+		// 处理系统标识
+		JfRequestDto jfRequest = CommonUtil.buildSysCode(request);
+		if(jfRequest == null) {
+			return new JfResponseDto();
+		}
+
+		// 请求玖富接口
+
+		// 接口出入参入库
+		qjItfLogService.inOutParamsItfLog("",request,null);
 		return new JfResponseDto();
 	}
 	
@@ -31,7 +49,7 @@ public class JiuFuCustomerController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/customerFace/faceRecogSave/v1")
-	public JfResponseDto faceRecogSave(JfRequestDto request) throws Exception {
+	public JfResponseDto faceRecogSave(@RequestBody JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
 	
@@ -41,7 +59,7 @@ public class JiuFuCustomerController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/CustomerKyc/saveCustomerKyc/v1")
-	public JfResponseDto saveCustomerKyc(JfRequestDto request) throws Exception {
+	public JfResponseDto saveCustomerKyc(@RequestBody JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
 	
@@ -51,7 +69,7 @@ public class JiuFuCustomerController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/CustomerBaseInfo2Out/getCustomerBaseInfo/v1")
-	public JfResponseDto getCustomerBaseInfo(JfRequestDto request) throws Exception {
+	public JfResponseDto getCustomerBaseInfo(@RequestBody JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
 	
@@ -61,7 +79,7 @@ public class JiuFuCustomerController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/CustomerBaseInfo2Out/getCustomerBaseInfoByIdNo/v1")
-	public JfResponseDto getCustomerBaseInfoByIdNo(JfRequestDto request) throws Exception {
+	public JfResponseDto getCustomerBaseInfoByIdNo(@RequestBody JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
 	
@@ -71,7 +89,7 @@ public class JiuFuCustomerController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/bankCard/authorize/v1")
-	public JfResponseDto authBankCard(JfRequestDto request) throws Exception {
+	public JfResponseDto authBankCard(@RequestBody JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
 	
@@ -81,7 +99,7 @@ public class JiuFuCustomerController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/operator/authorize/v1")
-	public JfResponseDto authOperator(JfRequestDto request) throws Exception {
+	public JfResponseDto authOperator(@RequestBody JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
 	
@@ -91,7 +109,7 @@ public class JiuFuCustomerController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/creditCard/authorize/v1")
-	public JfResponseDto authCreditCard(JfRequestDto request) throws Exception {
+	public JfResponseDto authCreditCard(@RequestBody JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
 	
@@ -101,7 +119,7 @@ public class JiuFuCustomerController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/bankCard/query/v1")
-	public JfResponseDto queryBankCard(JfRequestDto request) throws Exception {
+	public JfResponseDto queryBankCard(@RequestBody JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
 	
@@ -111,7 +129,7 @@ public class JiuFuCustomerController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/authorize/status/v1")
-	public JfResponseDto queryCreditStatus(JfRequestDto request) throws Exception {
+	public JfResponseDto queryCreditStatus(@RequestBody JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
 	
@@ -121,7 +139,7 @@ public class JiuFuCustomerController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/authorize/callback/v1")
-	public JfResponseDto callBackAuth(JfRequestDto request) throws Exception {
+	public JfResponseDto callBackAuth(@RequestBody JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
 	
@@ -131,7 +149,7 @@ public class JiuFuCustomerController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/tradingCard/changeCardSave/v1")
-	public JfResponseDto changeCard(JfRequestDto request) throws Exception {
+	public JfResponseDto changeCard(@RequestBody JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
 }
