@@ -13,6 +13,10 @@ import org.springframework.stereotype.Service;
 
 @Service("jfApiService")
 public class JfApiServiceImpl implements JfApiService {
+
+    @Autowired
+    private QjItfLogService qjItfLogService;
+
     /**
      * 发送post请求包装方法
      * @param syinterface
@@ -23,12 +27,9 @@ public class JfApiServiceImpl implements JfApiService {
         String url = PropertiesLoadUtil.getPropertiesValue("api.jiufu.url", "forms-openapi.properties");
         String questParam = JSON.toJSONString(param);
         String responseStr = HttpUtil.doPost(url + syinterface.getUri(), questParam);
-        qjItfLogService.inOutParamsItfLog(syinterface.getCode(),questParam,responseStr);
+        qjItfLogService.inOutParamsItfLog(syinterface,questParam,responseStr);
         return JSON.parseObject(responseStr, JfResponseDto.class);
     }
-	
-	@Autowired
-    private QjItfLogService qjItfLogService;
 
 	@Override
 	public JfResponseDto applyQuota(JfRequestDto<JfApplyQuotaReq> param) throws Exception {
@@ -60,4 +61,147 @@ public class JfApiServiceImpl implements JfApiService {
         return (JfResponseDto<JfConfirmSignRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
     }
 
+    /**
+     * 实名认证
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto authName(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5501, param);
+    }
+
+    /**
+     * 人脸识别结果上传
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto faceRecogSave(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5503, param);
+    }
+
+    /**
+     * KYC信息提交
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto saveCustomerKyc(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5504, param);
+    }
+
+    /**
+     * 客户基本信息查询
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto getCustomerBaseInfo(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5526, param);
+    }
+
+    /**
+     * 用于个人信息查询-基于身份证号码
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto getCustomerBaseInfoByIdNo(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5527, param);
+    }
+
+    /**
+     * 银行卡鉴权
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto authBankCard(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5507, param);
+    }
+
+    /**
+     * 运营商授权
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto authOperator(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5511, param);
+    }
+
+    /**
+     * 信用卡授权
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto authCreditCard(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5514, param);
+    }
+
+    /**
+     * 绑卡列表查询
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto queryBankCard(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5518, param);
+    }
+
+    /**
+     * 授信项状态查询
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto queryCreditStatus(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5519, param);
+    }
+
+    /**
+     * 商户接收授权结果
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto callBackAuth(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5524, param);
+    }
+
+    /**
+     * 交易绑卡落库
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto changeCard(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5528, param);
+    }
 }

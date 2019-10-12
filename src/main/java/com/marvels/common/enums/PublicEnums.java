@@ -62,15 +62,20 @@ public class PublicEnums {
 		/**
 		 * 接口
 		 */
-		JF5501("5501", "实名认证", "/cif/ocr/upload"), JF5503("5503", "人脸识别结果上传", "/cif/customerFace/faceRecogSave/v1"),
+		JF5501("5501", "实名认证", "/cif/ocr/upload"),
+		JF5503("5503", "人脸识别结果上传", "/cif/customerFace/faceRecogSave/v1"),
 		JF5504("5504", "KYC信息提交", "/cif/CustomerKyc/saveCustomerKyc/v1"),
 		JF5526("5526", "客户基本信息查询", "/cif/CustomerBaseInfo2Out/getCustomerBaseInfo/v1"),
 		JF5527("5527", "根据身份证号码查询客户基本信息", "/cif/CustomerBaseInfo2Out/getCustomerBaseInfoByIdNo/v1"),
-		JF5507("5507", "银行卡鉴权", "/cif/bankCard/authorize/v1"), JF5511("5511", "运营商授权", "/cif/operator/authorize/v1"),
-		JF5514("5514", "信用卡授权", "/cif/creditCard/authorize/v1"), JF5518("5518", "绑卡列表查询", "/cif/bankCard/query/v1"),
-		JF5519("5519", "授信项状态查询", "/cif/authorize/status/v1"), JF5524("5524", "商户接收授权结果", "/cif/authorize/callback/v1"),
-		JF5528("5528", "交易换绑卡落库", "/cif/tradingCard/changeCardSave/v1"),JF700005("700005", "授信请求", "/credit/center/applyQuota/v2"),
-		JF700006("700005", "授信结果查询", "/credit/center/query/result/v2");
+		JF5507("5507", "银行卡鉴权", "/cif/bankCard/authorize/v1"),
+		JF5511("5511", "运营商授权", "/cif/operator/authorize/v1"),
+		JF5514("5514", "信用卡授权", "/cif/creditCard/authorize/v1"),
+		JF5518("5518", "绑卡列表查询", "/cif/bankCard/query/v1"),
+		JF5519("5519", "授信项状态查询", "/cif/authorize/status/v1"),
+		JF5524("5524", "商户接收授权结果", "/cif/authorize/callback/v1"),
+		JF5528("5528", "交易换绑卡落库", "/cif/tradingCard/changeCardSave/v1"),
+		JF700005("700005", "授信请求", "/credit/center/applyQuota/v2"),
+		JF700006("700006", "授信结果查询", "/credit/center/query/result/v2");
 		private String code;
 		private String desc;
 		private String uri;

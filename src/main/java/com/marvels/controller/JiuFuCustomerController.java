@@ -1,19 +1,14 @@
 package com.marvels.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.marvels.common.enums.PublicEnums;
-import com.marvels.common.util.CommonUtil;
-import com.marvels.common.util.HttpUtil;
 import com.marvels.dto.jf.JfAuthNameReq;
-import com.marvels.dto.jf.JfAuthNameRes;
-import com.marvels.service.QjItfLogService;
+import com.marvels.dto.jf.JfRequestDto;
+import com.marvels.dto.jf.JfResponseDto;
+import com.marvels.service.JfApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.marvels.dto.jf.JfRequestDto;
-import com.marvels.dto.jf.JfResponseDto;
 
 /**
  * 对接玖富-客戶中心业务
@@ -24,8 +19,11 @@ import com.marvels.dto.jf.JfResponseDto;
 @RequestMapping
 public class JiuFuCustomerController extends BaseController {
 
-	@Autowired
-	private QjItfLogService qjItfLogService;
+    /**
+     * 玖富对接服务
+     */
+    @Autowired
+    private JfApiService jfApiService;
 	
 	/**
 	 * 实名认证
@@ -34,15 +32,11 @@ public class JiuFuCustomerController extends BaseController {
 	 */
 	@RequestMapping("cif/ocr/upload")
 	public JfResponseDto authName(@RequestBody JfRequestDto<JfAuthNameReq> request) throws Exception {
-		// JfAuthNameReq body = request.getBody();
-
-		JfResponseDto jfResponseDto = jfRequestInterface(request, PublicEnums.JfInterfaceCodeEnum.JF5501.getCode());
-		if("10000".equals(jfResponseDto.getStatus())) {
-			String result = jfResponseDto.getResult();
-			// JfAuthNameRes jfAuthNameRes = JSONObject.parseObject(result, JfAuthNameRes.class);
-		}
-
-		return jfResponseDto;
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.authName(request);
 	}
 	
 	/**
@@ -52,7 +46,11 @@ public class JiuFuCustomerController extends BaseController {
 	 */
 	@RequestMapping("cif/customerFace/faceRecogSave/v1")
 	public JfResponseDto faceRecogSave(@RequestBody JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.faceRecogSave(request);
 	}
 	
 	/**
@@ -62,7 +60,11 @@ public class JiuFuCustomerController extends BaseController {
 	 */
 	@RequestMapping("cif/CustomerKyc/saveCustomerKyc/v1")
 	public JfResponseDto saveCustomerKyc(@RequestBody JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.saveCustomerKyc(request);
 	}
 	
 	/**
@@ -72,7 +74,11 @@ public class JiuFuCustomerController extends BaseController {
 	 */
 	@RequestMapping("cif/CustomerBaseInfo2Out/getCustomerBaseInfo/v1")
 	public JfResponseDto getCustomerBaseInfo(@RequestBody JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.getCustomerBaseInfo(request);
 	}
 	
 	/**
@@ -82,7 +88,11 @@ public class JiuFuCustomerController extends BaseController {
 	 */
 	@RequestMapping("cif/CustomerBaseInfo2Out/getCustomerBaseInfoByIdNo/v1")
 	public JfResponseDto getCustomerBaseInfoByIdNo(@RequestBody JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.getCustomerBaseInfoByIdNo(request);
 	}
 	
 	/**
@@ -92,7 +102,11 @@ public class JiuFuCustomerController extends BaseController {
 	 */
 	@RequestMapping("cif/bankCard/authorize/v1")
 	public JfResponseDto authBankCard(@RequestBody JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.authBankCard(request);
 	}
 	
 	/**
@@ -102,7 +116,11 @@ public class JiuFuCustomerController extends BaseController {
 	 */
 	@RequestMapping("cif/operator/authorize/v1")
 	public JfResponseDto authOperator(@RequestBody JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.authOperator(request);
 	}
 	
 	/**
@@ -112,7 +130,11 @@ public class JiuFuCustomerController extends BaseController {
 	 */
 	@RequestMapping("cif/creditCard/authorize/v1")
 	public JfResponseDto authCreditCard(@RequestBody JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.authCreditCard(request);
 	}
 	
 	/**
@@ -122,7 +144,11 @@ public class JiuFuCustomerController extends BaseController {
 	 */
 	@RequestMapping("cif/bankCard/query/v1")
 	public JfResponseDto queryBankCard(@RequestBody JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.queryBankCard(request);
 	}
 	
 	/**
@@ -132,7 +158,11 @@ public class JiuFuCustomerController extends BaseController {
 	 */
 	@RequestMapping("cif/authorize/status/v1")
 	public JfResponseDto queryCreditStatus(@RequestBody JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.queryCreditStatus(request);
 	}
 	
 	/**
@@ -142,7 +172,11 @@ public class JiuFuCustomerController extends BaseController {
 	 */
 	@RequestMapping("cif/authorize/callback/v1")
 	public JfResponseDto callBackAuth(@RequestBody JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.callBackAuth(request);
 	}
 	
 	/**
@@ -152,7 +186,11 @@ public class JiuFuCustomerController extends BaseController {
 	 */
 	@RequestMapping("cif/tradingCard/changeCardSave/v1")
 	public JfResponseDto changeCard(@RequestBody JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.changeCard(request);
 	}
 
 
