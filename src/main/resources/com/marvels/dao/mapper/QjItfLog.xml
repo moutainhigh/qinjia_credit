@@ -7,6 +7,7 @@
     <trim prefix="(" suffix=")" suffixOverrides="," >
       ITF_CODE,
       ITF_NAME,
+      ITF_URI,
       IN_PARAM,
       OUT_PARAM,
       REC_ADD_USR,
@@ -15,6 +16,7 @@
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       #{ itfCode,jdbcType=VARCHAR },
       #{ itfName,jdbcType=VARCHAR },
+      #{ itfUri,jdbcType=VARCHAR },
       #{ inParam,jdbcType=VARCHAR },
       #{ outParam,jdbcType=VARCHAR },
       "sys",

@@ -1,5 +1,7 @@
 package com.marvels.service;
 
+import com.marvels.common.enums.PublicEnums;
+
 /**
  * @Description: 接口日志类
  * @Author: houyl
@@ -8,10 +10,20 @@ package com.marvels.service;
 public interface QjItfLogService {
 
     /**
-     * 记录接口日志
-     * @param itfCode 接口编码（枚举 publicEnums）
-     * @param inParam 记录入参
+     * 玖富记录接口日志（异步）
+     *
+     * @param enums  枚举
+     * @param inParam  记录入参
      * @param outParam 记录出参
      */
-    void inOutParamsItfLog(String itfCode, Object inParam, Object outParam);
+    void inOutParamsItfLog(PublicEnums.JfInterfaceCodeEnum enums, Object inParam, Object outParam);
+
+    /**
+     * 盛银记录接口日志（异步）
+     *
+     * @param enums  枚举
+     * @param inParam  记录入参
+     * @param outParam 记录出参
+     */
+    void inOutParamsItfLog(PublicEnums.SyInterfaceCodeEnum enums, Object inParam, Object outParam);
 }

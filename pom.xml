@@ -205,10 +205,10 @@
 		<resources>
 			<resource>
                 <directory>src/main/resources</directory>
-                 <excludes>
+				<!--excludes>
 					<exclude>*.properties</exclude>
 					<exclude>*log4j2.xml</exclude>
-                </excludes>
+                </excludes-->
                 <filtering>true</filtering>
             </resource>
             <resource>

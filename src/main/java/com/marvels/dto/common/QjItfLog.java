@@ -30,6 +30,10 @@ public class QjItfLog implements Serializable {
      */
     private String itfName;
     /**
+     *  接口URI
+     */
+    private String itfUri;
+    /**
      *  入参
      */
     private String inParam;
