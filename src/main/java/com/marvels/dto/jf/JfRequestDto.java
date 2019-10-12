@@ -8,11 +8,11 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public class JfRequestDto {
+public class JfRequestDto<T> {
     //接口请求头
     private JfHttpInterfaceHander head;
     //接口请求体
-    private Object body;
+    private T body;
     /**
      * 接口请求参数头
      */
