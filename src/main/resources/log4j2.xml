@@ -5,7 +5,7 @@
         <!-- <property name="log_pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} |-%-5level [%thread] %c.%M() [%L] -| %m%n</property> -->
         <property name="log_pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [${sys:app.name},%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-Span-Export}] %X{request_url} [%thread] %c : %m%n</property>
         <!-- ${web:rootDir}是项目根目录 -->
-        <property name="log_root">E:/log</property><!-- -Dlog.root.path=../logs/ --> 
+        <property name="log_root">d:/logs/</property><!-- -Dlog.root.path=../logs/ -->
         <property name="app_name">xyqb</property><!-- -Dapp.name=marvels-common -->
     </properties>  
   

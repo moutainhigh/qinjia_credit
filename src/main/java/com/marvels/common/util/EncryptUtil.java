@@ -1,5 +1,10 @@
 package com.marvels.common.util;
 
+import org.apache.commons.lang.StringUtils;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 /**
  * @author liuhongbin
  * @date 2016/5/19
@@ -29,5 +34,33 @@ public class EncryptUtil {
         }
     }
 
-    
+    /**
+     * md5加密
+     *
+     * @param source 数据源，用于账号密码加密，username+password
+     * @return 加密字符串
+     */
+    public static String MD5Encode(String source) {
+        if (StringUtils.isBlank(source)) {
+            return null;
+        }
+
+        MessageDigest messageDigest = null;
+        try {
+            messageDigest = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException ignored) {
+            ignored.printStackTrace();
+        }
+
+        byte[] encode = messageDigest.digest(source.getBytes());
+        StringBuilder hexString = new StringBuilder();
+        for (byte anEncode : encode) {
+            String hex = Integer.toHexString(0xff & anEncode);
+            if (hex.length() == 1) {
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+        return hexString.toString();
+    }
 }
