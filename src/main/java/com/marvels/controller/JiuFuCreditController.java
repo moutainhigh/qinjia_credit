@@ -3,6 +3,8 @@ package com.marvels.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.marvels.dto.jf.JfApplyQuotaReq;
+import com.marvels.dto.jf.JfQueryApplyResultReq;
 import com.marvels.dto.jf.JfRequestDto;
 import com.marvels.dto.jf.JfResponseDto;
 
@@ -21,7 +23,7 @@ public class JiuFuCreditController {
 	 * @throws Exception
 	 */
 	@RequestMapping("credit/center/applyQuota/v2")
-	public JfResponseDto applyQuota(JfRequestDto request) throws Exception {
+	public JfResponseDto applyQuota(JfRequestDto<JfApplyQuotaReq> request) throws Exception {
 		return new JfResponseDto();
 	}
 	
@@ -31,7 +33,7 @@ public class JiuFuCreditController {
 	 * @throws Exception
 	 */
 	@RequestMapping("credit/center/query/result/v2")
-	public JfResponseDto queryApplyResult(JfRequestDto request) throws Exception {
+	public JfResponseDto queryApplyResult(JfRequestDto<JfQueryApplyResultReq> request) throws Exception {
 		return new JfResponseDto();
 	}
 }
