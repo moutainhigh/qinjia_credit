@@ -17,8 +17,8 @@ public class SyApiServiceImpl implements SyApiService{
     @Override
     public SyResponseDto ITF00012(SyRequestDto request) throws Exception {
         //MarvelsLogUtil.getInstance().info("[获取申请编号(ITF00012)]开始,入参="+ JSON.toJSONString(request));
-        String resultDto =  HttpUtil.doPost("", ParamUtil.getString("",request.getReqdata()));
-        qjItfLogService.inParamsItfLog(PublicEnums.InterfaceCodeEnum.ITF00002.getCode(),ParamUtil.getString(PublicEnums.InterfaceCodeEnum.ITF00002.getCode(),request.getReqdata()),"resultDto");
+        String resultDto =  HttpUtil.doPost("", ParamUtil.getSyparamString("",request.getReqdata()));
+        qjItfLogService.inParamsItfLog(PublicEnums.InterfaceCodeEnum.ITF00002.getCode(),ParamUtil.getSyparamString(PublicEnums.InterfaceCodeEnum.ITF00002.getCode(),request.getReqdata()),"resultDto");
         return null;
     }
 }
