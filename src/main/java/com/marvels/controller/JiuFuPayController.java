@@ -1,10 +1,11 @@
 package com.marvels.controller;
 
+import com.marvels.dto.jf.*;
+import com.marvels.service.JiuFuPayService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.marvels.dto.jf.JfRequestDto;
-import com.marvels.dto.jf.JfResponseDto;
 
 /**
  * 对接玖富资金方-支付业务接口
@@ -14,15 +15,17 @@ import com.marvels.dto.jf.JfResponseDto;
 @RestController
 @RequestMapping
 public class JiuFuPayController {
-	
+	@Autowired
+    private JiuFuPayService jiufuPayService;
+
 	/**
 	 * 支持的银行卡列表查询
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("credit/jf/ITF00012")
-	public JfResponseDto queryBankList(JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+	public JfResponseDto queryBankList(@RequestBody JfRequestDto<JfQueryBankListReq> request) throws Exception {
+		return jiufuPayService.queryBankList(request);
 	}
 	
 	/**
@@ -31,8 +34,8 @@ public class JiuFuPayController {
 	 * @throws Exception
 	 */
 	@RequestMapping("credit/jf/ITF00012")
-	public JfResponseDto queryCardBin(JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+	public JfResponseDto queryCardBin(@RequestBody JfRequestDto<JfQueryCardBinReq> request) throws Exception {
+		return jiufuPayService.queryCardBin(request);
 	}
 	
 	/**
@@ -41,8 +44,8 @@ public class JiuFuPayController {
 	 * @throws Exception
 	 */
 	@RequestMapping("credit/jf/ITF00012")
-	public JfResponseDto queryAuthCard(JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+	public JfResponseDto queryAuthCard(@RequestBody JfRequestDto<JfQueryAuthCardReq> request) throws Exception {
+		return jiufuPayService.queryAuthCard(request);
 	}
 	
 	/**
@@ -51,8 +54,8 @@ public class JiuFuPayController {
 	 * @throws Exception
 	 */
 	@RequestMapping("credit/jf/ITF00012")
-	public JfResponseDto signApply(JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+	public JfResponseDto signApply(@RequestBody JfRequestDto<JfSignApplyReq> request) throws Exception {
+		return jiufuPayService.signApply(request);
 	}
 	
 	/**
@@ -61,7 +64,7 @@ public class JiuFuPayController {
 	 * @throws Exception
 	 */
 	@RequestMapping("credit/jf/ITF00012")
-	public JfResponseDto confirmSign(JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+	public JfResponseDto confirmSign(@RequestBody JfRequestDto<JfConfirmSignReq> request) throws Exception {
+		return jiufuPayService.confirmSign(request);
 	}
 }

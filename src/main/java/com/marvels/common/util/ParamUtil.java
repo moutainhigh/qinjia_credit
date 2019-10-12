@@ -37,7 +37,13 @@ public class ParamUtil {
         return JSON.toJSONString(request);
     }
 
-    public String getJfParamString(JfRequestDto.JfHttpInterfaceHander hand,Object body){
+    /**
+     * 获取玖富的参数
+     * @param hand
+     * @param body
+     * @return
+     */
+    public static String getJfParamString(JfRequestDto.JfHttpInterfaceHander hand,Object body){
         JfRequestDto requestDto = new JfRequestDto();
         requestDto.setHead(hand);
         requestDto.setBody(body);

@@ -30,7 +30,7 @@ public class SerialGenerator {
     }
 
     public static String get13Random(){
-        SimpleDateFormat sdf = new SimpleDateFormat("MMddHHmmss");
+        SimpleDateFormat sdf = new SimpleDateFormat("MMddHHmmssSSS");
         String now = sdf.format(new Date());
         return now + createSerialNo(3);
     }
@@ -41,6 +41,7 @@ public class SerialGenerator {
     	//;
     	for (int i = 0; i < 50; i++) {
 
+            System.out.println(System.currentTimeMillis());
             System.out.println(get13Random());
 
         }

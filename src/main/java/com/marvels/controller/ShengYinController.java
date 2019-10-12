@@ -22,7 +22,7 @@ public class ShengYinController {
 	 */
 	@RequestMapping("credit/sy/ITF00012")
 	public SyResponseDto ITF00012(SyRequestDto request) throws Exception {
-		return new SyResponseDto();
+		return null;
 	}
 	
 	/**
@@ -32,7 +32,7 @@ public class ShengYinController {
 	 */
 	@RequestMapping("credit/sy/SY00601")
 	public SyResponseDto SY00601(SyRequestDto request) throws Exception {
-		return new SyResponseDto();
+		return null;
 	}
 	
 	/**
@@ -42,7 +42,7 @@ public class ShengYinController {
 	 */
 	@RequestMapping("credit/sy/ITF000031")
 	public SyResponseDto ITF000031(SyRequestDto request) throws Exception {
-		return new SyResponseDto();
+		return null;
 	}
 	
 	/**
@@ -52,7 +52,7 @@ public class ShengYinController {
 	 */
 	@RequestMapping("credit/sy/ITF000032")
 	public SyResponseDto ITF000032(SyRequestDto request) throws Exception {
-		return new SyResponseDto();
+		return null;
 	}
 	
 	/**
@@ -62,7 +62,7 @@ public class ShengYinController {
 	 */
 	@RequestMapping("credit/sy/ITF00004")
 	public SyResponseDto ITF00004(SyRequestDto request) throws Exception {
-		return new SyResponseDto();
+		return null;
 	}
 	
 	/**
@@ -72,7 +72,7 @@ public class ShengYinController {
 	 */
 	@RequestMapping("credit/sy/ITF00002")
 	public SyResponseDto ITF00002(SyRequestDto request) throws Exception {
-		return new SyResponseDto();
+		return null;
 	}
 	
 	/**
@@ -82,7 +82,7 @@ public class ShengYinController {
 	 */
 	@RequestMapping("credit/sy/ITF00007")
 	public SyResponseDto ITF00007(SyRequestDto request) throws Exception {
-		return new SyResponseDto();
+		return null;
 	}
 	
 	/**
@@ -92,7 +92,7 @@ public class ShengYinController {
 	 */
 	@RequestMapping("credit/sy/ITF00014")
 	public SyResponseDto ITF00014(SyRequestDto request) throws Exception {
-		return new SyResponseDto();
+		return null;
 	}
 	
 	/**
@@ -102,7 +102,7 @@ public class ShengYinController {
 	 */
 	@RequestMapping("credit/sy/ITF00098")
 	public SyResponseDto ITF00098(SyRequestDto request) throws Exception {
-		return new SyResponseDto();
+		return null;
 	}
 	
 	/**
@@ -112,7 +112,7 @@ public class ShengYinController {
 	 */
 	@RequestMapping("credit/sy/ITF00099")
 	public SyResponseDto ITF00099(SyRequestDto request) throws Exception {
-		return new SyResponseDto();
+		return null;
 	}
 	
 	/**
@@ -122,7 +122,7 @@ public class ShengYinController {
 	 */
 	@RequestMapping("credit/sy/ITF00008")
 	public SyResponseDto ITF00008(SyRequestDto request) throws Exception {
-		return new SyResponseDto();
+		return null;
 	}
 	
 	/**
@@ -132,6 +132,6 @@ public class ShengYinController {
 	 */
 	@RequestMapping("credit/sy/SY00209")
 	public SyResponseDto SY00209(SyRequestDto request) throws Exception {
-		return new SyResponseDto();
+		return null;
 	}
 }
