@@ -1,6 +1,7 @@
 package com.marvels.common.util;
 
 import com.marvels.dto.jf.JfRequestDto;
+import com.marvels.dto.jf.JfResponseDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,31 +40,5 @@ public class CommonUtil {
         }
 
         return result;
-    }
-
-
-    /**
-     * 校验接口系统标识
-     * @param request 接口请求参数
-     * @return
-     */
-    public static JfRequestDto buildSysCode(JfRequestDto request) {
-        if(validEmpty(request,request.getHead())) {
-            return null;
-        }
-
-        // 提供给调用者的系统标识
-        String sysCode = PropertiesLoadUtil.getPropertiesValue("qj.jiufu.sysCode", "forms-openapi.properties");
-
-        // 校验syscode
-        JfRequestDto.JfHttpInterfaceHander head = request.getHead();
-        if(!sysCode.equals(head.getSysCode())) {
-            return null;
-        }
-
-        // 玖富提供的系统标识
-        String jfSysCode = PropertiesLoadUtil.getPropertiesValue("jiufu.sysCode", "forms-openapi.properties");
-        request.getHead().setSysCode(jfSysCode);
-        return request;
     }
 }

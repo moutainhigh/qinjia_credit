@@ -15,4 +15,13 @@ public class JfResponseDto {
     private String message;
     //业务参数(各接口返回的业务参数，Json格式，部分可能不会返回此信息，由各接口确定)
     private String result;
+
+    public JfResponseDto() {
+
+    }
+
+    public JfResponseDto(String status, String message) {
+        this.message = message;
+        this.status = status;
+    }
 }

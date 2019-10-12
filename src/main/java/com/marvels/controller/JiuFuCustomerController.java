@@ -1,7 +1,11 @@
 package com.marvels.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.marvels.common.enums.PublicEnums;
 import com.marvels.common.util.CommonUtil;
-import com.marvels.dto.jf.CifAuthNameDto;
+import com.marvels.common.util.HttpUtil;
+import com.marvels.dto.jf.JfAuthNameReq;
+import com.marvels.dto.jf.JfAuthNameRes;
 import com.marvels.service.QjItfLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +22,7 @@ import com.marvels.dto.jf.JfResponseDto;
  */
 @RestController
 @RequestMapping
-public class JiuFuCustomerController {
+public class JiuFuCustomerController extends BaseController {
 
 	@Autowired
 	private QjItfLogService qjItfLogService;
@@ -29,18 +33,16 @@ public class JiuFuCustomerController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/ocr/upload")
-	public JfResponseDto authName(@RequestBody JfRequestDto request) throws Exception {
-		// 处理系统标识
-		JfRequestDto jfRequest = CommonUtil.buildSysCode(request);
-		if(jfRequest == null) {
-			return new JfResponseDto();
+	public JfResponseDto authName(@RequestBody JfRequestDto<JfAuthNameReq> request) throws Exception {
+		// JfAuthNameReq body = request.getBody();
+
+		JfResponseDto jfResponseDto = jfRequestInterface(request, PublicEnums.JfInterfaceCodeEnum.JF5501.getCode());
+		if("10000".equals(jfResponseDto.getStatus())) {
+			String result = jfResponseDto.getResult();
+			// JfAuthNameRes jfAuthNameRes = JSONObject.parseObject(result, JfAuthNameRes.class);
 		}
 
-		// 请求玖富接口
-
-		// 接口出入参入库
-		qjItfLogService.inOutParamsItfLog("",request,null);
-		return new JfResponseDto();
+		return jfResponseDto;
 	}
 	
 	/**
@@ -152,4 +154,7 @@ public class JiuFuCustomerController {
 	public JfResponseDto changeCard(@RequestBody JfRequestDto request) throws Exception {
 		return new JfResponseDto();
 	}
+
+
+
 }
