@@ -1,19 +1,22 @@
 package com.marvels.common.util;
 
 import com.alibaba.fastjson.JSON;
-import com.marvels.common.util.PropertiesLoadUtil;
-import com.marvels.common.util.SerialGenerator;
-import com.marvels.dto.sy.AppHeader;
+import com.marvels.dto.jf.JfRequestDto;
 import com.marvels.dto.sy.SyRequestDto;
-import com.marvels.dto.sy.SysHeader;
 
 public class ParamUtil {
-    public static String getString(String interfaceCode, Object object) {
+    /**
+     * 获取圣银参数
+     * @param interfaceCode
+     * @param object
+     * @return
+     */
+    public static String getSyparamString(String interfaceCode, Object object) {
         PropertiesLoadUtil.getPropertiesValue("chuangjin.lp40008.backurl", "forms-openapi.properties");
         String aa = SerialGenerator.get13Random();
         SyRequestDto request = new SyRequestDto();
-        SysHeader sysheader = new SysHeader();
-        AppHeader appheader = new AppHeader();
+        SyRequestDto.SysHeader sysheader = new SyRequestDto.SysHeader();
+        SyRequestDto.AppHeader appheader = new SyRequestDto.AppHeader();
         Long reqTime = System.currentTimeMillis();
         sysheader.setCustomerType("");
         sysheader.setCustomerId("");
@@ -33,4 +36,12 @@ public class ParamUtil {
         request.setReqdata(JSON.toJSON(object));
         return JSON.toJSONString(request);
     }
+
+    public String getJfParamString(JfRequestDto.JfHttpInterfaceHander hand,Object body){
+        JfRequestDto requestDto = new JfRequestDto();
+        requestDto.setHead(hand);
+        requestDto.setBody(body);
+        return JSON.toJSONString(requestDto);
+    }
+
 }
