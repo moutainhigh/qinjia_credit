@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 /**
  * @ClassName JfQueryOrderInfoRes
- * @Description TODO
+ * @Description 工单信息查询接口响应参数
  * @Author renyz
  * @Date 2019/10/14 18:16
  * @Version 1.0

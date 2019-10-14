@@ -15,6 +15,4 @@ public class JfQueryCardBinReq {
     private String merchNo;
     //银行卡号
     private String bankCardNo;
-    //系统编号
-    private String sysCode;
 }

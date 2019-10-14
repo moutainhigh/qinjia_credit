@@ -5,7 +5,7 @@ import lombok.Setter;
 
 /**
  * @ClassName JfQueryCloseOrderResRes
- * @Description TODO
+ * @Description 资产端关单结果查询接口响应参数
  * @Author renyz
  * @Date 2019/10/14 18:12
  * @Version 1.0

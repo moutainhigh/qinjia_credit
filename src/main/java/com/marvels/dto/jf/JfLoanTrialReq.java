@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 /**
  * @ClassName JfLoanTrialReq
- * @Description TODO
+ * @Description 借款试算接口请求参数
  * @Author renyz
  * @Date 2019/10/14 17:26
  * @Version 1.0

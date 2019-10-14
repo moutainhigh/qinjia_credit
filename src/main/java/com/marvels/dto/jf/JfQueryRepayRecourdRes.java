@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @ClassName JfQueryRepayRecourdRes
- * @Description TODO
+ * @Description 查询用户还款记录接口
  * @Author renyz
  * @Date 2019/10/14 15:19
  * @Version 1.0

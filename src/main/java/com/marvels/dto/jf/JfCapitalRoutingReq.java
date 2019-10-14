@@ -5,7 +5,7 @@ import lombok.Setter;
 
 /**
  * @ClassName JfCapitalRoutingReq
- * @Description TODO
+ * @Description 资金路由接口请求参数
  * @Author renyz
  * @Date 2019/10/14 17:03
  * @Version 1.0
