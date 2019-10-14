@@ -108,27 +108,27 @@ public class JfApiServiceImpl implements JfApiService {
     }
 
     /**
-     * 用于个人信息查询-基于身份证号码
+     * 商户授信结果信息接收
      *
      * @param param 请求参数
      * @return
      * @throws Exception
      */
     @Override
-    public JfResponseDto getCustomerBaseInfoByIdNo(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5527, param);
+    public JfResponseDto saveCreditGranting(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100173, param);
     }
 
     /**
-     * 银行卡鉴权
+     * 风控设备指纹实时反欺诈
      *
      * @param param 请求参数
      * @return
      * @throws Exception
      */
     @Override
-    public JfResponseDto authBankCard(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100166, param);
+    public JfResponseDto fgpAntiFraud(JfRequestDto param) throws Exception {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100183, param);
     }
 
     /**
@@ -164,7 +164,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto queryBankCard(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5518, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100184, param);
     }
 
     /**
@@ -189,18 +189,6 @@ public class JfApiServiceImpl implements JfApiService {
     @Override
     public JfResponseDto callBackAuth(JfRequestDto param) throws Exception {
         return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100170, param);
-    }
-
-    /**
-     * 交易绑卡落库
-     *
-     * @param param 请求参数
-     * @return
-     * @throws Exception
-     */
-    @Override
-    public JfResponseDto changeCard(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5528, param);
     }
 
     /**

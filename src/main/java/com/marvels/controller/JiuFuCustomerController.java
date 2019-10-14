@@ -91,7 +91,7 @@ public class JiuFuCustomerController extends BaseController {
         if (null != result)  {
             return result;
         }
-        return jfApiService.getCustomerBaseInfoByIdNo(request);
+        return jfApiService.saveCreditGranting(request);
 	}
 	
 	/**
@@ -105,7 +105,7 @@ public class JiuFuCustomerController extends BaseController {
         if (null != result)  {
             return result;
         }
-        return jfApiService.authBankCard(request);
+        return jfApiService.fgpAntiFraud(request);
 	}
 	
 	/**

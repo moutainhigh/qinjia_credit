@@ -88,20 +88,20 @@ public interface JfApiService {
     public JfResponseDto getCustomerBaseInfo(JfRequestDto param) throws Exception;
 
     /**
-     * 用于个人信息查询-基于身份证号码
+     * 商户授信结果信息接收
      * @param param 请求参数
      * @return
      * @throws Exception
      */
-    public JfResponseDto getCustomerBaseInfoByIdNo(JfRequestDto param) throws Exception;
+    public JfResponseDto saveCreditGranting(JfRequestDto param) throws Exception;
 
     /**
-     * 银行卡鉴权
+     * 风控设备指纹实时反欺诈
      * @param param 请求参数
      * @return
      * @throws Exception
      */
-    public JfResponseDto authBankCard(JfRequestDto param) throws Exception;
+    public JfResponseDto fgpAntiFraud(JfRequestDto param) throws Exception;
 
     /**
      * 运营商授权
@@ -142,14 +142,6 @@ public interface JfApiService {
      * @throws Exception
      */
     public JfResponseDto callBackAuth(JfRequestDto param) throws Exception;
-
-    /**
-     * 交易绑卡落库
-     * @param param 请求参数
-     * @return
-     * @throws Exception
-     */
-    public JfResponseDto changeCard(JfRequestDto param) throws Exception;
 
     /**
      * 借据编号查询借据信息
