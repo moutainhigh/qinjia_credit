@@ -62,20 +62,55 @@ public class PublicEnums {
 		/**
 		 * 接口
 		 */
-		JF5501("5501", "实名认证", "/cif/ocr/upload"),
-		JF5503("5503", "人脸识别结果上传", "/cif/customerFace/faceRecogSave/v1"),
-		JF5504("5504", "KYC信息提交", "/cif/CustomerKyc/saveCustomerKyc/v1"),
-		JF5526("5526", "客户基本信息查询", "/cif/CustomerBaseInfo2Out/getCustomerBaseInfo/v1"),
-		JF5527("5527", "根据身份证号码查询客户基本信息", "/cif/CustomerBaseInfo2Out/getCustomerBaseInfoByIdNo/v1"),
-		JF5507("5507", "银行卡鉴权", "/cif/bankCard/authorize/v1"),
-		JF5511("5511", "运营商授权", "/cif/operator/authorize/v1"),
-		JF5514("5514", "信用卡授权", "/cif/creditCard/authorize/v1"),
-		JF5518("5518", "绑卡列表查询", "/cif/bankCard/query/v1"),
-		JF5519("5519", "授信项状态查询", "/cif/authorize/status/v1"),
-		JF5524("5524", "商户接收授权结果", "/cif/authorize/callback/v1"),
-		JF5528("5528", "交易换绑卡落库", "/cif/tradingCard/changeCardSave/v1"),
-		JF700005("700005", "授信请求", "/credit/center/applyQuota/v2"),
-		JF700006("700006", "授信结果查询", "/credit/center/query/result/v2");
+		
+		/**
+		 * 下单业务
+		 */
+		JF100150("100150", "资金路由", "/fincloud/common.intf"),
+		JF100151("100151", "借款试算", "/fincloud/common.intf"),
+		JF100152("100152", "下单", "/fincloud/common.intf"),
+		JF100153("100153", "资产端关单申请", "/fincloud/common.intf"),
+		JF100154("100154", "工单信息查询", "/fincloud/common.intf"),
+		JF100155("100155", "资产端关单结果查询", "/fincloud/common.intf"),
+		JF100156("100156", "工单合同信息查询", "/fincloud/common.intf"),
+		JF100157("100157", "放款结果通知-回调", ""),
+		JF100158("100158", "关单结果通知-回调", ""),
+		
+		/**
+		 * 支付业务接口
+		 */
+		JF100159("100159", "查询支持的银行列表", "/fincloud/common.intf"),
+		JF100160("100160", "卡bin查询", "/fincloud/common.intf"),
+		JF100161("100161", "签约申请", "/fincloud/common.intf"),
+		JF100162("100162", "签约确认", "/fincloud/common.intf"),
+		
+		/**
+		 * 客户&授权业务接口
+		 */
+		JF100163("100163", "实名认证", "/fincloud/common.intf"),
+		JF100164("100164", "人脸识别结果上传", "/fincloud/common.intf"),
+		JF100165("100165", "KYC信息提交", "/fincloud/common.intf"),
+		JF100166("100166", "银行卡鉴权", "/fincloud/common.intf"),
+		JF100167("100167", "运营商授权", "/fincloud/common.intf"),
+		JF100168("100168", "信用卡授权", "/fincloud/common.intf"),
+		JF100169("100169", "授信项状态查询", "/fincloud/common.intf"),
+		JF100170("100170", "商户接收授权结果", "/fincloud/common.intf"),
+		JF100171("100171", "授信请求", "/fincloud/common.intf"),
+		JF100172("100172", "授信结果查询", "/fincloud/common.intf"),
+		JF100173("100173", "商户授信结果信息接收-回调", ""),
+		JF100183("100183", "风控设备指纹实时反欺诈-前置接口", ""),
+		JF100184("100184", "额度查询-前置接口", ""),
+		
+		/**
+		 * 还款业务接口
+		 */
+		JF100174("100174", "借据编号查询借据", "/fincloud/common.intf"),
+		JF100175("100175", "还款计划查询", "/fincloud/common.intf"),
+		JF100176("100176", "还款金额试算", "/fincloud/common.intf"),
+		JF100177("100177", "主动还款", "/fincloud/common.intf"),
+		JF100178("100178", "扣款结果查询", "/fincloud/common.intf"),
+		JF100179("100179", "查询用户还款记录", "/fincloud/common.intf"),
+		JF100180("100180", "扣款结果通知-回调", "");
 		private String code;
 		private String desc;
 		private String uri;
