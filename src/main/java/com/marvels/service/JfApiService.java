@@ -162,7 +162,7 @@ public interface JfApiService {
      * @return
      * @throws Exception
      */
-    JfResponseDto getIouByCustNo(JfRequestDto<JfGetIouByCustNoReq> param) throws Exception;
+    JfResponseDto getIouByCustNo(JfRequestDto<JfGetIouReq> param) throws Exception;
 
     /**
      * 还款计划查询

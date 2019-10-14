@@ -225,7 +225,7 @@ public class JfApiServiceImpl implements JfApiService {
      * @throws Exception
      */
     @Override
-    public JfResponseDto<JfGetIouByCustNoRes> getIouByCustNo(JfRequestDto<JfGetIouByCustNoReq> param) throws Exception {
+    public JfResponseDto<JfGetIouByCustNoRes> getIouByCustNo(JfRequestDto<JfGetIouReq> param) throws Exception {
         return (JfResponseDto<JfGetIouByCustNoRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
     }
 

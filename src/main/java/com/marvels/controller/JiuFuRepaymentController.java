@@ -40,7 +40,7 @@ public class JiuFuRepaymentController extends BaseController{
 	 * @throws Exception
 	 */
 	@RequestMapping("ioucenter/iou/getIouByCustNo")
-	public JfResponseDto getIouByCustNo(JfRequestDto<JfGetIouByCustNoReq> request) throws Exception {
+	public JfResponseDto getIouByCustNo(JfRequestDto<JfGetIouReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
