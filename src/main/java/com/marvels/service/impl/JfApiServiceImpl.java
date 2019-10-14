@@ -204,4 +204,88 @@ public class JfApiServiceImpl implements JfApiService {
     public JfResponseDto changeCard(JfRequestDto param) throws Exception {
         return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5528, param);
     }
+
+    /**
+     * 借据编号查询借据信息
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfGetIouRes> getIou(JfRequestDto<JfGetIouReq> param) throws Exception {
+        return (JfResponseDto<JfGetIouRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+    }
+
+    /**
+     * 查询用户所有的借据
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfGetIouByCustNoRes> getIouByCustNo(JfRequestDto<JfGetIouByCustNoReq> param) throws Exception {
+        return (JfResponseDto<JfGetIouByCustNoRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+    }
+
+    /**
+     * 还款计划查询
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfGetRepayPlanRes> getRepayPlan(JfRequestDto<JfGetRepayPlanReq> param) throws Exception {
+        return (JfResponseDto<JfGetRepayPlanRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+    }
+
+    /**
+     * 还款金额试算
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfQueryRepayAmtRes> queryRepayAmt(JfRequestDto<JfQueryRepayAmtReq> param) throws Exception {
+        return (JfResponseDto<JfQueryRepayAmtRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+    }
+
+    /**
+     * 主动还款
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfRayRes> repay(JfRequestDto<JfRayReq> param) throws Exception {
+        return (JfResponseDto<JfRayRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+    }
+
+    /**
+     * 扣款结果查询
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfQueryRepayResultRes> queryRepayResult(JfRequestDto<JfQueryRepayResultReq> param) throws Exception {
+        return (JfResponseDto<JfQueryRepayResultRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+    }
+
+    /**
+     * 查询用户还款记录
+     *
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfQueryRepayRecourdRes> queryRepayRecord(JfRequestDto<JfQueryRepayRecourdReq> param) throws Exception {
+        return (JfResponseDto<JfQueryRepayRecourdRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+    }
 }

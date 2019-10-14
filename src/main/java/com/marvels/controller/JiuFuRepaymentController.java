@@ -1,5 +1,8 @@
 package com.marvels.controller;
 
+import com.marvels.dto.jf.JfGetIouReq;
+import com.marvels.service.JfApiService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,16 +16,22 @@ import com.marvels.dto.jf.JfResponseDto;
  */
 @RestController
 @RequestMapping
-public class JiuFuRepaymentController {
-	
+public class JiuFuRepaymentController extends BaseController{
+
+    @Autowired
+    private JfApiService jfApiService;
 	/**
 	 * 借据编号查询借据信息
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("ioucenter/iou/getIou")
-	public JfResponseDto getIou(JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+	public JfResponseDto getIou(JfRequestDto<JfGetIouReq> request) throws Exception {
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.getIou(request);
 	}
 	
 	/**
@@ -31,8 +40,12 @@ public class JiuFuRepaymentController {
 	 * @throws Exception
 	 */
 	@RequestMapping("ioucenter/iou/getIouByCustNo")
-	public JfResponseDto getIouByCustNo(JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+	public JfResponseDto getIouByCustNo(JfRequestDto<JfGetIouByCustNoReq> request) throws Exception {
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.getIouByCustNo(request);
 	}
 	
 	/**
@@ -41,8 +54,12 @@ public class JiuFuRepaymentController {
 	 * @throws Exception
 	 */
 	@RequestMapping("ioucenter/iou/getRepayPlan")
-	public JfResponseDto getRepayPlan(JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+	public JfResponseDto getRepayPlan(JfRequestDto<JfGetRepayPlanReq> request) throws Exception {
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.getRepayPlan(request);
 	}
 	
 	/**
@@ -51,8 +68,12 @@ public class JiuFuRepaymentController {
 	 * @throws Exception
 	 */
 	@RequestMapping("ioucenter/iou/queryRepayAmt")
-	public JfResponseDto queryRepayAmt(JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+	public JfResponseDto queryRepayAmt(JfRequestDto<JfQueryRepayAmtReq> request) throws Exception {
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.queryRepayAmt(request);
 	}
 	
 	/**
@@ -61,8 +82,12 @@ public class JiuFuRepaymentController {
 	 * @throws Exception
 	 */
 	@RequestMapping("ioucent/repay/repay")
-	public JfResponseDto repay(JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+	public JfResponseDto repay(JfRequestDto<JfRayReq> request) throws Exception {
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.repay(request);
 	}
 	
 	/**
@@ -71,8 +96,12 @@ public class JiuFuRepaymentController {
 	 * @throws Exception
 	 */
 	@RequestMapping("ioucent/repay/queryRepayResult")
-	public JfResponseDto queryRepayResult(JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+	public JfResponseDto queryRepayResult(JfRequestDto<JfQueryRepayResultReq>  request) throws Exception {
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.queryRepayResult(request);
 	}
 	
 	/**
@@ -81,7 +110,11 @@ public class JiuFuRepaymentController {
 	 * @throws Exception
 	 */
 	@RequestMapping("ioucent/repay/queryRepayRecord")
-	public JfResponseDto queryRepayRecord(JfRequestDto request) throws Exception {
-		return new JfResponseDto();
+	public JfResponseDto queryRepayRecord(JfRequestDto<JfQueryRepayRecourdReq> request) throws Exception {
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.queryRepayRecord(request);
 	}
 }
