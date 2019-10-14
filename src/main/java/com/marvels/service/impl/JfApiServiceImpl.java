@@ -275,7 +275,90 @@ public class JfApiServiceImpl implements JfApiService {
         return (JfResponseDto<JfQueryRepayRecourdRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100179, param);
     }
 
-	@Override
+    /**
+     * 资金路由接口
+     *
+     * @param request
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfCapitalRoutingRes> capitalRouting(JfRequestDto<JfCapitalRoutingReq> request) throws Exception {
+        return (JfResponseDto<JfCapitalRoutingRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100150, request);
+    }
+
+    /**
+     * 借款试算接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfLoanTrialRes> loanTrial(JfRequestDto<JfLoanTrialReq> request) throws Exception {
+        return (JfResponseDto<JfLoanTrialRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100151, request);
+    }
+
+    /**
+     * 下单接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfPlaceOrderRes> placeOrder(JfRequestDto<JfPlaceOrderReq> request) throws Exception {
+        return (JfResponseDto<JfPlaceOrderRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100152, request);
+    }
+
+    /**
+     * 资产端关单申请接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfCloseOrderApplyRes> closeOrderApply(JfRequestDto<JfCloseOrderApplyReq> request) throws Exception {
+        return (JfResponseDto<JfCloseOrderApplyRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100153, request);
+    }
+
+    /**
+     * 工单信息查询接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfQueryOrderInfoRes> queryOrderInfo(JfRequestDto<JfQueryOrderInfoReq> request) throws Exception {
+        return (JfResponseDto<JfQueryOrderInfoRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100154, request);
+    }
+
+    /**
+     * 资产端关单结果查询接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfQueryCloseOrderResRes> queryCloseOrderRes(JfRequestDto<JfQueryCloseOrderResReq> request) throws Exception {
+        return (JfResponseDto<JfQueryCloseOrderResRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100155, request);
+    }
+
+    /**
+     * 工单合同信息查询接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfQueryContractRes> queryContract(JfRequestDto<JfQueryOrderInfoReq> request) throws Exception {
+        return (JfResponseDto<JfQueryContractRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100156, request);
+    }
+
+    @Override
 	public JfResponseDto<JfQueryApplyResultRes> queryApplyResult(JfRequestDto<JfQueryApplyResultReq> param) throws Exception {
 		return (JfResponseDto<JfQueryApplyResultRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100172, param);
 	}
