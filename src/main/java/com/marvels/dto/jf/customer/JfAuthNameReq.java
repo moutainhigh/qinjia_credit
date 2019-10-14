@@ -1,18 +1,18 @@
-package com.marvels.dto.jf;
+package com.marvels.dto.jf.customer;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 /**
- * 2.1	实名认证接口返回
+ * 实名认证
  * @author houyl
  * @date 2019/10/12 11:07
  */
 @Setter
 @Getter
-public class JfAuthNameRes {
-    /** 商户生成的用户ID */
-    private String tenantUserId;
+public class JfAuthNameReq {
     /** 用户手机号 */
     private String phoneNo;
     /** 识别机构编码 */
@@ -31,9 +31,9 @@ public class JfAuthNameRes {
     private String certId;
     /** 证件类型 */
     private String certType;
-    /** 证件有效期起始日期 */
+    /** 证件有效期起 */
     private String validDateBegin;
-    /** 证件有效期终止日期 */
+    /** 证件有效期终 */
     private String validDateEnd;
     /** 发证机关 */
     private String authority;
@@ -45,5 +45,4 @@ public class JfAuthNameRes {
     private String backPhoto;
     /** 注册渠道 */
     private String registChannel;
-
 }

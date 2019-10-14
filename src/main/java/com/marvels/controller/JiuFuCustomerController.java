@@ -1,7 +1,6 @@
 package com.marvels.controller;
 
-import com.marvels.common.enums.PublicEnums;
-import com.marvels.dto.jf.JfAuthNameReq;
+import com.marvels.dto.jf.customer.*;
 import com.marvels.dto.jf.JfRequestDto;
 import com.marvels.dto.jf.JfResponseDto;
 import com.marvels.service.JfApiService;
@@ -45,7 +44,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/customerFace/faceRecogSave/v1")
-	public JfResponseDto faceRecogSave(@RequestBody JfRequestDto request) throws Exception {
+	public JfResponseDto faceRecogSave(@RequestBody JfRequestDto<JfFaceRecogSaveReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
@@ -59,7 +58,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/CustomerKyc/saveCustomerKyc/v1")
-	public JfResponseDto saveCustomerKyc(@RequestBody JfRequestDto request) throws Exception {
+	public JfResponseDto saveCustomerKyc(@RequestBody JfRequestDto<JfCustomerKycReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
@@ -115,7 +114,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/operator/authorize/v1")
-	public JfResponseDto authOperator(@RequestBody JfRequestDto request) throws Exception {
+	public JfResponseDto authOperator(@RequestBody JfRequestDto<JfAuthOperatorReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
@@ -129,7 +128,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/creditCard/authorize/v1")
-	public JfResponseDto authCreditCard(@RequestBody JfRequestDto request) throws Exception {
+	public JfResponseDto authCreditCard(@RequestBody JfRequestDto<JfAuthorizeReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
@@ -157,7 +156,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/authorize/status/v1")
-	public JfResponseDto queryCreditStatus(@RequestBody JfRequestDto request) throws Exception {
+	public JfResponseDto queryCreditStatus(@RequestBody JfRequestDto<JfCreditStatusReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
@@ -171,7 +170,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/authorize/callback/v1")
-	public JfResponseDto callBackAuth(@RequestBody JfRequestDto request) throws Exception {
+	public JfResponseDto callBackAuth(@RequestBody JfRequestDto<JfCallBackAuthReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
