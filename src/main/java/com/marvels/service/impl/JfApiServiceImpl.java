@@ -218,18 +218,6 @@ public class JfApiServiceImpl implements JfApiService {
     }
 
     /**
-     * 查询用户所有的借据
-     *
-     * @param param 请求参数
-     * @return
-     * @throws Exception
-     */
-    @Override
-    public JfResponseDto<JfGetIouByCustNoRes> getIouByCustNo(JfRequestDto<JfGetIouReq> param) throws Exception {
-        return (JfResponseDto<JfGetIouByCustNoRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
-    }
-
-    /**
      * 还款计划查询
      *
      * @param param 请求参数
@@ -237,7 +225,7 @@ public class JfApiServiceImpl implements JfApiService {
      * @throws Exception
      */
     @Override
-    public JfResponseDto<JfGetRepayPlanRes> getRepayPlan(JfRequestDto<JfGetRepayPlanReq> param) throws Exception {
+    public JfResponseDto<JfGetRepayPlanRes> getRepayPlan(JfRequestDto<JfGetIouReq> param) throws Exception {
         return (JfResponseDto<JfGetRepayPlanRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
     }
 

@@ -166,20 +166,12 @@ public interface JfApiService {
     JfResponseDto getIou(JfRequestDto<JfGetIouReq> param) throws Exception;
 
     /**
-     * 查询用户所有的借据
-     * @param param 请求参数
-     * @return
-     * @throws Exception
-     */
-    JfResponseDto getIouByCustNo(JfRequestDto<JfGetIouReq> param) throws Exception;
-
-    /**
      * 还款计划查询
      * @param param 请求参数
      * @return
      * @throws Exception
      */
-    JfResponseDto getRepayPlan(JfRequestDto<JfGetRepayPlanReq> param) throws Exception;
+    JfResponseDto getRepayPlan(JfRequestDto<JfGetIouReq> param) throws Exception;
 
     /**
      * 还款金额试算

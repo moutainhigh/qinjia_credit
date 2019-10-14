@@ -1,13 +1,10 @@
 package com.marvels.controller;
 
-import com.marvels.dto.jf.JfGetIouReq;
+import com.marvels.dto.jf.*;
 import com.marvels.service.JfApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.marvels.dto.jf.JfRequestDto;
-import com.marvels.dto.jf.JfResponseDto;
 
 /**
  * 对接玖富资金方-还款业务接口
@@ -33,28 +30,14 @@ public class JiuFuRepaymentController extends BaseController{
         }
         return jfApiService.getIou(request);
 	}
-	
-	/**
-	 * 查询用户所有的借据
-	 * @return
-	 * @throws Exception
-	 */
-	@RequestMapping("ioucenter/iou/getIouByCustNo")
-	public JfResponseDto getIouByCustNo(JfRequestDto<JfGetIouReq> request) throws Exception {
-        JfResponseDto result = super.checkBuildSysCode(request);
-        if (null != result)  {
-            return result;
-        }
-        return jfApiService.getIouByCustNo(request);
-	}
-	
+
 	/**
 	 * 还款计划查询
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("ioucenter/iou/getRepayPlan")
-	public JfResponseDto getRepayPlan(JfRequestDto<JfGetRepayPlanReq> request) throws Exception {
+	public JfResponseDto getRepayPlan(JfRequestDto<JfGetIouReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
