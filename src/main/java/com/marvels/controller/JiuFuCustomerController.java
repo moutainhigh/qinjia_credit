@@ -67,12 +67,12 @@ public class JiuFuCustomerController extends BaseController {
 	}
 	
 	/**
-	 * 客户基本信息查询
+	 * 借记卡授权
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/CustomerBaseInfo2Out/getCustomerBaseInfo/v1")
-	public JfResponseDto getCustomerBaseInfo(@RequestBody JfRequestDto request) throws Exception {
+	public JfResponseDto grantDebitCard(@RequestBody JfRequestDto<Jf100166Req> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
@@ -81,12 +81,12 @@ public class JiuFuCustomerController extends BaseController {
 	}
 	
 	/**
-	 * 用于个人信息查询-基于身份证号码
+	 * 商户授信结果信息接收
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/CustomerBaseInfo2Out/getCustomerBaseInfoByIdNo/v1")
-	public JfResponseDto getCustomerBaseInfoByIdNo(@RequestBody JfRequestDto request) throws Exception {
+	public JfResponseDto saveCreditGranting(@RequestBody JfRequestDto<Jf100173Req> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
@@ -95,12 +95,12 @@ public class JiuFuCustomerController extends BaseController {
 	}
 	
 	/**
-	 * 银行卡鉴权
+	 * 风控设备指纹实时反欺诈
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/bankCard/authorize/v1")
-	public JfResponseDto authBankCard(@RequestBody JfRequestDto request) throws Exception {
+	public JfResponseDto fgpAntiFraud(@RequestBody JfRequestDto<Jf100183Req> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
@@ -137,12 +137,12 @@ public class JiuFuCustomerController extends BaseController {
 	}
 	
 	/**
-	 * 绑卡列表查询
+	 * 额度查询
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("cif/bankCard/query/v1")
-	public JfResponseDto queryBankCard(@RequestBody JfRequestDto request) throws Exception {
+	public JfResponseDto queryBankCard(@RequestBody JfRequestDto<Jf100184Req> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
@@ -177,21 +177,5 @@ public class JiuFuCustomerController extends BaseController {
         }
         return jfApiService.callBackAuth(request);
 	}
-	
-	/**
-	 * 交易绑卡落库
-	 * @return
-	 * @throws Exception
-	 */
-	@RequestMapping("cif/tradingCard/changeCardSave/v1")
-	public JfResponseDto changeCard(@RequestBody JfRequestDto request) throws Exception {
-        JfResponseDto result = super.checkBuildSysCode(request);
-        if (null != result)  {
-            return result;
-        }
-        return jfApiService.changeCard(request);
-	}
-
-
 
 }
