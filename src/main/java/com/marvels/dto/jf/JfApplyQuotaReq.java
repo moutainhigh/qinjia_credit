@@ -8,9 +8,9 @@ package com.marvels.dto.jf;
 public class JfApplyQuotaReq {
 	
 	/**
-	 * 商户号
+	 * 客户号
 	 */
-	private String tenantCode;
+	private String customerId;
 	
 	/**
 	 * 产品ID
@@ -18,26 +18,16 @@ public class JfApplyQuotaReq {
 	private String productId;
 	
 	/**
-	 * 身份证号
-	 */
-	private String certId;
-	
-	/**
-	 * 商户用户号
-	 */
-	private String tenantUserId;
-	
-	/**
 	 * 回调地址
 	 */
 	private String backUrl;
 
-	public String getTenantCode() {
-		return tenantCode;
+	public String getCustomerId() {
+		return customerId;
 	}
 
-	public void setTenantCode(String tenantCode) {
-		this.tenantCode = tenantCode;
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
 	}
 
 	public String getProductId() {
@@ -46,22 +36,6 @@ public class JfApplyQuotaReq {
 
 	public void setProductId(String productId) {
 		this.productId = productId;
-	}
-
-	public String getCertId() {
-		return certId;
-	}
-
-	public void setCertId(String certId) {
-		this.certId = certId;
-	}
-
-	public String getTenantUserId() {
-		return tenantUserId;
-	}
-
-	public void setTenantUserId(String tenantUserId) {
-		this.tenantUserId = tenantUserId;
 	}
 
 	public String getBackUrl() {

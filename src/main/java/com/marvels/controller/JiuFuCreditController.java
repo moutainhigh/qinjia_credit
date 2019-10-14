@@ -46,6 +46,10 @@ public class JiuFuCreditController extends BaseController{
 	 */
 	@RequestMapping("credit/center/query/result/v2")
 	public JfResponseDto queryApplyResult(JfRequestDto<JfQueryApplyResultReq> request) throws Exception {
-		return new JfResponseDto();
+		JfResponseDto result = super.checkBuildSysCode(request);
+		if (null != result)  {
+			return result;
+		}
+		return jfApiService.queryApplyResult(request);
 	}
 }

@@ -14,6 +14,15 @@ public interface JfApiService {
 	 * @throws Exception
 	 */
 	JfResponseDto applyQuota(JfRequestDto<JfApplyQuotaReq> param) throws Exception;
+	
+	/**
+	 * 查询授信申请
+	 * @param param 请求参数
+	 * @return
+	 * @throws Exception
+	 */
+	JfResponseDto queryApplyResult(JfRequestDto<JfQueryApplyResultReq> param) throws Exception;
+	
     /**
      * 支持的银行卡列表查询
      * @param param 请求参数

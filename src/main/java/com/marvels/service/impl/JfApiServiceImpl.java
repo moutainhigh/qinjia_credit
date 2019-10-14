@@ -26,14 +26,14 @@ public class JfApiServiceImpl implements JfApiService {
     private JfResponseDto<?> sendRequest(PublicEnums.JfInterfaceCodeEnum syinterface, JfRequestDto<?> param) {
         String url = PropertiesLoadUtil.getPropertiesValue("api.jiufu.url", "forms-openapi.properties");
         String questParam = JSON.toJSONString(param);
-        String responseStr = HttpUtil.doPost(url + syinterface.getUri(), questParam);
+        String responseStr = HttpUtil.doPostByJiuFu(syinterface.getCode(), url + syinterface.getUri(), questParam);
         qjItfLogService.inOutParamsItfLog(syinterface,questParam,responseStr);
         return JSON.parseObject(responseStr, JfResponseDto.class);
     }
 
 	@Override
 	public JfResponseDto applyQuota(JfRequestDto<JfApplyQuotaReq> param) throws Exception {
-		return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+		return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100171, param);
 	}
 
     @Override
@@ -288,4 +288,9 @@ public class JfApiServiceImpl implements JfApiService {
     public JfResponseDto<JfQueryRepayRecourdRes> queryRepayRecord(JfRequestDto<JfQueryRepayRecourdReq> param) throws Exception {
         return (JfResponseDto<JfQueryRepayRecourdRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
     }
+
+	@Override
+	public JfResponseDto<JfQueryApplyResultRes> queryApplyResult(JfRequestDto<JfQueryApplyResultReq> param) throws Exception {
+		return (JfResponseDto<JfQueryApplyResultRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100172, param);
+	}
 }
