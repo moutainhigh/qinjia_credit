@@ -37,13 +37,7 @@ public interface JfApiService {
      * @throws Exception
      */
     JfResponseDto queryCardBin(JfRequestDto<JfQueryCardBinReq> param) throws Exception;
-    /**
-     * 鉴权查询
-     * @param param 请求参数
-     * @return
-     * @throws Exception
-     */
-    JfResponseDto queryAuthCard(JfRequestDto<JfQueryAuthCardReq> param) throws Exception;
+
     /**
      * 签约申请
      * @param param 请求参数
