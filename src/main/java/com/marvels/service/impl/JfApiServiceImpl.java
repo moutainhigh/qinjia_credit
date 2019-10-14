@@ -11,6 +11,9 @@ import com.marvels.service.JfApiService;
 import com.marvels.service.QjItfLogService;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author Administrator
+ */
 @Service("jfApiService")
 public class JfApiServiceImpl implements JfApiService {
 
@@ -44,11 +47,6 @@ public class JfApiServiceImpl implements JfApiService {
     @Override
     public JfResponseDto<JfQueryCardBinRes> queryCardBin(JfRequestDto<JfQueryCardBinReq> param) throws Exception {
         return (JfResponseDto<JfQueryCardBinRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100160, param);
-    }
-
-    @Override
-    public JfResponseDto<JfQueryAuthCardRes> queryAuthCard(JfRequestDto<JfQueryAuthCardReq> param) throws Exception {
-        return (JfResponseDto<JfQueryAuthCardRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
     }
 
     @Override

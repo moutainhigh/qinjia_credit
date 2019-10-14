@@ -46,19 +46,6 @@ public class JiuFuPayController extends BaseController{
 	    return jfApiService.queryCardBin(request);
 	}
 	
-	/**
-	 * 鉴权查询
-	 * @return
-	 * @throws Exception
-	 */
-	@RequestMapping("credit/jf/ITF00012")
-	public JfResponseDto queryAuthCard(@RequestBody JfRequestDto<JfQueryAuthCardReq> request) throws Exception {
-        JfResponseDto result = super.checkBuildSysCode(request);
-        if (null != result)  {
-            return result;
-        }
-	    return jfApiService.queryAuthCard(request);
-	}
 	
 	/**
 	 * 签约申请
