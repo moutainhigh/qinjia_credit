@@ -147,4 +147,60 @@ public interface JfApiService {
      * @throws Exception
      */
     public JfResponseDto changeCard(JfRequestDto param) throws Exception;
+
+    /**
+     * 借据编号查询借据信息
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    JfResponseDto getIou(JfRequestDto<JfGetIouReq> param) throws Exception;
+
+    /**
+     * 查询用户所有的借据
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    JfResponseDto getIouByCustNo(JfRequestDto<JfGetIouReq> param) throws Exception;
+
+    /**
+     * 还款计划查询
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    JfResponseDto getRepayPlan(JfRequestDto<JfGetRepayPlanReq> param) throws Exception;
+
+    /**
+     * 还款金额试算
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    JfResponseDto queryRepayAmt(JfRequestDto<JfQueryRepayAmtReq> param) throws Exception;
+
+    /**
+     * 主动还款
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    JfResponseDto repay(JfRequestDto<JfRayReq> param) throws Exception;
+
+    /**
+     * 扣款结果查询
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    JfResponseDto queryRepayResult(JfRequestDto<JfQueryRepayResultReq> param) throws Exception;
+
+    /**
+     * 查询用户还款记录
+     * @param param 请求参数
+     * @return
+     * @throws Exception
+     */
+    JfResponseDto queryRepayRecord(JfRequestDto<JfQueryRepayRecourdReq> param) throws Exception;
 }
