@@ -37,13 +37,7 @@ public interface JfApiService {
      * @throws Exception
      */
     JfResponseDto queryCardBin(JfRequestDto<JfQueryCardBinReq> param) throws Exception;
-    /**
-     * 鉴权查询
-     * @param param 请求参数
-     * @return
-     * @throws Exception
-     */
-    JfResponseDto queryAuthCard(JfRequestDto<JfQueryAuthCardReq> param) throws Exception;
+
     /**
      * 签约申请
      * @param param 请求参数
@@ -166,20 +160,12 @@ public interface JfApiService {
     JfResponseDto getIou(JfRequestDto<JfGetIouReq> param) throws Exception;
 
     /**
-     * 查询用户所有的借据
-     * @param param 请求参数
-     * @return
-     * @throws Exception
-     */
-    JfResponseDto getIouByCustNo(JfRequestDto<JfGetIouReq> param) throws Exception;
-
-    /**
      * 还款计划查询
      * @param param 请求参数
      * @return
      * @throws Exception
      */
-    JfResponseDto getRepayPlan(JfRequestDto<JfGetRepayPlanReq> param) throws Exception;
+    JfResponseDto getRepayPlan(JfRequestDto<JfGetIouReq> param) throws Exception;
 
     /**
      * 还款金额试算
@@ -212,4 +198,60 @@ public interface JfApiService {
      * @throws Exception
      */
     JfResponseDto queryRepayRecord(JfRequestDto<JfQueryRepayRecourdReq> param) throws Exception;
+
+    /**
+     * 资金路由接口
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto capitalRouting(JfRequestDto<JfCapitalRoutingReq> request) throws Exception;
+
+    /**
+     * 借款试算接口
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto loanTrial(JfRequestDto<JfLoanTrialReq> request) throws Exception;
+
+    /**
+     * 下单接口
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto placeOrder(JfRequestDto<JfPlaceOrderReq> request) throws Exception;
+
+    /**
+     * 资产端关单申请接口
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto closeOrderApply(JfRequestDto<JfCloseOrderApplyReq> request) throws Exception;
+
+    /**
+     * 工单信息查询接口
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto queryOrderInfo(JfRequestDto<JfQueryOrderInfoReq> request) throws Exception;
+
+    /**
+     * 资产端关单结果查询接口
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto queryCloseOrderRes(JfRequestDto<JfQueryCloseOrderResReq> request) throws Exception;
+
+    /**
+     * 工单合同信息查询接口
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto queryContract(JfRequestDto<JfQueryOrderInfoReq> request) throws Exception;
+
 }

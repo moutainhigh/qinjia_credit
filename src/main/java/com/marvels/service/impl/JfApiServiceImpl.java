@@ -11,6 +11,9 @@ import com.marvels.service.JfApiService;
 import com.marvels.service.QjItfLogService;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author Administrator
+ */
 @Service("jfApiService")
 public class JfApiServiceImpl implements JfApiService {
 
@@ -38,27 +41,22 @@ public class JfApiServiceImpl implements JfApiService {
 
     @Override
     public JfResponseDto<JfQueryBankListRes> queryBankList(JfRequestDto<JfQueryBankListReq> param) throws Exception {
-        return (JfResponseDto<JfQueryBankListRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+        return (JfResponseDto<JfQueryBankListRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100159, param);
     }
 
     @Override
     public JfResponseDto<JfQueryCardBinRes> queryCardBin(JfRequestDto<JfQueryCardBinReq> param) throws Exception {
-        return (JfResponseDto<JfQueryCardBinRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
-    }
-
-    @Override
-    public JfResponseDto<JfQueryAuthCardRes> queryAuthCard(JfRequestDto<JfQueryAuthCardReq> param) throws Exception {
-        return (JfResponseDto<JfQueryAuthCardRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+        return (JfResponseDto<JfQueryCardBinRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100160, param);
     }
 
     @Override
     public JfResponseDto<JfSignApplyRes> signApply(JfRequestDto<JfSignApplyReq> param) throws Exception {
-        return (JfResponseDto<JfSignApplyRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+        return (JfResponseDto<JfSignApplyRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100161, param);
     }
 
     @Override
     public JfResponseDto<JfConfirmSignRes> confirmSign(JfRequestDto<JfConfirmSignReq> param) throws Exception {
-        return (JfResponseDto<JfConfirmSignRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+        return (JfResponseDto<JfConfirmSignRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100162, param);
     }
 
     /**
@@ -70,7 +68,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto authName(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5501, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100163, param);
     }
 
     /**
@@ -82,7 +80,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto faceRecogSave(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5503, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100164, param);
     }
 
     /**
@@ -94,7 +92,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto saveCustomerKyc(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5504, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100165, param);
     }
 
     /**
@@ -106,7 +104,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto getCustomerBaseInfo(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5526, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100166, param);
     }
 
     /**
@@ -130,7 +128,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto authBankCard(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5507, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100166, param);
     }
 
     /**
@@ -142,7 +140,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto authOperator(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5511, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100167, param);
     }
 
     /**
@@ -154,7 +152,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto authCreditCard(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5514, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100168, param);
     }
 
     /**
@@ -178,7 +176,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto queryCreditStatus(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5519, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100169, param);
     }
 
     /**
@@ -190,7 +188,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto callBackAuth(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5524, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100170, param);
     }
 
     /**
@@ -214,19 +212,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto<JfGetIouRes> getIou(JfRequestDto<JfGetIouReq> param) throws Exception {
-        return (JfResponseDto<JfGetIouRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
-    }
-
-    /**
-     * 查询用户所有的借据
-     *
-     * @param param 请求参数
-     * @return
-     * @throws Exception
-     */
-    @Override
-    public JfResponseDto<JfGetIouByCustNoRes> getIouByCustNo(JfRequestDto<JfGetIouReq> param) throws Exception {
-        return (JfResponseDto<JfGetIouByCustNoRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+        return (JfResponseDto<JfGetIouRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100174, param);
     }
 
     /**
@@ -237,8 +223,8 @@ public class JfApiServiceImpl implements JfApiService {
      * @throws Exception
      */
     @Override
-    public JfResponseDto<JfGetRepayPlanRes> getRepayPlan(JfRequestDto<JfGetRepayPlanReq> param) throws Exception {
-        return (JfResponseDto<JfGetRepayPlanRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+    public JfResponseDto<JfGetRepayPlanRes> getRepayPlan(JfRequestDto<JfGetIouReq> param) throws Exception {
+        return (JfResponseDto<JfGetRepayPlanRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100175, param);
     }
 
     /**
@@ -250,7 +236,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto<JfQueryRepayAmtRes> queryRepayAmt(JfRequestDto<JfQueryRepayAmtReq> param) throws Exception {
-        return (JfResponseDto<JfQueryRepayAmtRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+        return (JfResponseDto<JfQueryRepayAmtRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100176, param);
     }
 
     /**
@@ -262,7 +248,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto<JfRayRes> repay(JfRequestDto<JfRayReq> param) throws Exception {
-        return (JfResponseDto<JfRayRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+        return (JfResponseDto<JfRayRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100177, param);
     }
 
     /**
@@ -274,7 +260,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto<JfQueryRepayResultRes> queryRepayResult(JfRequestDto<JfQueryRepayResultReq> param) throws Exception {
-        return (JfResponseDto<JfQueryRepayResultRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+        return (JfResponseDto<JfQueryRepayResultRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100178, param);
     }
 
     /**
@@ -286,10 +272,93 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto<JfQueryRepayRecourdRes> queryRepayRecord(JfRequestDto<JfQueryRepayRecourdReq> param) throws Exception {
-        return (JfResponseDto<JfQueryRepayRecourdRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF700005, param);
+        return (JfResponseDto<JfQueryRepayRecourdRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100179, param);
     }
 
-	@Override
+    /**
+     * 资金路由接口
+     *
+     * @param request
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfCapitalRoutingRes> capitalRouting(JfRequestDto<JfCapitalRoutingReq> request) throws Exception {
+        return (JfResponseDto<JfCapitalRoutingRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100150, request);
+    }
+
+    /**
+     * 借款试算接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfLoanTrialRes> loanTrial(JfRequestDto<JfLoanTrialReq> request) throws Exception {
+        return (JfResponseDto<JfLoanTrialRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100151, request);
+    }
+
+    /**
+     * 下单接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfPlaceOrderRes> placeOrder(JfRequestDto<JfPlaceOrderReq> request) throws Exception {
+        return (JfResponseDto<JfPlaceOrderRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100152, request);
+    }
+
+    /**
+     * 资产端关单申请接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfCloseOrderApplyRes> closeOrderApply(JfRequestDto<JfCloseOrderApplyReq> request) throws Exception {
+        return (JfResponseDto<JfCloseOrderApplyRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100153, request);
+    }
+
+    /**
+     * 工单信息查询接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfQueryOrderInfoRes> queryOrderInfo(JfRequestDto<JfQueryOrderInfoReq> request) throws Exception {
+        return (JfResponseDto<JfQueryOrderInfoRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100154, request);
+    }
+
+    /**
+     * 资产端关单结果查询接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfQueryCloseOrderResRes> queryCloseOrderRes(JfRequestDto<JfQueryCloseOrderResReq> request) throws Exception {
+        return (JfResponseDto<JfQueryCloseOrderResRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100155, request);
+    }
+
+    /**
+     * 工单合同信息查询接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfQueryContractRes> queryContract(JfRequestDto<JfQueryOrderInfoReq> request) throws Exception {
+        return (JfResponseDto<JfQueryContractRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100156, request);
+    }
+
+    @Override
 	public JfResponseDto<JfQueryApplyResultRes> queryApplyResult(JfRequestDto<JfQueryApplyResultReq> param) throws Exception {
 		return (JfResponseDto<JfQueryApplyResultRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100172, param);
 	}
