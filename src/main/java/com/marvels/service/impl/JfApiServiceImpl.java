@@ -68,7 +68,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto authName(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5501, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100163, param);
     }
 
     /**
@@ -80,7 +80,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto faceRecogSave(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5503, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100164, param);
     }
 
     /**
@@ -92,7 +92,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto saveCustomerKyc(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5504, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100165, param);
     }
 
     /**
@@ -104,7 +104,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto getCustomerBaseInfo(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5526, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100166, param);
     }
 
     /**
@@ -128,7 +128,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto authBankCard(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5507, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100166, param);
     }
 
     /**
@@ -140,7 +140,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto authOperator(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5511, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100167, param);
     }
 
     /**
@@ -152,7 +152,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto authCreditCard(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5514, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100168, param);
     }
 
     /**
@@ -176,7 +176,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto queryCreditStatus(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5519, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100169, param);
     }
 
     /**
@@ -188,7 +188,7 @@ public class JfApiServiceImpl implements JfApiService {
      */
     @Override
     public JfResponseDto callBackAuth(JfRequestDto param) throws Exception {
-        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF5524, param);
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100170, param);
     }
 
     /**

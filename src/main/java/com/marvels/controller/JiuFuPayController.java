@@ -46,7 +46,7 @@ public class JiuFuPayController extends BaseController{
 	    return jfApiService.queryCardBin(request);
 	}
 	
-	
+
 	/**
 	 * 签约申请
 	 * @return
