@@ -1,6 +1,9 @@
 package com.marvels.common;
 
+import com.alibaba.fastjson.JSONObject;
 import com.marvels.common.util.MarvelsLogUtil;
+import com.marvels.dto.common.QjItfLog;
+import com.marvels.service.QjItfLogService;
 import com.rabbitmq.client.Channel;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
@@ -8,6 +11,7 @@ import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.ChannelAwareMessageListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
@@ -34,6 +38,8 @@ import org.springframework.context.annotation.Scope;
 public class RabbitConfig {
     /** 日志 */
     private MarvelsLogUtil log = MarvelsLogUtil.getInstance();
+    @Autowired
+    private QjItfLogService qjItfLogService;
 
     @Value("${spring.rabbitmq.host}")
     private String host;
@@ -139,6 +145,10 @@ public class RabbitConfig {
             channel.basicQos(1);
             byte[] body = message.getBody();
             log.info("手工确认模式接收处理队列A当中的消息:" + new String(body));
+            // 日志入库
+            QjItfLog qjItfLog = JSONObject.parseObject(new String(body), QjItfLog.class);
+            qjItfLogService.inOutParamsItfLog(qjItfLog);
+
             /**为了保证永远不会丢失消息，RabbitMQ支持消息应答机制。
              当消费者接收到消息并完成任务后会往RabbitMQ服务器发送一条确认的命令，然后RabbitMQ才会将消息删除。*/
             channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
