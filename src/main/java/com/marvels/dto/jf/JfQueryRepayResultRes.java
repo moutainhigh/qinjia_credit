@@ -5,7 +5,7 @@ import lombok.Setter;
 
 /**
  * @ClassName JfRayRes
- * @Description TODO
+ * @Description 还款结果查询接口响应参数
  * @Author renyz
  * @Date 2019/10/14 14:38
  * @Version 1.0

@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @ClassName JfCloseOrderApplyRes
- * @Description TODO
+ * @Description 资产端关单申请接口响应参数
  * @Author renyz
  * @Date 2019/10/14 18:00
  * @Version 1.0

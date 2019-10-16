@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @ClassName JfPlaceOrderRes
- * @Description TODO
+ * @Description 下单接口响应参数
  * @Author renyz
  * @Date 2019/10/14 17:27
  * @Version 1.0

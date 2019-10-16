@@ -1,11 +1,11 @@
-package com.marvels.service.impl;
+package com.marvels.dto.jf;
 
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  * @ClassName JfQueryContractRes
- * @Description TODO
+ * @Description 工单合同信息查询接口响应参数
  * @Author renyz
  * @Date 2019/10/14 18:20
  * @Version 1.0

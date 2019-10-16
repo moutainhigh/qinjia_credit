@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @ClassName JfGetIouByCustNoRes
- * @Description TODO
+ * @Description 还款计划查询接口返回接口
  * @Author renyz
  * @Date 2019/10/14 12:10
  * @Version 1.0

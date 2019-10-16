@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @ClassName JfLoanTrialRes
- * @Description TODO
+ * @Description 借款试算接口响应参数
  * @Author renyz
  * @Date 2019/10/14 17:25
  * @Version 1.0

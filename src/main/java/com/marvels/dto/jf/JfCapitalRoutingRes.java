@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 /**
  * @ClassName JfCapitalRoutingRes
- * @Description TODO
+ * @Description 资金路由接口响应参数
  * @Author renyz
  * @Date 2019/10/14 17:14
  * @Version 1.0

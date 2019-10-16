@@ -5,7 +5,7 @@ import lombok.Setter;
 
 /**
  * @ClassName JfQueryOrderInfoReq
- * @Description TODO
+ * @Description 工单信息查询接口请求参数
  * @Author renyz
  * @Date 2019/10/14 18:10
  * @Version 1.0

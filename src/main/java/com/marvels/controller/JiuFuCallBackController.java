@@ -23,12 +23,12 @@ public class JiuFuCallBackController {
 	}
 	
 	/**
-	 * 放款结果回调
+	 * 授信结果回调
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("qjcs/callback/jf/loanResult")
-	public Object loanResult() throws Exception {
+	@RequestMapping("qjcs/callback/jf/applyResult")
+	public Object applyResult() throws Exception {
 		return null;
 	}
 	
@@ -39,6 +39,16 @@ public class JiuFuCallBackController {
 	 */
 	@RequestMapping("qjcs/callback/jf/closeOrderResult")
 	public Object closeOrderResult() throws Exception {
+		return null;
+	}
+	
+	/**
+	 * 放款结果回调
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("qjcs/callback/jf/loanResult")
+	public Object loanResult() throws Exception {
 		return null;
 	}
 }

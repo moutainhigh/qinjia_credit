@@ -5,7 +5,7 @@ import lombok.Setter;
 
 /**
  * @ClassName JfGetRepayPlanReq
- * @Description TODO
+ * @Description 还款金额试算接口入参
  * @Author renyz
  * @Date 2019/10/14 14:21
  * @Version 1.0

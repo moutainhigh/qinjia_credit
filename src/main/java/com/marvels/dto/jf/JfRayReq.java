@@ -5,7 +5,7 @@ import lombok.Setter;
 
 /**
  * @ClassName JfQueryRepayAmtReq
- * @Description TODO
+ * @Description 主动还款接口请求参数
  * @Author renyz
  * @Date 2019/10/14 14:31
  * @Version 1.0

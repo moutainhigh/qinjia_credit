@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @ClassName JfGetRepayPlanRes
- * @Description TODO
+ * @Description 还款金额试算接口出参
  * @Author renyz
  * @Date 2019/10/14 14:24
  * @Version 1.0

@@ -39,21 +39,44 @@ public class JfApiServiceImpl implements JfApiService {
 		return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100171, param);
 	}
 
+    /**
+     * 支持的银行卡列表查询
+     * @param param 请求参数
+     * @return JfResponseDto<JfQueryBankListRes>
+     * @throws Exception
+     */
     @Override
     public JfResponseDto<JfQueryBankListRes> queryBankList(JfRequestDto<JfQueryBankListReq> param) throws Exception {
         return (JfResponseDto<JfQueryBankListRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100159, param);
     }
 
+    /**
+     * 卡bin查询
+     * @param param 请求参数
+     * @return JfResponseDto<JfQueryCardBinRes>
+     * @throws Exception
+     */
     @Override
     public JfResponseDto<JfQueryCardBinRes> queryCardBin(JfRequestDto<JfQueryCardBinReq> param) throws Exception {
         return (JfResponseDto<JfQueryCardBinRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100160, param);
     }
 
+    /**
+     * 签约申请
+     * @param param 请求参数
+     * @return JfResponseDto<JfSignApplyRes>
+     * @throws Exception
+     */
     @Override
     public JfResponseDto<JfSignApplyRes> signApply(JfRequestDto<JfSignApplyReq> param) throws Exception {
         return (JfResponseDto<JfSignApplyRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100161, param);
     }
-
+    /**
+     * 签约确认
+     * @param param 请求参数
+     * @return JfResponseDto<JfConfirmSignRes>
+     * @throws Exception
+     */
     @Override
     public JfResponseDto<JfConfirmSignRes> confirmSign(JfRequestDto<JfConfirmSignReq> param) throws Exception {
         return (JfResponseDto<JfConfirmSignRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100162, param);
