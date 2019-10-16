@@ -1,14 +1,16 @@
 package com.marvels.service.impl;
 
-import com.marvels.dto.jf.*;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.marvels.common.MsgProducer;
 import com.marvels.common.enums.PublicEnums;
+import com.marvels.common.util.CommonUtil;
 import com.marvels.common.util.HttpUtil;
 import com.marvels.common.util.PropertiesLoadUtil;
+import com.marvels.dto.common.QjItfLog;
+import com.marvels.dto.jf.*;
 import com.marvels.service.JfApiService;
-import com.marvels.service.QjItfLogService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,23 +18,8 @@ import org.springframework.stereotype.Service;
  */
 @Service("jfApiService")
 public class JfApiServiceImpl implements JfApiService {
-
     @Autowired
-    private QjItfLogService qjItfLogService;
-
-    /**
-     * 发送post请求包装方法
-     * @param syinterface
-     * @param param
-     * @return
-     */
-    private JfResponseDto<?> sendRequest(PublicEnums.JfInterfaceCodeEnum syinterface, JfRequestDto<?> param) {
-        String url = PropertiesLoadUtil.getPropertiesValue("api.jiufu.url", "forms-openapi.properties");
-        String questParam = JSON.toJSONString(param);
-        String responseStr = HttpUtil.doPostByJiuFu(syinterface.getCode(), url + syinterface.getUri(), questParam);
-        qjItfLogService.inOutParamsItfLog(syinterface,questParam,responseStr);
-        return JSON.parseObject(responseStr, JfResponseDto.class);
-    }
+    private MsgProducer producer;
 
 	@Override
 	public JfResponseDto applyQuota(JfRequestDto<JfApplyQuotaReq> param) throws Exception {
@@ -373,4 +360,47 @@ public class JfApiServiceImpl implements JfApiService {
 	public JfResponseDto<JfQueryApplyResultRes> queryApplyResult(JfRequestDto<JfQueryApplyResultReq> param) throws Exception {
 		return (JfResponseDto<JfQueryApplyResultRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100172, param);
 	}
+
+
+    /**
+     * 发送post请求包装方法
+     * @param syinterface
+     * @param param
+     * @return
+     */
+    private JfResponseDto<?> sendRequest(PublicEnums.JfInterfaceCodeEnum syinterface, JfRequestDto<?> param) {
+        String url = PropertiesLoadUtil.getPropertiesValue("api.jiufu.url", "forms-openapi.properties");
+        String questParam = JSON.toJSONString(param);
+        String responseStr = HttpUtil.doPostByJiuFu(syinterface.getCode(), url + syinterface.getUri(), questParam);
+
+        // 日志入队列
+        QjItfLog qjItfLog = buildQjItfLog(syinterface, questParam, responseStr);
+        if(qjItfLog != null) {
+            // 队列
+            producer.sendMsg(JSONObject.toJSONString(qjItfLog));
+        }
+        return JSON.parseObject(responseStr, JfResponseDto.class);
+    }
+
+    /**
+     * 构建日志对象
+     * @param enums  枚举
+     * @param inParam  记录入参
+     * @param outParam 记录出参
+     * @return
+     */
+    private QjItfLog buildQjItfLog(PublicEnums.JfInterfaceCodeEnum enums,String inParam,String outParam) {
+        if(CommonUtil.validEmpty(enums.getCode())) {
+            return null;
+        }
+
+        // 接口日志入口
+        QjItfLog qjItfLog = new QjItfLog();
+        qjItfLog.setItfCode(enums.getCode());
+        qjItfLog.setItfName(enums.getDesc());
+        qjItfLog.setItfUri(enums.getUri());
+        qjItfLog.setInParam(JSONObject.toJSONString(inParam));
+        qjItfLog.setOutParam(JSONObject.toJSONString(outParam));
+        return qjItfLog;
+    }
 }

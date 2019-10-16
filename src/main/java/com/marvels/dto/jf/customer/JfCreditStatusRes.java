@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 授信项状态查询 data
+ * 授信项状态查询 data:Object[]
  * @author houyl
  * @date 2019/10/14 12:10
  */
