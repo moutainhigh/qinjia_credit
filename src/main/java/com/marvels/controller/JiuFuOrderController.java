@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping
+@RequestMapping("qjcs/api/jf/")
 public class JiuFuOrderController extends BaseController{
 
     @Autowired
@@ -24,7 +24,7 @@ public class JiuFuOrderController extends BaseController{
      * @throws Exception
      * @param request
      */
-    @RequestMapping("credit/jf/ITF00012")
+    @RequestMapping("100150")
     public JfResponseDto capitalRouting(@RequestBody JfRequestDto<JfCapitalRoutingReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -38,7 +38,7 @@ public class JiuFuOrderController extends BaseController{
      * @throws Exception
      * @param request
      */
-    @RequestMapping("credit/jf/ITF00012")
+    @RequestMapping("100151")
     public JfResponseDto loanTrial(@RequestBody JfRequestDto<JfLoanTrialReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -53,7 +53,7 @@ public class JiuFuOrderController extends BaseController{
      * @throws Exception
      * @param request
      */
-    @RequestMapping("credit/jf/ITF00012")
+    @RequestMapping("100152")
     public JfResponseDto placeOrder(@RequestBody JfRequestDto<JfPlaceOrderReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -68,7 +68,7 @@ public class JiuFuOrderController extends BaseController{
      * @throws Exception
      * @param request
      */
-    @RequestMapping("credit/jf/ITF00012")
+    @RequestMapping("100153")
     public JfResponseDto closeOrderApply(@RequestBody JfRequestDto<JfCloseOrderApplyReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -83,7 +83,7 @@ public class JiuFuOrderController extends BaseController{
      * @throws Exception
      * @param request
      */
-    @RequestMapping("credit/jf/ITF00012")
+    @RequestMapping("100154")
     public JfResponseDto queryOrderInfo(@RequestBody JfRequestDto<JfQueryOrderInfoReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -98,7 +98,7 @@ public class JiuFuOrderController extends BaseController{
      * @throws Exception
      * @param request
      */
-    @RequestMapping("credit/jf/ITF00012")
+    @RequestMapping("100155")
     public JfResponseDto queryCloseOrderRes(@RequestBody JfRequestDto<JfQueryCloseOrderReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -113,7 +113,7 @@ public class JiuFuOrderController extends BaseController{
      * @throws Exception
      * @param request
      */
-    @RequestMapping("credit/jf/ITF00012")
+    @RequestMapping("100156")
     public JfResponseDto queryContract(@RequestBody JfRequestDto<JfQueryOrderInfoReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
