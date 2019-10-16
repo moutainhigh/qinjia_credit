@@ -12,7 +12,7 @@ import lombok.Setter;
  **/
 @Getter
 @Setter
-public class JfQueryCloseOrderResRes {
+public class JfQueryCloseOrderRes {
     /**  资产端商户编号 */
     private String merchNo;
     /** 资金机构编号 */
