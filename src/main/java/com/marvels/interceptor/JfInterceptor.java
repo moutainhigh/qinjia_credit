@@ -43,6 +43,7 @@ public class JfInterceptor implements HandlerInterceptor {
         String jfToken = PropertiesLoadUtil.getPropertiesValue("jiufu.token", "forms-openapi.properties");
         String mySign = EncryptUtil.MD5Encode(jfCode + time + jfToken);
         if(sign.equals(mySign)) {
+            request.getRequestDispatcher(request.getHeader("intfCode")).forward(request,response);
             // 验签通过
             return true;
         }else {
