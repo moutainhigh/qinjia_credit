@@ -42,9 +42,11 @@ public class JfInterceptor implements HandlerInterceptor {
         String jfCode = PropertiesLoadUtil.getPropertiesValue("jiufu.code", "forms-openapi.properties");
         String jfToken = PropertiesLoadUtil.getPropertiesValue("jiufu.token", "forms-openapi.properties");
         String mySign = EncryptUtil.MD5Encode(jfCode + time + jfToken);
+
+        // 验签通过
         if(sign.equals(mySign)) {
-            request.getRequestDispatcher(request.getHeader("intfCode")).forward(request,response);
-            // 验签通过
+            // 转发到对应接口地址
+            request.getRequestDispatcher("qjcs/api/jf/"+request.getHeader("intfCode")).forward(request,response);
             return true;
         }else {
             return false;

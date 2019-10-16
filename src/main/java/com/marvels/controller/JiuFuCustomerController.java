@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping
+@RequestMapping("/qjcs/api/jf")
 public class JiuFuCustomerController extends BaseController {
 
     /**
@@ -29,7 +29,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("cif/ocr/upload")
+	@RequestMapping("100163")
 	public JfResponseDto authName(@RequestBody JfRequestDto<JfAuthNameReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -43,7 +43,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("cif/customerFace/faceRecogSave/v1")
+	@RequestMapping("100164")
 	public JfResponseDto faceRecogSave(@RequestBody JfRequestDto<JfFaceRecogSaveReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -57,7 +57,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("cif/CustomerKyc/saveCustomerKyc/v1")
+	@RequestMapping("100165")
 	public JfResponseDto saveCustomerKyc(@RequestBody JfRequestDto<JfCustomerKycReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -71,7 +71,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("cif/CustomerBaseInfo2Out/getCustomerBaseInfo/v1")
+	@RequestMapping("100166")
 	public JfResponseDto grantDebitCard(@RequestBody JfRequestDto<Jf100166Req> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -85,7 +85,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("cif/CustomerBaseInfo2Out/getCustomerBaseInfoByIdNo/v1")
+	@RequestMapping("100173")
 	public JfResponseDto saveCreditGranting(@RequestBody JfRequestDto<Jf100173Req> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -99,7 +99,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("cif/bankCard/authorize/v1")
+	@RequestMapping("100183")
 	public JfResponseDto fgpAntiFraud(@RequestBody JfRequestDto<Jf100183Req> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -113,7 +113,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("cif/operator/authorize/v1")
+	@RequestMapping("100167")
 	public JfResponseDto authOperator(@RequestBody JfRequestDto<JfAuthOperatorReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -127,7 +127,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("cif/creditCard/authorize/v1")
+	@RequestMapping("100168")
 	public JfResponseDto authCreditCard(@RequestBody JfRequestDto<JfAuthorizeReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -141,7 +141,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("cif/bankCard/query/v1")
+	@RequestMapping("100184")
 	public JfResponseDto queryBankCard(@RequestBody JfRequestDto<Jf100184Req> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -155,7 +155,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("cif/authorize/status/v1")
+	@RequestMapping("100169")
 	public JfResponseDto queryCreditStatus(@RequestBody JfRequestDto<JfCreditStatusReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -169,7 +169,7 @@ public class JiuFuCustomerController extends BaseController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("cif/authorize/callback/v1")
+	@RequestMapping("100170")
 	public JfResponseDto callBackAuth(@RequestBody JfRequestDto<JfCallBackAuthReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {

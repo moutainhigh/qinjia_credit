@@ -90,7 +90,7 @@ public class PublicEnums {
 		JF100163("100163", "实名认证", "/fincloud/common.intf"),
 		JF100164("100164", "人脸识别结果上传", "/fincloud/common.intf"),
 		JF100165("100165", "KYC信息提交", "/fincloud/common.intf"),
-		JF100166("100166", "银行卡鉴权", "/fincloud/common.intf"),
+		JF100166("100166", "借记卡授权", "/fincloud/common.intf"),
 		JF100167("100167", "运营商授权", "/fincloud/common.intf"),
 		JF100168("100168", "信用卡授权", "/fincloud/common.intf"),
 		JF100169("100169", "授信项状态查询", "/fincloud/common.intf"),
