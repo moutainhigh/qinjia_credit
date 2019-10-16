@@ -353,8 +353,8 @@ public class JfApiServiceImpl implements JfApiService {
      * @throws Exception
      */
     @Override
-    public JfResponseDto<JfQueryCloseOrderResRes> queryCloseOrderRes(JfRequestDto<JfQueryCloseOrderResReq> request) throws Exception {
-        return (JfResponseDto<JfQueryCloseOrderResRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100155, request);
+    public JfResponseDto<JfQueryCloseOrderRes> queryCloseOrderRes(JfRequestDto<JfQueryCloseOrderReq> request) throws Exception {
+        return (JfResponseDto<JfQueryCloseOrderRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100155, request);
     }
 
     /**

@@ -236,7 +236,7 @@ public interface JfApiService {
      * @throws Exception
      * @param request
      */
-    JfResponseDto queryCloseOrderRes(JfRequestDto<JfQueryCloseOrderResReq> request) throws Exception;
+    JfResponseDto queryCloseOrderRes(JfRequestDto<JfQueryCloseOrderReq> request) throws Exception;
 
     /**
      * 工单合同信息查询接口

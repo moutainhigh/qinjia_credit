@@ -12,7 +12,7 @@ import lombok.Setter;
  **/
 @Getter
 @Setter
-public class JfQueryCloseOrderResReq {
+public class JfQueryCloseOrderReq {
     /** 受理流水号 */
     private String closeNo;
 }

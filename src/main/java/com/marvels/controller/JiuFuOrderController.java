@@ -18,7 +18,6 @@ public class JiuFuOrderController extends BaseController{
 
     @Autowired
     private JfApiService jfApiService;
-
     /**
      * 资金路由接口
      * @return JfResponseDto
@@ -33,7 +32,6 @@ public class JiuFuOrderController extends BaseController{
         }
         return jfApiService.capitalRouting(request);
     }
-
     /**
      * 借款试算接口
      * @return JfResponseDto
@@ -101,7 +99,7 @@ public class JiuFuOrderController extends BaseController{
      * @param request
      */
     @RequestMapping("credit/jf/ITF00012")
-    public JfResponseDto queryCloseOrderRes(@RequestBody JfRequestDto<JfQueryCloseOrderResReq> request) throws Exception {
+    public JfResponseDto queryCloseOrderRes(@RequestBody JfRequestDto<JfQueryCloseOrderReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;

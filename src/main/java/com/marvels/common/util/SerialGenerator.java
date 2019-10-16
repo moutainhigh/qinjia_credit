@@ -32,7 +32,7 @@ public class SerialGenerator {
     public static String get13Random(){
         SimpleDateFormat sdf = new SimpleDateFormat("MMddHHmmssSSS");
         String now = sdf.format(new Date());
-        return now + createSerialNo(3);
+        return now + createSerialNo(5);
     }
 
 
