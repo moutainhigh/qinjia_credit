@@ -55,8 +55,6 @@ public class RabbitConfig {
     private boolean pubConf;
     @Value("${spring.rabbitmq.publisher-returns}")
     private boolean pubReturns;
-    @Value("${spring.rabbitmq.template.mandatory}")
-    private boolean tmpMandatory;
 
     public static final String EXCHANGE_A = "my-mq-exchange_A";
     public static final String QUEUE_A = "QUEUE_A";
@@ -104,12 +102,11 @@ public class RabbitConfig {
     }
 
     /**
-     * 获取队列A
+     * 队列持久化
      * @return
      */
     @Bean
     public Queue queueA() {
-        //队列持久
         return new Queue(QUEUE_A, true);
     }
 

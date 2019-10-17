@@ -45,8 +45,14 @@ public class JfInterceptor implements HandlerInterceptor {
 
         // 验签通过
         if(sign.equals(mySign)) {
-            // 转发到对应接口地址
-            request.getRequestDispatcher("qjcs/api/jf/"+request.getHeader("intfCode")).forward(request,response);
+            // 统一入口
+            String contextPath = PropertiesLoadUtil.getPropertiesValue("server.context-path", "application.properties");
+            String mainUri = PropertiesLoadUtil.getPropertiesValue("qj.main.uri", "forms-openapi.properties");
+            String uri = contextPath + mainUri;
+            if(uri.equals(request.getRequestURI())) {
+                request.getRequestDispatcher("/qjcs/api/jf/"+request.getHeader("intfCode")).forward(request,response);
+                return false;
+            }
             return true;
         }else {
             return false;
