@@ -30,7 +30,7 @@ public class BaseController {
         // 校验syscode
         JfRequestDto.JfHttpInterfaceHander head = request.getHead();
         if(!sysCode.equals(head.getSysCode())) {
-            result = new JfResponseDto("10002E","参数不能为空");
+            result = new JfResponseDto("10002E","系统编号错误");
             return result;
         }
 
