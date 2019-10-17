@@ -1,5 +1,6 @@
 package com.marvels.controller;
 
+import com.marvels.common.enums.PublicEnums;
 import com.marvels.dto.jf.*;
 import com.marvels.service.JfApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping
+@RequestMapping("qjcs/api/jf/")
 public class JiuFuPayController extends BaseController{
 	@Autowired
     private JfApiService jfApiService;
@@ -23,7 +24,7 @@ public class JiuFuPayController extends BaseController{
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("credit/jf/ITF00012")
+	@RequestMapping("100159")
 	public JfResponseDto queryBankList(@RequestBody JfRequestDto<JfQueryBankListReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -37,7 +38,7 @@ public class JiuFuPayController extends BaseController{
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("credit/jf/ITF00012")
+	@RequestMapping("100160")
 	public JfResponseDto queryCardBin(@RequestBody JfRequestDto<JfQueryCardBinReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -52,7 +53,7 @@ public class JiuFuPayController extends BaseController{
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("credit/jf/ITF00012")
+	@RequestMapping("100161")
 	public JfResponseDto signApply(@RequestBody JfRequestDto<JfSignApplyReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -66,7 +67,7 @@ public class JiuFuPayController extends BaseController{
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("credit/jf/ITF00012")
+	@RequestMapping("100162")
 	public JfResponseDto confirmSign(@RequestBody JfRequestDto<JfConfirmSignReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {

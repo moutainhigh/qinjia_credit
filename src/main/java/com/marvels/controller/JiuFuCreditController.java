@@ -16,7 +16,7 @@ import com.marvels.service.JfApiService;
  *
  */
 @RestController
-@RequestMapping
+@RequestMapping("qjcs/api/jf/")
 public class JiuFuCreditController extends BaseController{
 	
 	/**
@@ -30,7 +30,7 @@ public class JiuFuCreditController extends BaseController{
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("credit/center/applyQuota/v2")
+	@RequestMapping("100171")
 	public JfResponseDto applyQuota(JfRequestDto<JfApplyQuotaReq> request) throws Exception {
 		JfResponseDto result = super.checkBuildSysCode(request);
 		if (null != result)  {
@@ -44,7 +44,7 @@ public class JiuFuCreditController extends BaseController{
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("credit/center/query/result/v2")
+	@RequestMapping("100172")
 	public JfResponseDto queryApplyResult(JfRequestDto<JfQueryApplyResultReq> request) throws Exception {
 		JfResponseDto result = super.checkBuildSysCode(request);
 		if (null != result)  {

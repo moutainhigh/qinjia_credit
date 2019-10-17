@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping
+@RequestMapping("qjcs/api/jf/")
 public class JiuFuRepaymentController extends BaseController{
 
     @Autowired
@@ -22,7 +22,7 @@ public class JiuFuRepaymentController extends BaseController{
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("ioucenter/iou/getIou")
+	@RequestMapping("100174")
 	public JfResponseDto getIou(JfRequestDto<JfGetIouReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -36,7 +36,7 @@ public class JiuFuRepaymentController extends BaseController{
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("ioucenter/iou/getRepayPlan")
+	@RequestMapping("100175")
 	public JfResponseDto getRepayPlan(JfRequestDto<JfGetIouReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -50,7 +50,7 @@ public class JiuFuRepaymentController extends BaseController{
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("ioucenter/iou/queryRepayAmt")
+	@RequestMapping("100176")
 	public JfResponseDto queryRepayAmt(JfRequestDto<JfQueryRepayAmtReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -64,7 +64,7 @@ public class JiuFuRepaymentController extends BaseController{
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("ioucent/repay/repay")
+	@RequestMapping("100177")
 	public JfResponseDto repay(JfRequestDto<JfRayReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -78,7 +78,7 @@ public class JiuFuRepaymentController extends BaseController{
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("ioucent/repay/queryRepayResult")
+	@RequestMapping("100178")
 	public JfResponseDto queryRepayResult(JfRequestDto<JfQueryRepayResultReq>  request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
@@ -92,7 +92,7 @@ public class JiuFuRepaymentController extends BaseController{
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("ioucent/repay/queryRepayRecord")
+	@RequestMapping("100179")
 	public JfResponseDto queryRepayRecord(JfRequestDto<JfQueryRepayRecourdReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
