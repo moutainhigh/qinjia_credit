@@ -39,12 +39,12 @@ public class CommonServiceImpl implements CommonService {
     private MsgProducer producer;
 
     @Autowired
-    private FormsOpenapiConfig formsOpenapiConfig;
+    private static FormsOpenapiConfig formsOpenapiConfig;
 
     private static IAcsClient client;
 
     static  {
-        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "<accessKeyId>", "<accessSecret>");
+        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", formsOpenapiConfig.getSendSms_accessKeyId(), formsOpenapiConfig.getSendSms_accessSecret());
         client = new DefaultAcsClient(profile);
     }
 
