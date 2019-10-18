@@ -1,22 +1,17 @@
 package com.marvels.common.util;
 
-import com.mchange.lang.ByteUtils;
-import org.apache.commons.codec.binary.Base64;
-
-import javax.crypto.Cipher;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.security.*;
+import java.security.KeyFactory;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.SecureRandom;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import java.text.DateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
+
+import javax.crypto.Cipher;
+
+import org.apache.commons.codec.binary.Base64;
 
 /**
  * RSA 秘钥工具类
