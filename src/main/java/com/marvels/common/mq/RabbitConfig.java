@@ -1,4 +1,4 @@
-package com.marvels.common.rabbitMQ;
+package com.marvels.common.mq;
 
 import com.alibaba.fastjson.JSONObject;
 import com.marvels.common.util.MarvelsLogUtil;

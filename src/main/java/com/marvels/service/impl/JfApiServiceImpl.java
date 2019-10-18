@@ -2,8 +2,8 @@ package com.marvels.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.marvels.common.rabbitMQ.MsgProducer;
 import com.marvels.common.enums.PublicEnums;
+import com.marvels.common.mq.MsgProducer;
 import com.marvels.common.util.CommonUtil;
 import com.marvels.common.util.HttpUtil;
 import com.marvels.common.util.PropertiesLoadUtil;
