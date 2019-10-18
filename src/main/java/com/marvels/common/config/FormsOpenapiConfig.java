@@ -48,4 +48,8 @@ public class FormsOpenapiConfig {
     @Value("${sendSms.signName}")
     private String sendSms_signName;
 
+    /** 玖富接口前缀 */
+    @Value("${qj.api.jf}")
+    private String qj_api_jf;
+
 }

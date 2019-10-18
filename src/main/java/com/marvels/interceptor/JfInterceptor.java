@@ -1,9 +1,12 @@
 package com.marvels.interceptor;
 
+import com.marvels.common.config.FormsOpenapiConfig;
 import com.marvels.common.util.CommonUtil;
 import com.marvels.common.util.EncryptUtil;
 import com.marvels.common.util.MarvelsLogUtil;
 import com.marvels.common.util.PropertiesLoadUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,6 +23,10 @@ import javax.servlet.http.HttpServletResponse;
 public class JfInterceptor implements HandlerInterceptor {
     /** 日志 */
     private MarvelsLogUtil log = MarvelsLogUtil.getInstance();
+    @Autowired
+    private FormsOpenapiConfig config;
+    @Value("${server.context-path}")
+    private String contextPath;
 
     /**
      * 在执行controller方法之前进行请求处理
@@ -39,18 +46,17 @@ public class JfInterceptor implements HandlerInterceptor {
         }
 
         // 验签
-        String jfCode = PropertiesLoadUtil.getPropertiesValue("jiufu.code", "forms-openapi.properties");
-        String jfToken = PropertiesLoadUtil.getPropertiesValue("jiufu.token", "forms-openapi.properties");
+        String jfCode = config.getHttpHand_code();
+        String jfToken = config.getHttpHand_secret();
         String mySign = EncryptUtil.MD5Encode(jfCode + time + jfToken);
 
         // 验签通过
         if(sign.equals(mySign)) {
             // 统一入口
-            String contextPath = PropertiesLoadUtil.getPropertiesValue("server.context-path", "application.properties");
-            String mainUri = PropertiesLoadUtil.getPropertiesValue("qj.main.uri", "forms-openapi.properties");
+            String mainUri = config.getRequest_uri();
             String uri = contextPath + mainUri;
             if(uri.equals(request.getRequestURI())) {
-                request.getRequestDispatcher("/qjcs/api/jf/"+request.getHeader("intfCode")).forward(request,response);
+                request.getRequestDispatcher(config.getQj_api_jf()+request.getHeader("intfCode")).forward(request,response);
                 return false;
             }
             return true;
