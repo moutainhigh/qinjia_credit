@@ -1,4 +1,4 @@
-package com.marvels.common;
+package com.marvels.common.rabbitMQ;
 
 import com.marvels.common.util.MarvelsLogUtil;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

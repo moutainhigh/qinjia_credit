@@ -1,10 +1,9 @@
-package com.marvels.common;
+package com.marvels.common.rabbitMQ;
 
 import com.alibaba.fastjson.JSONObject;
 import com.marvels.common.util.MarvelsLogUtil;
 import com.marvels.dto.common.QjItfLog;
 import com.marvels.service.QjItfLogService;
-import com.rabbitmq.client.Channel;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
