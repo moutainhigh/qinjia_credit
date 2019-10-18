@@ -1,12 +1,13 @@
 package com.marvels.common.mq;
 
-import com.marvels.common.util.MarvelsLogUtil;
+import java.util.UUID;
+
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.UUID;
+import com.marvels.common.util.MarvelsLogUtil;
 
 /**
  * 消息的生产者
@@ -37,10 +38,20 @@ public class MsgProducer implements RabbitTemplate.ConfirmCallback {
      * 推送消息
      * @param content
      */
-    public void sendMsg(String content) {
+    public void sendLogMsg(String content) {
         CorrelationData correlationId = new CorrelationData(UUID.randomUUID().toString());
         //把消息放入ROUTINGKEY_A对应的队列当中去，对应的是队列A
-        this.rabbitTemplate.convertAndSend(RabbitConfig.EXCHANGE_A, RabbitConfig.ROUTINGKEY_A, content, correlationId);
+        this.rabbitTemplate.convertAndSend(RabbitConfig.EXCHANGE_LOG, RabbitConfig.ROUTINGKEY_LOG, content, correlationId);
+    }
+    
+    /**
+     * 推送消息
+     * @param content
+     */
+    public void sendSmsMsg(String content) {
+        CorrelationData correlationId = new CorrelationData(UUID.randomUUID().toString());
+        //把消息放入ROUTINGKEY_A对应的队列当中去，对应的是队列A
+        this.rabbitTemplate.convertAndSend(RabbitConfig.EXCHANGE_SMS, RabbitConfig.ROUTINGKEY_SMS, content, correlationId);
     }
 
     /**
