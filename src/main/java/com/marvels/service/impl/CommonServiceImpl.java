@@ -39,14 +39,7 @@ public class CommonServiceImpl implements CommonService {
     private MsgProducer producer;
 
     @Autowired
-    private static FormsOpenapiConfig formsOpenapiConfig;
-
-    private static IAcsClient client;
-
-    static  {
-        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", formsOpenapiConfig.getSendSms_accessKeyId(), formsOpenapiConfig.getSendSms_accessSecret());
-        client = new DefaultAcsClient(profile);
-    }
+    private FormsOpenapiConfig formsOpenapiConfig;
 
     /**
      * 玖富记录接口日志
@@ -94,6 +87,9 @@ public class CommonServiceImpl implements CommonService {
             request.putQueryParameter("TemplateParam", param.getBody().getTemplateParam());
         }
         try {
+            DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", formsOpenapiConfig.getSendSms_accessKeyId(), formsOpenapiConfig.getSendSms_accessSecret());
+            IAcsClient client = new DefaultAcsClient(profile);
+
             CommonResponse response = client.getCommonResponse(request);
             JSONObject object = (JSONObject) JSONObject.parse(response.getData());
             result.setStatus("OK".equals(object.getString("Code"))?"000000":object.getString("Code"));
