@@ -15,7 +15,7 @@ import com.marvels.service.CommonService;
 import com.rabbitmq.client.Channel;
 
 /**
- * 日志记录消息监听器
+ * 短信消息监听器
  * @author shiwubin
  *
  */
