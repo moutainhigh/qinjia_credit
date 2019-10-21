@@ -1,11 +1,14 @@
 package com.marvels.filter;
 
+import org.springframework.core.annotation.Order;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
@@ -15,6 +18,8 @@ import java.io.IOException;
  * @author houyl
  * @date 2019/10/21 10:33
  */
+@Order(1)
+@WebFilter(urlPatterns = "/*",filterName = "XSSFilter")
 public class XSSFilter implements Filter {
     /** filterConfig **/
     FilterConfig filterConfig = null;

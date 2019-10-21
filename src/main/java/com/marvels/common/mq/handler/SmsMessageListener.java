@@ -21,22 +21,37 @@ import com.rabbitmq.client.Channel;
  *
  */
 @Component
-@RabbitListener(queues = "QUEUE_SMS")
 public class SmsMessageListener {
-	
-	/** 日志 */
+
+    /** 日志 */
     private MarvelsLogUtil log = MarvelsLogUtil.getInstance();
-    
+
     /**
      *	 公共服务
      */
     @Autowired
     private CommonService commonService;
 
-	@RabbitHandler
-    public void process(String message) {
-        log.info("处理短信队列当中的消息:" + message);
+    /**
+     * 短信消息处理
+     * @param message
+     * @param channel
+     * @throws IOException
+     */
+    @RabbitListener(queues = "QUEUE_SMS")
+    @RabbitHandler
+    public void process(Message message, Channel channel) throws IOException {
+        byte[] body = message.getBody();
+        log.info("处理短信队列当中的消息:" + new String(body));
+
+        // 日志入库
+        commonService.saveApiLog(JSONObject.parseObject(new String(body), ApiLog.class));
         //短信信息入库
-        commonService.saveSendSms(JSONObject.parseObject(message, SendSms.class));
+        commonService.saveSendSms(JSONObject.parseObject(new String(body), SendSms.class));
+
+        /** RabbitMQ支持消息应答机制。
+         当消费者接收到消息并完成任务后会往RabbitMQ服务器发送一条确认的命令，然后RabbitMQ才会将消息删除。*/
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
     }
 }
+

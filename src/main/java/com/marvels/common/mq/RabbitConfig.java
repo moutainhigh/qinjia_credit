@@ -131,4 +131,19 @@ public class RabbitConfig {
     public Binding bindingSms() {
         return BindingBuilder.bind(queueSms()).to(smsExchange()).with(RabbitConfig.ROUTINGKEY_SMS);
     }
+
+    @Bean
+    public SimpleMessageListenerContainer messageContainer() {
+        //加载处理消息A的队列
+        SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(connectionFactory());
+        container.setQueues(queueLog(),queueSms());
+        container.setExposeListenerChannel(true);
+        //设置最大的并发的消费者数量
+        container.setMaxConcurrentConsumers(10);
+        //最小的并发消费者的数量
+        container.setConcurrentConsumers(1);
+        //设置确认模式手工确认
+        container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
+        return container;
+    }
 }
