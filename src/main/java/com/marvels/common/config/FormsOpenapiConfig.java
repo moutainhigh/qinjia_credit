@@ -48,6 +48,14 @@ public class FormsOpenapiConfig {
     @Value("${sendSms.signName}")
     private String sendSms_signName;
 
+    @Value("${sendSms.accessKeyId}")
+    /** 短信发送accessKeyId*/
+    private String sendSms_accessKeyId;
+
+    /** 短信发送accessSecret*/
+    @Value("${sendSms.accessSecret}")
+    private String sendSms_accessSecret;
+
     /** 玖富接口前缀 */
     @Value("${qj.api.jf}")
     private String qj_api_jf;
