@@ -3,7 +3,7 @@
 <mapper namespace="com.marvels.dao.SendSmsDao" >
 
   <insert id="addSendSms" parameterType="com.marvels.dto.common.SendSms">
-    insert into send_sms
+    insert into qj_send_sms
     <trim prefix="(" suffix=")" suffixOverrides="," >
       request_id,
       code,

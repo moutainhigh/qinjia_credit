@@ -58,15 +58,24 @@ public class CommonServiceImpl implements CommonService {
     	apiLogDao.addApiLog(apiLog);
     }
 
+    /**
+     * 保存信息
+     *
+     * @param sms
+     */
+    @Override
+    public void saveSendSms(SendSms sms) {
+        sendSmsDao.addSendSms(sms);
+    }
+
 
     /**
      * 发送短信服务
      * @param param
      * @return
-     * @throws Exception
      */
     @Override
-    public JfResponseDto  sendSms(JfRequestDto<SendSmsReq> param) throws Exception {
+    public JfResponseDto  sendSms(JfRequestDto<SendSmsReq> param) {
         JfResponseDto result = new JfResponseDto();
         if (null != param.getBody()){
             result.setStatus("350001");
@@ -101,7 +110,7 @@ public class CommonServiceImpl implements CommonService {
                 if (null != param.getBody() && null != param.getBody().getTemplateParam()) {
                     send.setTemplateParam(param.getBody().getTemplateParam());
                 }
-                sendSmsDao.addSendSms(send);
+                producer.sendSmsMsg(JSONObject.toJSONString(send));
                 // 接口日志入口
                 ApiLog qjItfLog = new ApiLog();
                 qjItfLog.setItfCode(PublicEnums.JfInterfaceCodeEnum.SMS10001.getCode());
