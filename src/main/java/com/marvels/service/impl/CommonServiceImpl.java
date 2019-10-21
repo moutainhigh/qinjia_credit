@@ -63,10 +63,9 @@ public class CommonServiceImpl implements CommonService {
      * 发送短信服务
      * @param param
      * @return
-     * @throws Exception
      */
     @Override
-    public JfResponseDto  sendSms(JfRequestDto<SendSmsReq> param) throws Exception {
+    public JfResponseDto  sendSms(JfRequestDto<SendSmsReq> param) {
         JfResponseDto result = new JfResponseDto();
         if (null != param.getBody()){
             result.setStatus("350001");
