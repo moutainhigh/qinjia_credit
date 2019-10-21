@@ -2,6 +2,7 @@ package com.marvels.common.mq.handler;
 
 import java.io.IOException;
 
+import com.marvels.dao.SendSmsDao;
 import com.marvels.dto.common.SendSms;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -11,8 +12,6 @@ import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSONObject;
 import com.marvels.common.util.MarvelsLogUtil;
-import com.marvels.dto.common.ApiLog;
-import com.marvels.service.CommonService;
 import com.rabbitmq.client.Channel;
 
 /**
@@ -30,7 +29,7 @@ public class SmsMessageListener {
      *	 公共服务
      */
     @Autowired
-    private CommonService commonService;
+    private SendSmsDao sendSmsDao;
 
     /**
      * 短信消息处理
@@ -44,10 +43,8 @@ public class SmsMessageListener {
         byte[] body = message.getBody();
         log.info("处理短信队列当中的消息:" + new String(body));
 
-        // 日志入库
-        commonService.saveApiLog(JSONObject.parseObject(new String(body), ApiLog.class));
         //短信信息入库
-        commonService.saveSendSms(JSONObject.parseObject(new String(body), SendSms.class));
+        sendSmsDao.addSendSms(JSONObject.parseObject(new String(body), SendSms.class));
 
         /** RabbitMQ支持消息应答机制。
          当消费者接收到消息并完成任务后会往RabbitMQ服务器发送一条确认的命令，然后RabbitMQ才会将消息删除。*/
