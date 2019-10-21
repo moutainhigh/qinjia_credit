@@ -2,6 +2,7 @@ package com.marvels.service;
 
 import com.aliyuncs.CommonResponse;
 import com.marvels.dto.common.ApiLog;
+import com.marvels.dto.common.SendSms;
 import com.marvels.dto.common.SendSmsReq;
 import com.marvels.dto.jf.JfRequestDto;
 import com.marvels.dto.jf.JfResponseDto;
@@ -19,6 +20,12 @@ public interface CommonService {
      * @param apiLog
      */
     void saveApiLog(ApiLog apiLog);
+
+    /**
+     * 保存信息
+     * @param sms
+     */
+    void saveSendSms(SendSms sms);
 
     /**
      * 发送短信服务
