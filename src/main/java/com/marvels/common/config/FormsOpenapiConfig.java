@@ -64,4 +64,52 @@ public class FormsOpenapiConfig {
     @Value("${qj.hand.sysCode}")
     private String qj_hand_sysCode;
 
+    /** 云集请求协议code*/
+    @Value("${api.jf.yunji.httpHand.code}")
+    private String yj_httpHand_code;
+
+    /** 云集请求协议orgCode*/
+    @Value("${api.jf.yunji.httpHand.orgCode}")
+    private String yj_httpHand_orgCode;
+
+    /** 云集请求协议secret*/
+    @Value("${api.jf.yunji.httpHand.secret}")
+    private String yj_httpHand_secret;
+
+    /** 云集请求接口sysCode*/
+    @Value("${api.jf.yunji.hand.sysCode}")
+    private String yj_hand_sysCode;
+
+    /** 吉荣请求协议code*/
+    @Value("${api.jf.jirong.httpHand.code}")
+    private String jr_httpHand_code;
+
+    /** 吉荣请求协议orgCode*/
+    @Value("${api.jf.jirong.httpHand.orgCode}")
+    private String jr_httpHand_orgCode;
+
+    /** 吉荣请求协议secret*/
+    @Value("${api.jf.jirong.httpHand.secret}")
+    private String jr_httpHand_secret;
+
+    /** 吉荣请求接口sysCode*/
+    @Value("${api.jf.jirong.hand.sysCode}")
+    private String jr_hand_sysCode;
+
+    /** 给米请求协议code*/
+    @Value("${api.jf.jimi.httpHand.code}")
+    private String jm_httpHand_code;
+
+    /** 给米请求协议orgCode*/
+    @Value("${api.jf.jimi.httpHand.orgCode}")
+    private String jm_httpHand_orgCode;
+
+    /** 给米请求协议secret*/
+    @Value("${api.jf.jimi.httpHand.secret}")
+    private String jm_httpHand_secret;
+
+    /** 给米请求接口sysCode*/
+    @Value("${api.jf.jimi.hand.sysCode}")
+    private String jm_hand_sysCode;
+
 }
