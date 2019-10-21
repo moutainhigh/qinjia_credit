@@ -1,9 +1,10 @@
 package com.marvels.controller;
 
+import com.marvels.common.config.FormsOpenapiConfig;
 import com.marvels.common.util.CommonUtil;
-import com.marvels.common.util.PropertiesLoadUtil;
 import com.marvels.dto.jf.JfRequestDto;
 import com.marvels.dto.jf.JfResponseDto;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * controller基础类
@@ -11,6 +12,9 @@ import com.marvels.dto.jf.JfResponseDto;
  *
  */
 public class BaseController {
+
+    @Autowired
+    private FormsOpenapiConfig config;
 
     /**
      * 校验接口系统标识
@@ -25,7 +29,7 @@ public class BaseController {
         }
 
         // 提供给调用者的系统标识
-        String sysCode = PropertiesLoadUtil.getPropertiesValue("qj.jiufu.sysCode", "forms-openapi.properties");
+        String sysCode = config.getQj_hand_sysCode();
 
         // 校验syscode
         JfRequestDto.JfHttpInterfaceHander head = request.getHead();
@@ -35,7 +39,7 @@ public class BaseController {
         }
 
         // 玖富提供的系统标识
-        String jfSysCode = PropertiesLoadUtil.getPropertiesValue("jiufu.sysCode", "forms-openapi.properties");
+        String jfSysCode = config.getHand_sysCode();
         request.getHead().setSysCode(jfSysCode);
         return result;
     }

@@ -60,4 +60,8 @@ public class FormsOpenapiConfig {
     @Value("${qj.api.jf}")
     private String qj_api_jf;
 
+    /** 下游系统编码 */
+    @Value("${qj.hand.sysCode}")
+    private String qj_hand_sysCode;
+
 }
