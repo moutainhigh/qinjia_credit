@@ -19,6 +19,10 @@ public class ApiLog implements Serializable {
 
     /** 序列号 */
     private static final long serialVersionUID = 1L;
+
+    public ApiLog() {
+
+    }
     
     public ApiLog(PublicEnums.JfInterfaceCodeEnum enums,String inParam,String outParam) {
         this.itfCode = enums.getCode();

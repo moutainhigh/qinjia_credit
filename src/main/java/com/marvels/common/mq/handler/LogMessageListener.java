@@ -38,15 +38,20 @@ public class LogMessageListener {
      */
     @RabbitListener(queues = "QUEUE_LOG")
     @RabbitHandler
-    public void process(Message message, Channel channel) throws IOException {
+    public void process(Message message, Channel channel) {
         byte[] body = message.getBody();
         log.info("处理日志队列当中的消息:" + new String(body));
 
-        // 日志入库
-        commonService.saveApiLog(JSONObject.parseObject(new String(body), ApiLog.class));
+        try {
+            // 日志入库
+            commonService.saveApiLog(JSONObject.parseObject(new String(body), ApiLog.class));
 
-        /** RabbitMQ支持消息应答机制。
-         当消费者接收到消息并完成任务后会往RabbitMQ服务器发送一条确认的命令，然后RabbitMQ才会将消息删除。*/
-        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+            /** RabbitMQ支持消息应答机制。
+             当消费者接收到消息并完成任务后会往RabbitMQ服务器发送一条确认的命令，然后RabbitMQ才会将消息删除。*/
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+        }catch (Exception e) {
+            log.error("日志信息消费者异常"+e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
