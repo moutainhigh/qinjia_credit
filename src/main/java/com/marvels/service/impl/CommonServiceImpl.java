@@ -70,9 +70,10 @@ public class CommonServiceImpl implements CommonService {
     @Override
     public JfResponseDto  sendSms(JfRequestDto<SendSmsReq> param) {
         JfResponseDto result = new JfResponseDto();
-        if (null != param.getBody()){
+        if (null == param.getBody()){
             result.setStatus("350001");
             result.setMessage("参数错误");
+            return result;
         }
         /**填充参数*/
         CommonRequest request = new CommonRequest();
