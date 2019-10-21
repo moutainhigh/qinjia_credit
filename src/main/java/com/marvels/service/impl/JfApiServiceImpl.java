@@ -1,5 +1,8 @@
 package com.marvels.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.marvels.common.enums.PublicEnums;
@@ -7,11 +10,45 @@ import com.marvels.common.mq.MsgProducer;
 import com.marvels.common.util.CommonUtil;
 import com.marvels.common.util.HttpUtil;
 import com.marvels.common.util.PropertiesLoadUtil;
-import com.marvels.dto.common.QjItfLog;
-import com.marvels.dto.jf.*;
+import com.marvels.dto.common.ApiLog;
+import com.marvels.dto.jf.JfApplyQuotaReq;
+import com.marvels.dto.jf.JfCapitalRoutingReq;
+import com.marvels.dto.jf.JfCapitalRoutingRes;
+import com.marvels.dto.jf.JfCloseOrderApplyReq;
+import com.marvels.dto.jf.JfCloseOrderApplyRes;
+import com.marvels.dto.jf.JfConfirmSignReq;
+import com.marvels.dto.jf.JfConfirmSignRes;
+import com.marvels.dto.jf.JfGetIouReq;
+import com.marvels.dto.jf.JfGetIouRes;
+import com.marvels.dto.jf.JfGetRepayPlanRes;
+import com.marvels.dto.jf.JfLoanTrialReq;
+import com.marvels.dto.jf.JfLoanTrialRes;
+import com.marvels.dto.jf.JfPlaceOrderReq;
+import com.marvels.dto.jf.JfPlaceOrderRes;
+import com.marvels.dto.jf.JfQueryApplyResultReq;
+import com.marvels.dto.jf.JfQueryApplyResultRes;
+import com.marvels.dto.jf.JfQueryBankListReq;
+import com.marvels.dto.jf.JfQueryBankListRes;
+import com.marvels.dto.jf.JfQueryCardBinReq;
+import com.marvels.dto.jf.JfQueryCardBinRes;
+import com.marvels.dto.jf.JfQueryCloseOrderReq;
+import com.marvels.dto.jf.JfQueryCloseOrderRes;
+import com.marvels.dto.jf.JfQueryContractRes;
+import com.marvels.dto.jf.JfQueryOrderInfoReq;
+import com.marvels.dto.jf.JfQueryOrderInfoRes;
+import com.marvels.dto.jf.JfQueryRepayAmtReq;
+import com.marvels.dto.jf.JfQueryRepayAmtRes;
+import com.marvels.dto.jf.JfQueryRepayRecourdReq;
+import com.marvels.dto.jf.JfQueryRepayRecourdRes;
+import com.marvels.dto.jf.JfQueryRepayResultReq;
+import com.marvels.dto.jf.JfQueryRepayResultRes;
+import com.marvels.dto.jf.JfRayReq;
+import com.marvels.dto.jf.JfRayRes;
+import com.marvels.dto.jf.JfRequestDto;
+import com.marvels.dto.jf.JfResponseDto;
+import com.marvels.dto.jf.JfSignApplyReq;
+import com.marvels.dto.jf.JfSignApplyRes;
 import com.marvels.service.JfApiService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * @author Administrator
@@ -374,10 +411,10 @@ public class JfApiServiceImpl implements JfApiService {
         String responseStr = HttpUtil.doPostByJiuFu(syinterface.getCode(), url + syinterface.getUri(), questParam);
 
         // 日志入队列
-        QjItfLog qjItfLog = buildQjItfLog(syinterface, questParam, responseStr);
+        ApiLog qjItfLog = buildQjItfLog(syinterface, questParam, responseStr);
         if(qjItfLog != null) {
             // 队列
-            producer.sendMsg(JSONObject.toJSONString(qjItfLog));
+            producer.sendLogMsg(JSONObject.toJSONString(qjItfLog));
         }
         return JSON.parseObject(responseStr, JfResponseDto.class);
     }
@@ -389,13 +426,13 @@ public class JfApiServiceImpl implements JfApiService {
      * @param outParam 记录出参
      * @return
      */
-    private QjItfLog buildQjItfLog(PublicEnums.JfInterfaceCodeEnum enums,String inParam,String outParam) {
+    private ApiLog buildQjItfLog(PublicEnums.JfInterfaceCodeEnum enums,String inParam,String outParam) {
         if(CommonUtil.validEmpty(enums.getCode())) {
             return null;
         }
 
         // 接口日志入口
-        QjItfLog qjItfLog = new QjItfLog();
+        ApiLog qjItfLog = new ApiLog();
         qjItfLog.setItfCode(enums.getCode());
         qjItfLog.setItfName(enums.getDesc());
         qjItfLog.setItfUri(enums.getUri());

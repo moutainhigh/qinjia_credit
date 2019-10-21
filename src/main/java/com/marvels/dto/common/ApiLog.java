@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 @Setter
 @Getter
-public class QjItfLog implements Serializable {
+public class ApiLog implements Serializable {
 
     /** 序列号 */
     private static final long serialVersionUID = 1L;

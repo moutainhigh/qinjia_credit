@@ -1,18 +1,19 @@
 package com.marvels.dao;
 
-import com.marvels.dto.common.QjItfLog;
 import org.apache.ibatis.annotations.Mapper;
+
+import com.marvels.dto.common.ApiLog;
 
 /**
  * 接口日志 dao
  * @author houyl
  */
 @Mapper
-public interface QjItfLogDao {
+public interface ApiLogDao {
     /**
      * 日志记录
      * @param qjItfLog 参数
      * @return
      */
-    int addQjItfLog(QjItfLog qjItfLog);
+    int addApiLog(ApiLog qjItfLog);
 }

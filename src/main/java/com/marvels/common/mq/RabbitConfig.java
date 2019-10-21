@@ -1,16 +1,12 @@
 package com.marvels.common.mq;
 
-import com.alibaba.fastjson.JSONObject;
-import com.marvels.common.util.MarvelsLogUtil;
-import com.marvels.dto.common.QjItfLog;
-import com.marvels.service.QjItfLogService;
-import org.springframework.amqp.core.*;
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.core.ChannelAwareMessageListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
@@ -35,10 +31,6 @@ import org.springframework.context.annotation.Scope;
  */
 @Configuration
 public class RabbitConfig {
-    /** 日志 */
-    private MarvelsLogUtil log = MarvelsLogUtil.getInstance();
-    @Autowired
-    private QjItfLogService qjItfLogService;
 
     @Value("${spring.rabbitmq.host}")
     private String host;
@@ -55,9 +47,15 @@ public class RabbitConfig {
     @Value("${spring.rabbitmq.publisher-returns}")
     private boolean pubReturns;
 
-    public static final String EXCHANGE_A = "my-mq-exchange_A";
-    public static final String QUEUE_A = "QUEUE_A";
-    public static final String ROUTINGKEY_A = "spring-boot-routingKey_A";
+    // 日志记录
+    public static final String EXCHANGE_LOG = "my-mq-exchange_log";
+    public static final String QUEUE_LOG = "QUEUE_LOG";
+    public static final String ROUTINGKEY_LOG = "routingKey_log";
+    
+    // 短信
+    public static final String EXCHANGE_SMS = "my-mq-exchange_sms";
+    public static final String QUEUE_SMS = "QUEUE_SMS";
+    public static final String ROUTINGKEY_SMS = "routingKey_sms";
 
     /**
      * 创建工厂连接
@@ -96,8 +94,13 @@ public class RabbitConfig {
      * TopicExchange:多关键字匹配
      */
     @Bean
-    public DirectExchange defaultExchange() {
-        return new DirectExchange(EXCHANGE_A);
+    public DirectExchange logExchange() {
+        return new DirectExchange(EXCHANGE_LOG);
+    }
+    
+    @Bean
+    public DirectExchange smsExchange() {
+        return new DirectExchange(EXCHANGE_SMS);
     }
 
     /**
@@ -105,8 +108,13 @@ public class RabbitConfig {
      * @return
      */
     @Bean
-    public Queue queueA() {
-        return new Queue(QUEUE_A, true);
+    public Queue queueLog() {
+        return new Queue(QUEUE_LOG, true);
+    }
+    
+    @Bean
+    public Queue queueSms() {
+        return new Queue(QUEUE_SMS, true);
     }
 
     /**
@@ -114,41 +122,12 @@ public class RabbitConfig {
      * @return
      */
     @Bean
-    public Binding binding() {
-        return BindingBuilder.bind(queueA()).to(defaultExchange()).with(RabbitConfig.ROUTINGKEY_A);
+    public Binding bindingLog() {
+        return BindingBuilder.bind(queueLog()).to(logExchange()).with(RabbitConfig.ROUTINGKEY_LOG);
     }
-
-
-    /**
-     * 手工确认模式
-     * @return
-     */
+    
     @Bean
-    public SimpleMessageListenerContainer messageContainer() {
-        //加载处理消息A的队列
-        SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(connectionFactory());
-        container.setQueues(queueA());
-        container.setExposeListenerChannel(true);
-        //设置最大的并发的消费者数量
-        container.setMaxConcurrentConsumers(10);
-        //最小的并发消费者的数量
-        container.setConcurrentConsumers(1);
-        //设置确认模式手工确认
-        container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
-        container.setMessageListener((ChannelAwareMessageListener) (message, channel) -> {
-            /**通过basic.qos方法设置prefetch_count=1，这样RabbitMQ就会使得每个Consumer在同一个时间点最多处理一个Message，
-             换句话说,在接收到该Consumer的ack前,它不会将新的Message分发给它 */
-            channel.basicQos(1);
-            byte[] body = message.getBody();
-            log.info("手工确认模式接收处理队列A当中的消息:" + new String(body));
-            // 日志入库
-            QjItfLog qjItfLog = JSONObject.parseObject(new String(body), QjItfLog.class);
-            qjItfLogService.inOutParamsItfLog(qjItfLog);
-
-            /**为了保证永远不会丢失消息，RabbitMQ支持消息应答机制。
-             当消费者接收到消息并完成任务后会往RabbitMQ服务器发送一条确认的命令，然后RabbitMQ才会将消息删除。*/
-            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
-        });
-        return container;
+    public Binding bindingSms() {
+        return BindingBuilder.bind(queueSms()).to(smsExchange()).with(RabbitConfig.ROUTINGKEY_SMS);
     }
 }
