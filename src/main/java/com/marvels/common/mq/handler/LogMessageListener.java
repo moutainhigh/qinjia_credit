@@ -33,15 +33,9 @@ public class LogMessageListener {
     private CommonService commonService;
 
 	@RabbitHandler
-    public void process(Message message, Channel channel) throws IOException {
-        byte[] body = message.getBody();
-        log.info("手工确认模式接收处理队列A当中的消息:" + new String(body));
-        
+    public void process(String message) {
+        log.info("处理日志队列当中的消息:" + message);
         // 日志入库
-        commonService.saveApiLog(JSONObject.parseObject(new String(body), ApiLog.class));
-
-        /** RabbitMQ支持消息应答机制。
-         	当消费者接收到消息并完成任务后会往RabbitMQ服务器发送一条确认的命令，然后RabbitMQ才会将消息删除。*/
-        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+        commonService.saveApiLog(JSONObject.parseObject(message, ApiLog.class));
     }
 }

@@ -1,12 +1,13 @@
 package com.marvels.common.mq;
 
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.DirectExchange;
-import org.springframework.amqp.core.Queue;
+import com.marvels.common.mq.handler.SmsMessageListener;
+import com.rabbitmq.client.Channel;
+import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.ChannelAwareMessageListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
@@ -97,7 +98,7 @@ public class RabbitConfig {
     public DirectExchange logExchange() {
         return new DirectExchange(EXCHANGE_LOG);
     }
-    
+
     @Bean
     public DirectExchange smsExchange() {
         return new DirectExchange(EXCHANGE_SMS);
@@ -111,7 +112,7 @@ public class RabbitConfig {
     public Queue queueLog() {
         return new Queue(QUEUE_LOG, true);
     }
-    
+
     @Bean
     public Queue queueSms() {
         return new Queue(QUEUE_SMS, true);
@@ -125,7 +126,7 @@ public class RabbitConfig {
     public Binding bindingLog() {
         return BindingBuilder.bind(queueLog()).to(logExchange()).with(RabbitConfig.ROUTINGKEY_LOG);
     }
-    
+
     @Bean
     public Binding bindingSms() {
         return BindingBuilder.bind(queueSms()).to(smsExchange()).with(RabbitConfig.ROUTINGKEY_SMS);
