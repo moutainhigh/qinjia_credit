@@ -1,11 +1,8 @@
 package com.marvels.common.mq;
 
-import com.marvels.common.mq.handler.SmsMessageListener;
-import com.rabbitmq.client.Channel;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.core.ChannelAwareMessageListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.beans.factory.annotation.Value;
@@ -130,20 +127,5 @@ public class RabbitConfig {
     @Bean
     public Binding bindingSms() {
         return BindingBuilder.bind(queueSms()).to(smsExchange()).with(RabbitConfig.ROUTINGKEY_SMS);
-    }
-
-    @Bean
-    public SimpleMessageListenerContainer messageContainer() {
-        //加载处理消息A的队列
-        SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(connectionFactory());
-        container.setQueues(queueLog(),queueSms());
-        container.setExposeListenerChannel(true);
-        //设置最大的并发的消费者数量
-        container.setMaxConcurrentConsumers(10);
-        //最小的并发消费者的数量
-        container.setConcurrentConsumers(1);
-        //设置确认模式手工确认
-        container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
-        return container;
     }
 }
