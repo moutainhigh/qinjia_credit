@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import java.io.Serializable;
 
+import com.alibaba.fastjson.JSONObject;
+import com.marvels.common.enums.PublicEnums;
+
 /**
  * 接口日志
  * @author houyl
@@ -16,6 +19,14 @@ public class ApiLog implements Serializable {
 
     /** 序列号 */
     private static final long serialVersionUID = 1L;
+    
+    public ApiLog(PublicEnums.JfInterfaceCodeEnum enums,String inParam,String outParam) {
+        this.itfCode = enums.getCode();
+        this.itfName = enums.getDesc();
+        this.itfUri = enums.getUri();
+        this.inParam = JSONObject.toJSONString(inParam);
+        this.outParam = JSONObject.toJSONString(outParam);
+    }
 
     /**
      *  主键

@@ -76,10 +76,10 @@ public class CommonServiceImpl implements CommonService {
         }
         /**填充参数*/
         CommonRequest request = new CommonRequest();
-        request.setMethod(MethodType.POST);
-        request.setDomain(formsOpenapiConfig.getSendSms_url());
-        request.setVersion(formsOpenapiConfig.getSendSms_version());
-        request.setAction("SendSms");
+        request.setSysMethod(MethodType.POST);
+        request.setSysDomain(formsOpenapiConfig.getSendSms_url());
+        request.setSysVersion(formsOpenapiConfig.getSendSms_version());
+        request.setSysAction("SendSms");
         request.putQueryParameter("PhoneNumbers",param.getBody().getPhoneNumbers());
         request.putQueryParameter("SignName",formsOpenapiConfig.getSendSms_signName());
         request.putQueryParameter("TemplateCode", param.getBody().getTemplateCode());
@@ -108,12 +108,7 @@ public class CommonServiceImpl implements CommonService {
                 }
                 producer.sendSmsMsg(JSONObject.toJSONString(send));
                 // 接口日志入口
-                ApiLog qjItfLog = new ApiLog();
-                qjItfLog.setItfCode(PublicEnums.JfInterfaceCodeEnum.SMS10001.getCode());
-                qjItfLog.setItfName(PublicEnums.JfInterfaceCodeEnum.SMS10001.getDesc());
-                qjItfLog.setItfUri(PublicEnums.JfInterfaceCodeEnum.SMS10001.getUri());
-                qjItfLog.setInParam(JSONObject.toJSONString(param));
-                qjItfLog.setOutParam(JSONObject.toJSONString(response.getData()));
+                ApiLog qjItfLog = new ApiLog(PublicEnums.JfInterfaceCodeEnum.SMS10001, JSONObject.toJSONString(param), JSONObject.toJSONString(response.getData()));
                 producer.sendLogMsg(JSONObject.toJSONString(qjItfLog));
             }
             return result;

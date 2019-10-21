@@ -411,33 +411,8 @@ public class JfApiServiceImpl implements JfApiService {
         String responseStr = HttpUtil.doPostByJiuFu(syinterface.getCode(), url + syinterface.getUri(), questParam);
 
         // 日志入队列
-        ApiLog qjItfLog = buildQjItfLog(syinterface, questParam, responseStr);
-        if(qjItfLog != null) {
-            // 队列
-            producer.sendLogMsg(JSONObject.toJSONString(qjItfLog));
-        }
+        ApiLog qjItfLog = new ApiLog(syinterface, questParam, responseStr);
+        producer.sendLogMsg(JSONObject.toJSONString(qjItfLog));
         return JSON.parseObject(responseStr, JfResponseDto.class);
-    }
-
-    /**
-     * 构建日志对象
-     * @param enums  枚举
-     * @param inParam  记录入参
-     * @param outParam 记录出参
-     * @return
-     */
-    private ApiLog buildQjItfLog(PublicEnums.JfInterfaceCodeEnum enums,String inParam,String outParam) {
-        if(CommonUtil.validEmpty(enums.getCode())) {
-            return null;
-        }
-
-        // 接口日志入口
-        ApiLog qjItfLog = new ApiLog();
-        qjItfLog.setItfCode(enums.getCode());
-        qjItfLog.setItfName(enums.getDesc());
-        qjItfLog.setItfUri(enums.getUri());
-        qjItfLog.setInParam(JSONObject.toJSONString(inParam));
-        qjItfLog.setOutParam(JSONObject.toJSONString(outParam));
-        return qjItfLog;
     }
 }
