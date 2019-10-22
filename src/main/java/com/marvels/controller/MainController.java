@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping
-public class QjMainController {
+public class MainController {
 
     /**
      * 统一入口，解决url中的 http://xxx/error
