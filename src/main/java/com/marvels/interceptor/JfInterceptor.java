@@ -46,9 +46,7 @@ public class JfInterceptor implements HandlerInterceptor {
         }
 
         // 验签
-        String jfCode = config.getHttpHand_code();
-        String jfToken = config.getHttpHand_secret();
-        String mySign = EncryptUtil.MD5Encode(jfCode + time + jfToken);
+        String mySign = getSign(code,time);
 
         // 验签通过
         if(sign.equals(mySign)) {
@@ -85,5 +83,35 @@ public class JfInterceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
             throws Exception {
         // TODO Auto-generated method stub
+    }
+
+
+    /**
+     * 返回对应系统签名
+     * @param sysCode 系统编码
+     * @param time 时间
+     * @return
+     */
+    private String getSign(String sysCode, String time) {
+        String token;
+
+        // 云集
+        if(config.getYj_httpHand_code().equals(sysCode)) {
+            token = config.getYj_httpHand_secret();
+        }
+        // 吉荣
+        else if(config.getJr_httpHand_code().equals(sysCode)) {
+            token = config.getJr_httpHand_secret();
+        }
+        // 给米
+        else if(config.getJm_httpHand_code().equals(sysCode)) {
+            token = config.getJm_httpHand_secret();
+        }
+        // 其他
+        else {
+            return null;
+        }
+
+        return EncryptUtil.MD5Encode(sysCode + time + token);
     }
 }

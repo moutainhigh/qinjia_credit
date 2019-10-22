@@ -16,6 +16,14 @@ import org.springframework.stereotype.Component;
 @Component
 @PropertySource("forms-openapi.properties")
 public class FormsOpenapiConfig {
+    /** 玖富请求接口uri地址*/
+    @Value("${qj.main.request.uri}")
+    private String request_uri;
+
+    /** 玖富接口前缀 */
+    @Value("${qj.api.jf}")
+    private String qj_api_jf;
+
     /** 玖富请求协议code*/
     @Value("${qj.jiufu.httpHand.code}")
     private String httpHand_code;
@@ -31,38 +39,6 @@ public class FormsOpenapiConfig {
     /** 玖富请求接口sysCode*/
     @Value("${qj.jiufu.hand.sysCode}")
     private String hand_sysCode;
-
-    /** 玖富请求接口uri地址*/
-    @Value("${qj.main.request.uri}")
-    private String request_uri;
-
-    /** 短信发送url*/
-    @Value("${sendSms.url}")
-    private String sendSms_url;
-
-    /** 短信发送版本*/
-    @Value("${sendSms.version}")
-    private String sendSms_version;
-
-    /** 短信发送签名*/
-    @Value("${sendSms.signName}")
-    private String sendSms_signName;
-
-    @Value("${sendSms.accessKeyId}")
-    /** 短信发送accessKeyId*/
-    private String sendSms_accessKeyId;
-
-    /** 短信发送accessSecret*/
-    @Value("${sendSms.accessSecret}")
-    private String sendSms_accessSecret;
-
-    /** 玖富接口前缀 */
-    @Value("${qj.api.jf}")
-    private String qj_api_jf;
-
-    /** 下游系统编码 */
-    @Value("${qj.hand.sysCode}")
-    private String qj_hand_sysCode;
 
     /** 云集请求协议code*/
     @Value("${api.jf.yunji.httpHand.code}")
@@ -111,5 +87,25 @@ public class FormsOpenapiConfig {
     /** 给米请求接口sysCode*/
     @Value("${api.jf.jimi.hand.sysCode}")
     private String jm_hand_sysCode;
+
+    /** 短信发送url*/
+    @Value("${sendSms.url}")
+    private String sendSms_url;
+
+    /** 短信发送版本*/
+    @Value("${sendSms.version}")
+    private String sendSms_version;
+
+    /** 短信发送签名*/
+    @Value("${sendSms.signName}")
+    private String sendSms_signName;
+
+    @Value("${sendSms.accessKeyId}")
+    /** 短信发送accessKeyId*/
+    private String sendSms_accessKeyId;
+
+    /** 短信发送accessSecret*/
+    @Value("${sendSms.accessSecret}")
+    private String sendSms_accessSecret;
 
 }

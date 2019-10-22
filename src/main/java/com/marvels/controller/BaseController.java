@@ -22,25 +22,37 @@ public class BaseController {
      * @return
      */
     public JfResponseDto checkBuildSysCode(JfRequestDto<?> request) {
-        JfResponseDto result = null;
         if(CommonUtil.validEmpty(request,request.getHead())) {
-            result = new JfResponseDto("10001E","参数不能为空");
-            return result;
+            return new JfResponseDto("10001E","参数不能为空");
         }
-
-        // 提供给调用者的系统标识
-        String sysCode = config.getQj_hand_sysCode();
 
         // 校验syscode
         JfRequestDto.JfHttpInterfaceHander head = request.getHead();
-        if(!sysCode.equals(head.getSysCode())) {
-            result = new JfResponseDto("10002E","系统编号错误");
-            return result;
+        if(!checkSysCode(head.getSysCode())) {
+            return new JfResponseDto("10002E","系统编号错误");
         }
 
         // 玖富提供的系统标识
         String jfSysCode = config.getHand_sysCode();
         request.getHead().setSysCode(jfSysCode);
-        return result;
+
+        return null;
+    }
+
+
+    /**
+     * 校验系统编号
+     * @param sysCode
+     * @return
+     */
+    private boolean checkSysCode(String sysCode) {
+        // 云集、吉荣、给米
+        if(config.getYj_hand_sysCode().equals(sysCode)
+                || config.getJr_hand_sysCode().equals(sysCode)
+                ||config.getJm_hand_sysCode().equals(sysCode)) {
+            return true;
+        }
+
+        return false;
     }
 }
