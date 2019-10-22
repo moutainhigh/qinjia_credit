@@ -1,15 +1,14 @@
 package com.marvels.controller;
 
-import com.marvels.dto.common.SendSmsReq;
-import com.marvels.dto.jf.JfRequestDto;
-import com.marvels.dto.jf.JfResponseDto;
-import com.marvels.service.CommonService;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.marvels.dto.common.SendSmsReq;
+import com.marvels.dto.jf.JfRequestDto;
+import com.marvels.dto.jf.JfResponseDto;
+import com.marvels.service.CommonService;
 
 /**
  * @ClassName SendSmsController

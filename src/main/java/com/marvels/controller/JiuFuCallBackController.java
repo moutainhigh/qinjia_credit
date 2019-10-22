@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping
+@RequestMapping("qjcs/callback/jf/")
 public class JiuFuCallBackController {
 	
 	/**
@@ -17,7 +17,7 @@ public class JiuFuCallBackController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("qjcs/callback/jf/repayResult")
+	@RequestMapping("repayResult")
 	public Object repayResult() throws Exception {
 		return null;
 	}
@@ -27,7 +27,7 @@ public class JiuFuCallBackController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("qjcs/callback/jf/applyResult")
+	@RequestMapping("applyResult")
 	public Object applyResult() throws Exception {
 		return null;
 	}
@@ -37,7 +37,7 @@ public class JiuFuCallBackController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("qjcs/callback/jf/closeOrderResult")
+	@RequestMapping("closeOrderResult")
 	public Object closeOrderResult() throws Exception {
 		return null;
 	}
@@ -47,7 +47,7 @@ public class JiuFuCallBackController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("qjcs/callback/jf/loanResult")
+	@RequestMapping("loanResult")
 	public Object loanResult() throws Exception {
 		return null;
 	}
