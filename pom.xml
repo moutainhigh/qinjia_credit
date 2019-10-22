@@ -221,7 +221,7 @@
 		</dependency>
     </dependencies>
 	<build>
-		<finalName>credit-wallet-system</finalName>
+		<finalName>qj_credit_system</finalName>
 		<resources>
 			<resource>
                 <directory>src/main/resources</directory>
