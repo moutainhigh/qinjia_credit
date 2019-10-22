@@ -41,52 +41,64 @@ public class FormsOpenapiConfig {
     private String hand_sysCode;
 
     /** 云集请求协议code*/
-    @Value("${api.jf.yunji.httpHand.code}")
+    @Value("${yunji.api.httpHand.code}")
     private String yj_httpHand_code;
 
     /** 云集请求协议orgCode*/
-    @Value("${api.jf.yunji.httpHand.orgCode}")
+    @Value("${yunji.api.httpHand.orgCode}")
     private String yj_httpHand_orgCode;
 
     /** 云集请求协议secret*/
-    @Value("${api.jf.yunji.httpHand.secret}")
+    @Value("${yunji.api.httpHand.secret}")
     private String yj_httpHand_secret;
 
     /** 云集请求接口sysCode*/
-    @Value("${api.jf.yunji.hand.sysCode}")
+    @Value("${yunji.api.hand.sysCode}")
     private String yj_hand_sysCode;
 
+    /** 云集接口回调地址*/
+    @Value("${yunji.callBack.url}")
+    private String yj_callBack_url;
+
     /** 吉荣请求协议code*/
-    @Value("${api.jf.jirong.httpHand.code}")
+    @Value("${jirong.api.httpHand.code}")
     private String jr_httpHand_code;
 
     /** 吉荣请求协议orgCode*/
-    @Value("${api.jf.jirong.httpHand.orgCode}")
+    @Value("${jirong.api.httpHand.orgCode}")
     private String jr_httpHand_orgCode;
 
     /** 吉荣请求协议secret*/
-    @Value("${api.jf.jirong.httpHand.secret}")
+    @Value("${jirong.api.httpHand.secret}")
     private String jr_httpHand_secret;
 
     /** 吉荣请求接口sysCode*/
-    @Value("${api.jf.jirong.hand.sysCode}")
+    @Value("${jirong.api.hand.sysCode}")
     private String jr_hand_sysCode;
 
+    /** 吉荣接口回调地址*/
+    @Value("${jirong.callBack.url}")
+    private String jr_callBack_url;
+
     /** 给米请求协议code*/
-    @Value("${api.jf.jimi.httpHand.code}")
+    @Value("${jimi.api.httpHand.code}")
     private String jm_httpHand_code;
 
     /** 给米请求协议orgCode*/
-    @Value("${api.jf.jimi.httpHand.orgCode}")
+    @Value("${jimi.api.httpHand.orgCode}")
     private String jm_httpHand_orgCode;
 
     /** 给米请求协议secret*/
-    @Value("${api.jf.jimi.httpHand.secret}")
+    @Value("${jimi.api.httpHand.secret}")
     private String jm_httpHand_secret;
 
     /** 给米请求接口sysCode*/
-    @Value("${api.jf.jimi.hand.sysCode}")
+    @Value("${jimi.api.hand.sysCode}")
     private String jm_hand_sysCode;
+
+    /** 给米接口回调地址*/
+    @Value("${jimi.callBack.url}")
+    private String jm_callBack_url;
 
     /** 短信发送url*/
     @Value("${sendSms.url}")
