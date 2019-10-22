@@ -225,6 +225,7 @@
 		<resources>
 			<resource>
                 <directory>src/main/resources</directory>
+				<!-- 生产环境配置，开发环境注释excludes -->
 				<excludes>
 					<exclude>application.properties</exclude>
 					<exclude>*log4j2.xml</exclude>
