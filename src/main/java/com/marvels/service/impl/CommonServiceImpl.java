@@ -109,7 +109,7 @@ public class CommonServiceImpl implements CommonService {
                 }
                 producer.sendSmsMsg(JSONObject.toJSONString(send));
                 // 接口日志入口
-                ApiLog qjItfLog = new ApiLog(PublicEnums.JfInterfaceCodeEnum.SMS10001, JSONObject.toJSONString(param), JSONObject.toJSONString(response.getData()));
+                ApiLog qjItfLog = new ApiLog(PublicEnums.JfInterfaceCodeEnum.S10001, JSONObject.toJSONString(param), JSONObject.toJSONString(response.getData()));
                 producer.sendLogMsg(JSONObject.toJSONString(qjItfLog));
             }
             return result;

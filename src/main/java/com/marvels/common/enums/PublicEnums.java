@@ -111,7 +111,7 @@ public class PublicEnums {
 		JF100178("100178", "扣款结果查询", "/fincloud/common.intf"),
 		JF100179("100179", "查询用户还款记录", "/fincloud/common.intf"),
 		JF100180("100180", "扣款结果通知-回调", ""),
-        SMS10001("sms10001", "短信发送实时接口", "dysmsapi.aliyuncs.com");
+        S10001("S10001", "实时短信发送接口", "dysmsapi.aliyuncs.com");
 		private String code;
 		private String desc;
 		private String uri;
