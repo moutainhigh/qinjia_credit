@@ -20,16 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 @RequestMapping("qjcs/api/jf/")
-public class SendSmsController extends BaseController{
+public class SmsController extends BaseController{
     @Autowired
     private CommonService commonService;
     /**
-     * 支持的银行卡列表查询
+     * 短信发送接口
      * @return
      * @throws Exception
      */
-    @RequestMapping("sms10001")
-    public JfResponseDto queryBankList(@RequestBody JfRequestDto<SendSmsReq> request) throws Exception {
+    @RequestMapping("S10001")
+    public JfResponseDto sendSms(@RequestBody JfRequestDto<SendSmsReq> request) throws Exception {
         JfResponseDto result = super.checkBuildSysCode(request);
         if (null != result)  {
             return result;
