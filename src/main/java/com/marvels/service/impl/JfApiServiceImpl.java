@@ -1,5 +1,6 @@
 package com.marvels.service.impl;
 
+import com.marvels.dto.jf.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,43 +12,6 @@ import com.marvels.common.util.CommonUtil;
 import com.marvels.common.util.HttpUtil;
 import com.marvels.common.util.PropertiesLoadUtil;
 import com.marvels.dto.common.ApiLog;
-import com.marvels.dto.jf.JfApplyQuotaReq;
-import com.marvels.dto.jf.JfCapitalRoutingReq;
-import com.marvels.dto.jf.JfCapitalRoutingRes;
-import com.marvels.dto.jf.JfCloseOrderApplyReq;
-import com.marvels.dto.jf.JfCloseOrderApplyRes;
-import com.marvels.dto.jf.JfConfirmSignReq;
-import com.marvels.dto.jf.JfConfirmSignRes;
-import com.marvels.dto.jf.JfGetIouReq;
-import com.marvels.dto.jf.JfGetIouRes;
-import com.marvels.dto.jf.JfGetRepayPlanRes;
-import com.marvels.dto.jf.JfLoanTrialReq;
-import com.marvels.dto.jf.JfLoanTrialRes;
-import com.marvels.dto.jf.JfPlaceOrderReq;
-import com.marvels.dto.jf.JfPlaceOrderRes;
-import com.marvels.dto.jf.JfQueryApplyResultReq;
-import com.marvels.dto.jf.JfQueryApplyResultRes;
-import com.marvels.dto.jf.JfQueryBankListReq;
-import com.marvels.dto.jf.JfQueryBankListRes;
-import com.marvels.dto.jf.JfQueryCardBinReq;
-import com.marvels.dto.jf.JfQueryCardBinRes;
-import com.marvels.dto.jf.JfQueryCloseOrderReq;
-import com.marvels.dto.jf.JfQueryCloseOrderRes;
-import com.marvels.dto.jf.JfQueryContractRes;
-import com.marvels.dto.jf.JfQueryOrderInfoReq;
-import com.marvels.dto.jf.JfQueryOrderInfoRes;
-import com.marvels.dto.jf.JfQueryRepayAmtReq;
-import com.marvels.dto.jf.JfQueryRepayAmtRes;
-import com.marvels.dto.jf.JfQueryRepayRecourdReq;
-import com.marvels.dto.jf.JfQueryRepayRecourdRes;
-import com.marvels.dto.jf.JfQueryRepayResultReq;
-import com.marvels.dto.jf.JfQueryRepayResultRes;
-import com.marvels.dto.jf.JfRayReq;
-import com.marvels.dto.jf.JfRayRes;
-import com.marvels.dto.jf.JfRequestDto;
-import com.marvels.dto.jf.JfResponseDto;
-import com.marvels.dto.jf.JfSignApplyReq;
-import com.marvels.dto.jf.JfSignApplyRes;
 import com.marvels.service.JfApiService;
 
 /**
@@ -391,6 +355,29 @@ public class JfApiServiceImpl implements JfApiService {
     @Override
     public JfResponseDto<JfQueryContractRes> queryContract(JfRequestDto<JfQueryOrderInfoReq> request) throws Exception {
         return (JfResponseDto<JfQueryContractRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100156, request);
+    }
+
+    /**
+     * 工单信息查询接口（JFB2）
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfQueryOrderInfoJfb2Res> queryContractJFB2(JfRequestDto<JfQueryOrderInfoJfb2Req> request) throws Exception {
+         return (JfResponseDto<JfQueryOrderInfoJfb2Res>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100189, request);
+    }
+
+    /**
+     * 用户工单列表查询接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfQueryOrderListRes> queryOrderList(JfRequestDto<JfQueryOrderListReq> request) {
+        return (JfResponseDto<JfQueryOrderListRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100250, request);
     }
 
     @Override

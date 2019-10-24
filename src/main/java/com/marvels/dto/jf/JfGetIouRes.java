@@ -207,4 +207,9 @@ public class JfGetIouRes {
      * 逾期天数
      */
     private String exceeDay;
+
+    /**
+     * 借款申请时间
+     */
+    private String reqLoanTime;
 }

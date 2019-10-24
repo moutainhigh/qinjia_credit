@@ -7,6 +7,7 @@ import java.util.Date;
 
 /**
  * 2.3鉴权查询接口请求参数
+ * @author renyazhou
  */
 @Getter
 @Setter
@@ -19,6 +20,8 @@ public class JfSignApplyReq {
     private String bizType;
     /**机构编码*/
     private String instNo;
+    /**保险或担保公司编号*/
+    private String insureCompanyCode;
     /**交易时间*/
     private Date tranTime;
     /**绑卡流水号*/
@@ -41,4 +44,10 @@ public class JfSignApplyReq {
     private String terminalType;
     /**设备token*/
     private String token;
+    /**银行卡类型*/
+    private String cardType;
+    /**Cvn2 码*/
+    private String cvvNo;
+    /**有效期*/
+    private String validDate;
 }

@@ -246,4 +246,19 @@ public interface JfApiService {
      */
     JfResponseDto queryContract(JfRequestDto<JfQueryOrderInfoReq> request) throws Exception;
 
+    /**
+     * 工单信息查询接口（JFB2）
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto queryContractJFB2(JfRequestDto<JfQueryOrderInfoJfb2Req> request) throws Exception;
+
+    /**
+     * 用户工单列表查询接口
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto queryOrderList(JfRequestDto<JfQueryOrderListReq> request);
 }

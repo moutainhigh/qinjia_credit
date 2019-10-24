@@ -41,4 +41,6 @@ public class JfRepayResultReq {
     private String errorMsg;
     /** 交易成功金额*/
     private String successAmt;
+    /** 使用账户金额*/
+    private String useAccAmt;
 }

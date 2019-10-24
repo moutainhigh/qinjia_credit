@@ -13,5 +13,6 @@ public class JfQueryBankListReq {
     private String bizType;
     //机构编码
     private String instNo;
-
+    //保险或担保公司编号
+    private String insureCompanyCode;
 }

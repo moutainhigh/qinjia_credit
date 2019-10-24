@@ -75,7 +75,8 @@ public class PublicEnums {
 		JF100156("100156", "工单合同信息查询", "/fincloud/common.intf"),
 		JF100157("100157", "放款结果通知-回调", ""),
 		JF100158("100158", "关单结果通知-回调", ""),
-		
+        JF100189("100189", "工单信息查询接口", "/fincloud/common.intf"),
+        JF100250("100250", "用户工单列表查询接口", "/fincloud/common.intf"),
 		/**
 		 * 支付业务接口
 		 */

@@ -1,6 +1,5 @@
 package com.marvels.service;
 
-import com.aliyuncs.CommonResponse;
 import com.marvels.dto.common.ApiLog;
 import com.marvels.dto.common.SendSms;
 import com.marvels.dto.common.SendSmsReq;

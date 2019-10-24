@@ -121,4 +121,35 @@ public class JiuFuOrderController extends BaseController{
         }
         return jfApiService.queryContract(request);
     }
+
+    /**
+     * 工单信息查询接口（JFB2）
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    @RequestMapping("100189")
+    public JfResponseDto queryContractJFB2(@RequestBody JfRequestDto<JfQueryOrderInfoJfb2Req> request) throws Exception {
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.queryContractJFB2(request);
+    }
+
+    /**
+     * 用户工单列表查询接口
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    @RequestMapping("100250")
+    public JfResponseDto queryOrderList(@RequestBody JfRequestDto<JfQueryOrderListReq> request) throws Exception {
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.queryOrderList(request);
+    }
+
 }
