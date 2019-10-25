@@ -178,4 +178,47 @@ public class JiuFuCustomerController extends BaseController {
         return jfApiService.callBackAuth(request);
 	}
 
+
+	/**
+	 * 用于查询用户已绑定的银行卡列表
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("100185")
+	public JfResponseDto queryBindCard(@RequestBody JfRequestDto<Jf100185Req> request) throws Exception {
+		JfResponseDto result = super.checkBuildSysCode(request);
+		if (null != result)  {
+			return result;
+		}
+		return jfApiService.queryBindCard(request);
+	}
+
+	/**
+	 * 根据身份证号码查询客户基本信息
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("100186")
+	public JfResponseDto queryUserInfoByCid(@RequestBody JfRequestDto<Jf100186Req> request) throws Exception {
+		JfResponseDto result = super.checkBuildSysCode(request);
+		if (null != result)  {
+			return result;
+		}
+		return jfApiService.queryUserInfoByCid(request);
+	}
+
+
+	/**
+	 * 客户注册接口 (实名 )
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("100187")
+	public JfResponseDto register(@RequestBody JfRequestDto<Jf100187Req> request) throws Exception {
+		JfResponseDto result = super.checkBuildSysCode(request);
+		if (null != result)  {
+			return result;
+		}
+		return jfApiService.register(request);
+	}
 }

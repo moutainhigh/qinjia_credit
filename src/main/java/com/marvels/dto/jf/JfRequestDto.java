@@ -29,5 +29,7 @@ public class JfRequestDto<T> {
         private String transSerialNo;
         //系统编号(金融云平台发布的系统编号，对于商户来说，商户编号同系统编号一样)
         private String sysCode;
+        //操作日期 13位时间戳
+        private Long time;
     }
 }

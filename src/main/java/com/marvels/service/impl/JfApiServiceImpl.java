@@ -1,6 +1,9 @@
 package com.marvels.service.impl;
 
 import com.marvels.dto.jf.*;
+import com.marvels.dto.jf.customer.Jf100185Req;
+import com.marvels.dto.jf.customer.Jf100186Req;
+import com.marvels.dto.jf.customer.Jf100187Req;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -385,6 +388,41 @@ public class JfApiServiceImpl implements JfApiService {
 		return (JfResponseDto<JfQueryApplyResultRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100172, param);
 	}
 
+    /**
+     * 用于查询用户已绑定的银行卡列表
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto queryBindCard(JfRequestDto<Jf100185Req> request) {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100185, request);
+    }
+
+    /**
+     * 根据身份证号码查询客户基本信息
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto queryUserInfoByCid(JfRequestDto<Jf100186Req> request) {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100186, request);
+    }
+
+    /**
+     * 客户注册接口 (实名 )
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto register(JfRequestDto<Jf100187Req> request) {
+        return this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100187, request);
+    }
 
     /**
      * 发送post请求包装方法

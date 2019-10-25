@@ -1,6 +1,9 @@
 package com.marvels.service;
 
 import com.marvels.dto.jf.*;
+import com.marvels.dto.jf.customer.Jf100185Req;
+import com.marvels.dto.jf.customer.Jf100186Req;
+import com.marvels.dto.jf.customer.Jf100187Req;
 
 /**
  *
@@ -261,4 +264,31 @@ public interface JfApiService {
      * @param request
      */
     JfResponseDto queryOrderList(JfRequestDto<JfQueryOrderListReq> request);
+
+
+    /**
+     * 用于查询用户已绑定的银行卡列表
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto queryBindCard(JfRequestDto<Jf100185Req> request);
+
+
+    /**
+     * 根据身份证号码查询客户基本信息
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto queryUserInfoByCid(JfRequestDto<Jf100186Req> request);
+
+
+    /**
+     * 客户注册接口 (实名 )
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto register(JfRequestDto<Jf100187Req> request);
 }
