@@ -291,4 +291,21 @@ public interface JfApiService {
      * @param request
      */
     JfResponseDto register(JfRequestDto<Jf100187Req> request);
+
+    /**
+     * 查询借据还款记录
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto queryRepayList(JfRequestDto<JfQueryRepayListReq> request);
+
+    /**
+     * 查询用户下所有借据接口
+     * @return JfResponseDto
+     * @throws Exception
+     * @param request
+     */
+    JfResponseDto queryAllRepayRecord(JfRequestDto<JfQueryAllRepayRecordReq> request);
+
 }

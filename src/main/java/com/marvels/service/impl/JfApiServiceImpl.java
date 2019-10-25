@@ -11,7 +11,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.marvels.common.enums.PublicEnums;
 import com.marvels.common.mq.MsgProducer;
-import com.marvels.common.util.CommonUtil;
 import com.marvels.common.util.HttpUtil;
 import com.marvels.common.util.PropertiesLoadUtil;
 import com.marvels.dto.common.ApiLog;
@@ -381,6 +380,30 @@ public class JfApiServiceImpl implements JfApiService {
     @Override
     public JfResponseDto<JfQueryOrderListRes> queryOrderList(JfRequestDto<JfQueryOrderListReq> request) {
         return (JfResponseDto<JfQueryOrderListRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100250, request);
+    }
+
+    /**
+     * 查询借据还款记录
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto<JfQueryRepayRecourdRes> queryRepayList(JfRequestDto<JfQueryRepayListReq> request) {
+        return (JfResponseDto<JfQueryRepayRecourdRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100188, request);
+    }
+
+    /**
+     * 查询用户下所有借据接口
+     *
+     * @param request
+     * @return JfResponseDto
+     * @throws Exception
+     */
+    @Override
+    public JfResponseDto queryAllRepayRecord(JfRequestDto<JfQueryAllRepayRecordReq> request) {
+        return (JfResponseDto<JfQueryAllRepayRecordRes>) this.sendRequest(PublicEnums.JfInterfaceCodeEnum.JF100251, request);
     }
 
     @Override

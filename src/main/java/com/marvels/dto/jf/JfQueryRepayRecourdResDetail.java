@@ -23,6 +23,8 @@ public class JfQueryRepayRecourdResDetail {
     private String merchNo;
     /** 商户端流水号*/
     private String merchTransNo;
+    /** 资产端产品编号*/
+    private String assetProductId;
     /** 还款金额*/
     private String repayAmt;
     /** 状态*/

@@ -100,4 +100,32 @@ public class JiuFuRepaymentController extends BaseController{
         }
         return jfApiService.queryRepayRecord(request);
 	}
+
+    /**
+     * 查询借据还款记录
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("10088")
+    public JfResponseDto queryRepayList(JfRequestDto<JfQueryRepayListReq> request) throws Exception {
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.queryRepayList(request);
+    }
+
+    /**
+     * 查询用户还款记录
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("100251")
+    public JfResponseDto queryAllRepayRecord(JfRequestDto<JfQueryAllRepayRecordReq> request) throws Exception {
+        JfResponseDto result = super.checkBuildSysCode(request);
+        if (null != result)  {
+            return result;
+        }
+        return jfApiService.queryAllRepayRecord(request);
+    }
 }
